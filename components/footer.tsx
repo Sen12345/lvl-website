@@ -1,0 +1,46 @@
+"use client";
+import { MdFacebook } from "react-icons/md";
+import { FaSquareInstagram } from "react-icons/fa6";
+import { AiFillTwitterCircle } from "react-icons/ai";
+import { useTheme } from "next-themes";
+
+const Footer = () => {
+  const { theme } = useTheme();
+  return (
+    <footer
+      className={`w-screen overflow-hidden ${
+        theme === "light" ? "text-white bg-black" : "text-white bg-black"
+      }  mt-20 py-5`}
+    >
+      <div className="grid gap-8 md:grid-cols-3   " id="contact">
+        <div>
+          <div className="text-center md:pl-10 md:justify-items-start">
+            <p className="text-2xl">
+              <strong>London Vibes Limited</strong>
+            </p>
+            <p>Bromley Road Catford</p>
+            <p>London SE6 2UB</p>
+            <p>queries@londonvibeslimited.co.uk</p>
+            <p>07473490000</p>
+          </div>
+        </div>
+        <div className="flex justify-center pt-2">
+          <a href="https://www.facebook.com/profile.php?id=100087156435136">
+            <MdFacebook className="h-10 w-10" />
+          </a>
+          <a href="https://twitter.com/londonvibesltd">
+            <AiFillTwitterCircle className="h-10 w-10" />
+          </a>
+          <a href="https://www.instagram.com/londonvibesnet">
+            <FaSquareInstagram className="h-10 w-10" />
+          </a>
+        </div>
+        <div className="text-center md:justify-items-end md:pr-20">
+          <p className="text-sm pt-2">&copy; 08341870 All Rights Reserves</p>
+        </div>
+      </div>
+    </footer>
+  );
+};
+
+export default Footer;
