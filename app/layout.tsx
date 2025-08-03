@@ -20,7 +20,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${inter.className} antialiased`}>
+      <body>
         <Toaster richColors position="top-right" />
         <ThemeProvider
           attribute="class"
