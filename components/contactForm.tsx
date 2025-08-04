@@ -24,12 +24,12 @@ export default function ContactFormPage() {
         !state.errors.number ||
         !state.errors.number
       ) {
+        return;
+      } else {
         toast.success("", {
           description:
             "Your request sent successfully, someone will be in touch with you as soon as possible",
         });
-      } else {
-        return;
       }
     });
   };
