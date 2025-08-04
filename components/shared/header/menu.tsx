@@ -47,7 +47,7 @@ const Menu = () => {
             <SheetTitle>Menu</SheetTitle>
             <ModeToggle />
             <SheetDescription>
-              <ul className={`${barlow.className} flex flex-col gap-4`}>
+              <ul className={` flex flex-col gap-4`}>
                 <li className="hover:bg-lime-400 px-5 py-2">
                   <Link href="/#contact">Contact</Link>
                 </li>
