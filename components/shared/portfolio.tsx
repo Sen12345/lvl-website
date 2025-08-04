@@ -15,7 +15,7 @@ const Portfolio = () => {
               href="/webdev"
               className="text-white-400 text-2xl md:text-4xl text-white hover:text-lime-400"
             >
-              Web Development
+              Web Dev
             </Link>
             <TfiAngleDoubleRight className=" md:text-2xl text-lime-500" />
           </li>
