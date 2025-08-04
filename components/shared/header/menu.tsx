@@ -7,17 +7,17 @@ import {
 } from "@/components/ui/sheet";
 import { EllipsisVertical } from "lucide-react";
 import Link from "next/link";
-// import { Barlow } from "next/font/google";
+import { Barlow } from "next/font/google";
 import ModeToggle from "./mode-toggle";
 
-// const barlow = Barlow({ subsets: ["latin"], weight: "400" });
+const barlow = Barlow({ subsets: ["latin"], weight: "400" });
 
 const Menu = () => {
   return (
     <div className="flex flex-row py-0">
       <nav className="hidden md:flex  gap-1">
         <ModeToggle />
-        <ul className={`flex gap-4`}>
+        <ul className={`${barlow.className} flex gap-4`}>
           <li className="hover:bg-lime-400  px-5 py-2">
             <Link href="/#contact" className="text-black">
               Contact
@@ -47,7 +47,7 @@ const Menu = () => {
             <SheetTitle>Menu</SheetTitle>
             <ModeToggle />
             <SheetDescription>
-              <ul className={` flex flex-col gap-4`}>
+              <ul className={`${barlow.className} flex flex-col gap-4`}>
                 <li className="hover:bg-lime-400 px-5 py-2">
                   <Link href="/#contact">Contact</Link>
                 </li>

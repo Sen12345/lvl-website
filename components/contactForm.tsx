@@ -1,12 +1,13 @@
 "use client";
 import { useActionState, useEffect, useState, useTransition } from "react";
+import { Barlow } from "next/font/google";
 import { Button } from "@/components/ui/button";
 import { Loader } from "lucide-react";
 import { contactFormAction, FormState } from "@/lib/actions/contactFormAction";
 import { toast } from "sonner";
 import { Errors } from "@/lib/actions/contactFormAction";
 
-// const barlow = Barlow({ subsets: ["latin"], weight: "300" });
+const barlow = Barlow({ subsets: ["latin"], weight: "300" });
 
 export default function ContactFormPage() {
   const initialState: FormState = {
@@ -23,18 +24,18 @@ export default function ContactFormPage() {
         !state.errors.number ||
         !state.errors.number
       ) {
-        return;
-      } else {
         toast.success("", {
           description:
             "Your request sent successfully, someone will be in touch with you as soon as possible",
         });
+      } else {
+        return;
       }
     });
   };
 
   return (
-    <div className={` w-90`}>
+    <div className={`${barlow.className} w-90`}>
       <form onSubmit={onSubmit} action={formAction}>
         <div className="my-2">
           <input

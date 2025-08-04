@@ -3,12 +3,12 @@ import Link from "next/link";
 import { APP_NAME } from "@/lib/constants";
 import { Button } from "@/components/ui/button";
 import Menu from "./menu";
-// import { Barlow } from "next/font/google";
+import { Barlow } from "next/font/google";
 
-// const barlow = Barlow({
-//   subsets: ["latin"],
-//   weight: "400",
-// });
+const barlow = Barlow({
+  subsets: ["latin"],
+  weight: "400",
+});
 
 const Header = () => {
   return (
@@ -26,7 +26,7 @@ const Header = () => {
               priority={true}
             />
             <span
-              className={`hidden lg:block text-black  font-bold text-2xl ml-1 hover:text-lime-600`}
+              className={`${barlow.className} hidden lg:block text-black  font-bold text-2xl ml-1 hover:text-lime-600`}
             >
               {APP_NAME}
             </span>

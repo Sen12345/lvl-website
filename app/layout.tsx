@@ -6,6 +6,8 @@ import { Toaster, toast } from "sonner";
 
 import { APP_DESCRIPTION, APP_NAME } from "../lib/constants";
 
+const inter = Inter({ subsets: ["latin"] });
+
 export const metadata: Metadata = {
   title: { template: `%s | London Vibes Ltd`, default: APP_NAME },
   description: APP_DESCRIPTION,
@@ -18,7 +20,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body>
+      <body className={`${inter.className} antialiased`}>
         <Toaster richColors position="top-right" />
         <ThemeProvider
           attribute="class"
