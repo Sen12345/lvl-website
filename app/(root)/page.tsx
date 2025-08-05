@@ -31,14 +31,14 @@ const Homepage = () => {
             </h1>
 
             <div>
-              <p className="text-lead text-sm  lg:text-xl ">
+              <p className="text-lead text-md  lg:text-xl ">
                 London based Web Developers, we design and develop Web
                 applications, Websites and CMS from scratch paper. Since 2015 we
                 have being programmatically helping businesses and individual
                 clients to achieve their online business objectives.
                 <br />
               </p>
-              <p className="text-lead  text-sm lg:text-xl ">
+              <p className="text-lead  text-md lg:text-xl ">
                 We believe the user should have the best experience on each
                 visit to a website or having explored the use of any user
                 interface. This is why User Experience (UX) and User Centered
@@ -58,13 +58,13 @@ const Homepage = () => {
             </h1>
 
             <div>
-              <p className="text-lead  text-sm lg:text-xl">
+              <p className="text-lead  text-md lg:text-xl">
                 We specialise in web solutions development that includes, Web
                 Application Development, Database Design, SEO and SMO for
                 websites, Site Maintenance and Web application Upgrades.
                 <br />
               </p>
-              <p className="text-lead pb-4 text-sm lg:text-xl">
+              <p className="text-lead pb-4 text-md lg:text-xl">
                 We provide web application services from small businesses to
                 large enterprises. We also negotiate and honour Short-term and
                 long-term contracts with businesses from all reputable and legal
@@ -103,7 +103,7 @@ const Homepage = () => {
             </h1>
 
             <div>
-              <p className="text-lead text-sm lg:text-xl  ">
+              <p className="text-lead text-md lg:text-xl  ">
                 Inspire you to become more aware of threats from your
                 competitors. A successful business invest in building a good
                 reputation and a strong client relationship. Our goals are to
@@ -124,7 +124,7 @@ const Homepage = () => {
             </h1>
 
             <div>
-              <p className="text-lead text-sm lg:text-xl pb-4 ">
+              <p className="text-lead text-md lg:text-xl pb-4 ">
                 We are always making sure that we are up-to-date with the
                 relevant technologies for our web development projects, evaluate
                 and analyse your service request to match your business model,

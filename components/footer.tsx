@@ -3,6 +3,7 @@ import { MdFacebook } from "react-icons/md";
 import { FaSquareInstagram } from "react-icons/fa6";
 import { AiFillTwitterCircle } from "react-icons/ai";
 import { useTheme } from "next-themes";
+import Link from "next/link";
 
 const Footer = () => {
   const { theme } = useTheme();
@@ -25,12 +26,12 @@ const Footer = () => {
           </div>
         </div>
         <div className="flex justify-center pt-2">
-          <a href="https://www.facebook.com/profile.php?id=100087156435136">
-            <MdFacebook className="h-10 w-10" />
-          </a>
-          <a href="https://twitter.com/londonvibesltd">
-            <AiFillTwitterCircle className="h-10 w-10" />
-          </a>
+          <Link href="https://www.facebook.com/profile.php?id=100087156435136">
+            <MdFacebook className="h-10 w-10 mx-2" />
+          </Link>
+          <Link href="https://twitter.com/londonvibesltd">
+            <AiFillTwitterCircle className="h-10 w-10 mr-2" />
+          </Link>
           <a href="https://www.instagram.com/londonvibesnet">
             <FaSquareInstagram className="h-10 w-10" />
           </a>

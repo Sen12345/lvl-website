@@ -15,7 +15,7 @@ const Portfolio = () => {
           <li className="py-1  flex flex-row items-baseline gap-1">
             <Link
               href="/webdev"
-              className="text-white-400 text-2xl md:text-4xl text-white hover:text-lime-400"
+              className="text-white-400 text-3xl md:text-4xl text-white hover:text-lime-400"
             >
               Web Development
             </Link>
@@ -24,7 +24,7 @@ const Portfolio = () => {
           <li className="py-1  flex flex-row items-baseline gap-1">
             <Link
               href="/webdev#follow-up"
-              className="text-white-400 text-2xl md:text-4xl text-white hover:text-lime-400"
+              className="text-white-400 text-3xl md:text-4xl text-white hover:text-lime-400"
             >
               Follow-up Support
             </Link>
@@ -33,7 +33,7 @@ const Portfolio = () => {
           <li className="py-1  flex flex-row items-baseline gap-1">
             <Link
               href="/webdev#bespoke"
-              className="text-white-400 text-2xl md:text-4xl text-white hover:text-lime-400"
+              className="text-white-400 text-3xl md:text-4xl text-white hover:text-lime-400"
             >
               Bespoke Design
             </Link>
@@ -42,7 +42,7 @@ const Portfolio = () => {
           <li className="py-1  flex flex-row items-baseline gap-1">
             <Link
               href="/webdev#blogging"
-              className="text-white-400 text-2xl  md:text-4xl text-white hover:text-lime-400"
+              className="text-white-400 text-3xl  md:text-4xl text-white hover:text-lime-400"
             >
               Your Blog Page
             </Link>
@@ -51,7 +51,7 @@ const Portfolio = () => {
           <li className="py-1  flex flex-row items-baseline gap-1">
             <Link
               href="webdev#ecommerce"
-              className="text-white-400 text-2xl  md:text-4xl text-white hover:text-lime-400"
+              className="text-white-400 text-3xl  md:text-4xl text-white hover:text-lime-400"
             >
               eCommerce
             </Link>
@@ -60,7 +60,7 @@ const Portfolio = () => {
           <li className="py-1  flex flex-row items-baseline gap-1">
             <Link
               href="webdev#seo"
-              className="text-white-400 text-2xl  md:text-4xl text-white hover:text-lime-400"
+              className="text-white-400 text-3xl  md:text-4xl text-white hover:text-lime-400"
             >
               SEO/SMO
             </Link>
