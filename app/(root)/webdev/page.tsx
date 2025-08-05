@@ -180,7 +180,7 @@ const WebDev = () => {
               width={500}
               quality={80}
               className="w-full design rounded "
-              src="/img/support1.jpg"
+              src="/img/follow-up2.jpg.jpg"
               alt="Follow up support"
             />
           </div>
