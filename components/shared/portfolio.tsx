@@ -10,7 +10,7 @@ const Portfolio = () => {
     <div className="grid lg:gap-24 lg:grid-cols-2 ">
       <div className="w-full flex justify-center lg:justify-end">
         <ul
-          className={`${montserrat.className} flex flex-col  lg:gap-4 md:items-end py-6 `}
+          className={`${montserrat.className} flex flex-col  gap-4 md:items-end py-6 `}
         >
           <li className="py-1  flex flex-row items-baseline gap-1">
             <Link
