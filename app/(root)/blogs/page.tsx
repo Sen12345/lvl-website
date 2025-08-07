@@ -51,12 +51,12 @@ const Blogs = async () => {
         </div>
       </section>
       <section className="w-full ">
-        <div className="md:w-8/12 mx-auto lg:my-5">
+        <div className="md:w-8/12 mx-auto my-5">
           {blogs.map((blog) => (
             <div
               key={blog.id}
               id="blogs"
-              className="lg:grid grid-cols-2  lg:my-5  lg:gap-4"
+              className="lg:grid grid-cols-2  my-5  gap-4"
             >
               <Image
                 src={blog.images[0]}
