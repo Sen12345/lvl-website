@@ -1,8 +1,80 @@
-const Blogs = () => {
+import { getLatestBlog } from "@/lib/actions/blog.action";
+import { Barlow } from "next/font/google";
+import { Montserrat } from "next/font/google";
+import Image from "next/image";
+import Link from "next/link";
+import { MdKeyboardDoubleArrowDown } from "react-icons/md";
+import { Card, CardContent, CardTitle } from "@/components/ui/card";
+
+const barlow = Barlow({
+  subsets: ["latin"],
+  weight: "400",
+});
+
+const montserrat = Montserrat({
+  subsets: ["latin"],
+  weight: "400",
+});
+
+const Blogs = async () => {
+  const blogs = await getLatestBlog();
+
   return (
-    <section>
-      <div className="bg-[url('/img_slide/img_04.jpg')] bg-cover  bg-center h-screen pt-24  transition-all"></div>
-    </section>
+    <>
+      <section className={` w-full relative `}>
+        <div className="bg-[url('/img_slide/img_04.jpg')] bg-cover  bg-center h-screen   transition-all flex text-center justify-center items-center p-0">
+          <div className={`${barlow.className}`}>
+            <h1 className="text-yellow-300 text-center  text-2xl">
+              THE DIGITAL AGE
+            </h1>
+            <p
+              className={`${montserrat.className} text-yellow-300 lg:w-5/12 m-auto py-3 `}
+            >
+              We are now living in the digital age where everything we do is
+              digitalized through Information Technology. No need to be left
+              behind, we are here to guide you through the process of becoming
+              digitalized on the web.
+            </p>
+            <div className="w-full ">
+              <Link
+                href="#blogs"
+                className="text-xl text-yellow-400 flex flex-col items-center justify-center"
+              >
+                VIEW BLOGS
+                <MdKeyboardDoubleArrowDown
+                  size={60}
+                  className="cursor-pointer"
+                />
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section className="w-full">
+        <div className="md:w-8/12 mx-auto my-5">
+          {blogs.map((blog) => (
+            <div
+              key={blog.id}
+              id="blogs"
+              className="lg:grid grid-cols-2 gap-4 my-5"
+            >
+              <Image
+                src={blog.images[0]}
+                width={500}
+                height={500}
+                className="w-full rounded-xl"
+                alt="Blog Image"
+                quality={80}
+              />
+              <Card className="flex justify-center items-center">
+                <CardTitle>{blog.headline}</CardTitle>
+                <CardContent>{blog.paragraph1}</CardContent>
+              </Card>
+            </div>
+          ))}
+        </div>
+      </section>
+    </>
   );
 };
 

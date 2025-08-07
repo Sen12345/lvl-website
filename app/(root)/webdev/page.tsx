@@ -4,7 +4,7 @@ import { IoCheckmarkDoneSharp } from "react-icons/io5";
 const WebDev = () => {
   return (
     <>
-      <section className="bg-[url('/img/webdev2.jpg')] bg-fixed bg-cover min-h-screen bg-center "></section>
+      <section className="bg-[url('/img/webdev2.jpg')] bg-fixed  bg-cover min-h-screen  bg-center "></section>
       <section
         id="dev-summary "
         className=" relative w-full transition-all h-full px-4"

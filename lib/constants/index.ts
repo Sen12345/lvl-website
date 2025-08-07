@@ -4,3 +4,5 @@ export const APP_DESCRIPTION =
 export const SERVER_URL =
   process.env.NEXT_PUBLIC_SERVER_URL || "http://localhost:3000";
 export const SENDER_EMAIL = process.env.SENDER_EMAIL || "onboarding@resend.dev";
+
+export const LATEST_BLOG_LIMIT = Number(process.env.LATEST_BLOG_LIMIT || 2);

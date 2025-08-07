@@ -12,3 +12,17 @@ export const contactFormSchema = z.object({
   number: z.string().min(3, "Number must be at least 3 characters"),
   message: z.string().min(5, "Message must be at least 3 characters"),
 });
+
+export const latestBlogSchema = z.object({
+  headline: z.string().max(20, "Headline must not be more than twenty words"),
+  paragraph1: z
+    .string()
+    .min(6)
+    .max(200, "Headline must not be more than twenty words"),
+  paragraph2: z
+    .string()
+    .min(6)
+    .max(200, "Headline must not be more than twenty words"),
+  bloglinks: z.string().min(3, "Url links must have a minimum of 3 characters"),
+  images: z.array(z.string()).min(1, "There must be at least one image"),
+});

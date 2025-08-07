@@ -4,7 +4,7 @@ const nextConfig: NextConfig = {
   /* config options here */
   outputFileTracingRoot: __dirname,
   reactStrictMode: true,
-  optimizeFonts: true,
+  // optimizeFonts: true,
 };
 
 export default nextConfig;

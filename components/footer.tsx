@@ -25,7 +25,7 @@ const Footer = () => {
             <p>07473490000</p>
           </div>
         </div>
-        <div className="flex justify-center pt-2">
+        <div className="flex justify-center md:pt-2">
           <Link href="https://www.facebook.com/profile.php?id=100087156435136">
             <MdFacebook className="h-10 w-10 mx-2" />
           </Link>
@@ -37,7 +37,7 @@ const Footer = () => {
           </a>
         </div>
         <div className="text-center md:justify-items-end md:pr-20">
-          <p className="text-sm pt-2">&copy; 08341870 All Rights Reserves</p>
+          <p className="text-sm md:pt-2">&copy; 08341870 All Rights Reserves</p>
         </div>
       </div>
     </footer>
