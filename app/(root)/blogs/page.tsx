@@ -22,7 +22,7 @@ const Blogs = async () => {
   return (
     <>
       <section className={` w-full relative `}>
-        <div className="bg-[url('/img_slide/img_04.jpg')] bg-cover  bg-center pt-30 px-10 lg:h-screen   transition-all flex text-center justify-center items-center">
+        <div className="bg-[url('/img_slide/img_04.jpg')] bg-cover  bg-center pt-30 p-10 lg:h-screen   transition-all flex text-center justify-center items-center">
           <div className={`${barlow.className}`}>
             <h1 className="text-yellow-300 text-center  text-2xl">
               THE DIGITAL AGE
@@ -51,22 +51,22 @@ const Blogs = async () => {
         </div>
       </section>
       <section className="w-full ">
-        <div className="md:w-8/12 mx-auto my-5">
+        <div className="md:w-8/12 mx-auto lg:my-5">
           {blogs.map((blog) => (
             <div
               key={blog.id}
               id="blogs"
-              className="lg:grid grid-cols-2  my-5  lg:gap-4"
+              className="lg:grid grid-cols-2  lg:my-5  lg:gap-4"
             >
               <Image
                 src={blog.images[0]}
                 width={500}
                 height={500}
-                className="w-full  lg:py-0 py-5"
+                className="w-full  lg:py-5"
                 alt="Blog Image"
                 quality={80}
               />
-              <Card className="flex justify-center rounded-0 items-center mx-2 lg:pb-0 pb-5">
+              <Card className="flex justify-center rounded-0 items-center my-5">
                 <CardTitle>{blog.headline}</CardTitle>
                 <CardContent>{blog.paragraph1}</CardContent>
               </Card>
