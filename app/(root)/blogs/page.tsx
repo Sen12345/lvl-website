@@ -21,7 +21,7 @@ const Blogs = async () => {
 
   return (
     <>
-      <section className={` w-full relative px-2`}>
+      <section className={` w-full relative `}>
         <div className="bg-[url('/img_slide/img_04.jpg')] bg-cover  bg-center pt-30 px-10 lg:h-screen   transition-all flex text-center justify-center items-center">
           <div className={`${barlow.className}`}>
             <h1 className="text-yellow-300 text-center  text-2xl">
@@ -66,7 +66,7 @@ const Blogs = async () => {
                 alt="Blog Image"
                 quality={80}
               />
-              <Card className="flex justify-center items-center lg:pb-0 pb-5">
+              <Card className="flex justify-center rounded-0 items-center lg:pb-0 pb-5">
                 <CardTitle>{blog.headline}</CardTitle>
                 <CardContent>{blog.paragraph1}</CardContent>
               </Card>
