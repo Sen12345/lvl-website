@@ -50,7 +50,7 @@ const Blogs = async () => {
           </div>
         </div>
       </section>
-      <section className="w-full px-2">
+      <section className="w-full ">
         <div className="md:w-8/12 mx-auto my-5">
           {blogs.map((blog) => (
             <div
@@ -66,7 +66,7 @@ const Blogs = async () => {
                 alt="Blog Image"
                 quality={80}
               />
-              <Card className="flex justify-center rounded-0 items-center lg:pb-0 pb-5">
+              <Card className="flex justify-center rounded-0 items-center px-2 lg:pb-0 pb-5">
                 <CardTitle>{blog.headline}</CardTitle>
                 <CardContent>{blog.paragraph1}</CardContent>
               </Card>
