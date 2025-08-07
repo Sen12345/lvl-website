@@ -66,7 +66,7 @@ const Blogs = async () => {
                 alt="Blog Image"
                 quality={80}
               />
-              <Card className="flex justify-center rounded-0 items-center px-4 lg:pb-0 pb-5">
+              <Card className="flex justify-center rounded-0 items-center mx-2 lg:pb-0 pb-5">
                 <CardTitle>{blog.headline}</CardTitle>
                 <CardContent>{blog.paragraph1}</CardContent>
               </Card>
