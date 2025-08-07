@@ -21,7 +21,7 @@ const Blogs = async () => {
 
   return (
     <>
-      <section className={` w-full relative `}>
+      <section className={` w-full relative px-2`}>
         <div className="bg-[url('/img_slide/img_04.jpg')] bg-cover  bg-center pt-30 px-10 lg:h-screen   transition-all flex text-center justify-center items-center">
           <div className={`${barlow.className}`}>
             <h1 className="text-yellow-300 text-center  text-2xl">
@@ -50,7 +50,7 @@ const Blogs = async () => {
           </div>
         </div>
       </section>
-      <section className="w-full">
+      <section className="w-full px-2">
         <div className="md:w-8/12 mx-auto my-5">
           {blogs.map((blog) => (
             <div
@@ -62,7 +62,7 @@ const Blogs = async () => {
                 src={blog.images[0]}
                 width={500}
                 height={500}
-                className="w-full rounded-xl lg:py-0 py-5"
+                className="w-full  lg:py-0 py-5"
                 alt="Blog Image"
                 quality={80}
               />
