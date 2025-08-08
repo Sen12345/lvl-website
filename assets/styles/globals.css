@@ -39,7 +39,7 @@
 
 .top {
   animation-name: shake;
-  animation-duration: 7s;
+  animation-duration: 5s;
 }
 
 @keyframes shake {
