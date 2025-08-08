@@ -22,7 +22,7 @@ const Blogs = async () => {
   return (
     <>
       <section className={` w-full relative `}>
-        <div className="bg-[url('/img_slide/img_04.jpg')] bg-cover  bg-center pt-30 p-10 lg:h-screen   transition-all flex text-center justify-center items-center">
+        <div className="bg-[url('/img_slide/img_04.jpg')] bg-cover  bg-center pt-30 p-10 h-screen   transition-all flex text-center justify-center items-center">
           <div className={`${barlow.className}`}>
             <h1 className="text-yellow-300 text-center  text-2xl">
               THE DIGITAL AGE
