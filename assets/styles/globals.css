@@ -64,6 +64,15 @@
   transform: translateY(20px);
 }
 
+#blogs:hover {
+  transform: translateY(20px);
+}
+
+footer:hover {
+  transform: scale(110%);
+  padding: 50px 50px;
+}
+
 #how:blog {
   animation-name: fadeIn;
   animation-duration: 5s;

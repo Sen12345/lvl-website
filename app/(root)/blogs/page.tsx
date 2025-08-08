@@ -54,7 +54,7 @@ const Blogs = async () => {
         </div>
       </section>
       <section className="w-full ">
-        <div className="md:w-8/12 mx-auto my-5">
+        <div id="blogs" className="md:w-8/12 mx-auto my-5 ">
           {blogs.map((blog) => (
             <div
               key={blog.id}
