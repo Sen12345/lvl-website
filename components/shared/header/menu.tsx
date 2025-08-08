@@ -38,7 +38,7 @@ const Menu = () => {
           </li>
         </ul>
       </nav>
-      <nav className="md:hidden">
+      <nav className="md:hidden ">
         <Sheet>
           <SheetTrigger className="align-middle text-black">
             <EllipsisVertical />

@@ -41,7 +41,7 @@ export default function ContactFormPage() {
           <input
             type="text"
             name="fullname"
-            className="pl-4 w-full py-4  text-black bg-white opacity-40  rounded-none hover:opacity-100  border-l-4 border-lime-400 border-opacity-100"
+            className="pl-4 w-full py-4  text-black bg-white opacity-40  rounded-none focus:opacity-100 hover:opacity-100  border-l-4 border-lime-400 border-opacity-100"
             placeholder="Full Name"
           />
           {state?.errors?.fullname && (
@@ -52,7 +52,7 @@ export default function ContactFormPage() {
           <input
             type="text"
             name="email"
-            className="pl-4 w-full py-4  text-black bg-white opacity-40  rounded-none hover:opacity-100  border-l-4 border-lime-400 border-opacity-100"
+            className="pl-4 w-full py-4  text-black bg-white opacity-40  rounded-none focus:opacity-100 hover:opacity-100  border-l-4 border-lime-400 border-opacity-100"
             placeholder="Email"
           />
           {state?.errors?.email && (
@@ -63,7 +63,7 @@ export default function ContactFormPage() {
           <input
             type="text"
             name="number"
-            className="pl-4 w-full py-4  text-black bg-white opacity-40  rounded-none hover:opacity-100  border-l-4 border-lime-400 border-opacity-100"
+            className="pl-4 w-full py-4  text-black bg-white opacity-40  rounded-none focus:opacity-100 hover:opacity-100  border-l-4 border-lime-400 border-opacity-100"
             placeholder="Your Mobile Number"
           />
           {state?.errors?.number && (
@@ -75,7 +75,7 @@ export default function ContactFormPage() {
             cols={20}
             name="message"
             rows={4}
-            className="pl-4 w-full py-4  text-black bg-white opacity-40  rounded-none hover:opacity-100  border-l-4 border-lime-400 border-opacity-100"
+            className="pl-4 w-full py-4  text-black bg-white opacity-40  rounded-none focus:opacity-100 hover:opacity-100  border-l-4 border-lime-400 border-opacity-100"
             placeholder="Your Maeeage"
           />
           {state?.errors?.message && (
