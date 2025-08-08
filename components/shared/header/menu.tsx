@@ -15,7 +15,7 @@ const barlow = Barlow({ subsets: ["latin"], weight: "400" });
 const Menu = () => {
   return (
     <div className="flex flex-row py-0">
-      <nav className="hidden md:flex  gap-1">
+      <nav className="hidden lg:flex  gap-1">
         <ModeToggle />
         <ul className={`${barlow.className} flex gap-4`}>
           <li className="hover:bg-lime-400  px-5 py-2">
@@ -38,7 +38,7 @@ const Menu = () => {
           </li>
         </ul>
       </nav>
-      <nav className="md:hidden ">
+      <nav className="lg:hidden ">
         <Sheet>
           <SheetTrigger className="align-middle text-black">
             <EllipsisVertical />
