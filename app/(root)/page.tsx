@@ -7,11 +7,11 @@ const Homepage = () => {
   // await delay(4000);
   return (
     <>
-      <section className="bg-[url(/img/towerbgidge.jpg)] bg-fixed bg-cover  bg-center  py-20">
+      <section className="bg-[url(/img/towerbgidge.jpg)] bg-fixed bg-cover border-b bg-center  py-20">
         <Portfolio />
         {/* <TestForm /> */}
       </section>
-      <section id="about" className="w-full px-4">
+      <section id="about" className="w-full px-4 border-b">
         <div className="grid  lg:grid-cols-2 gap-4 ">
           <Image
             alt="About Image"
@@ -50,7 +50,7 @@ const Homepage = () => {
         </div>
       </section>
 
-      <section id="services" className="mt-10 lg:mt-32 px-4">
+      <section id="services" className="mt-10 lg:mt-32 px-4 border-b">
         <div className="grid  lg:grid-cols-2 gap-4">
           <div className="flex flex-col justify-center  ">
             <h1 className=" py-4 text-2xl  text-center text-lime-500">
@@ -85,7 +85,7 @@ const Homepage = () => {
           />
         </div>
       </section>
-      <section className="w-full mt-10 lg:mt-32 px-4">
+      <section className="w-full mt-10 lg:mt-32 px-4 border-b">
         <div className="grid  lg:grid-cols-2 gap-4">
           <Image
             width={600}

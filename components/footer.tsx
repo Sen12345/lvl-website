@@ -9,7 +9,7 @@ const Footer = () => {
   const { theme } = useTheme();
   return (
     <footer
-      className={`w-screen overflow-hidden ${
+      className={`w-screen overflow-hidden border-t ${
         theme === "light" ? "text-white bg-black" : "text-white bg-black"
       }  mt-20 py-5`}
     >
