@@ -7,7 +7,7 @@ const Homepage = () => {
   // await delay(4000);
   return (
     <>
-      <section className="bg-[url(/img/towerbgidge.jpg)] bg-fixed bg-cover border-b bg-center  py-20">
+      <section className="bg-[url(/img/towerbgidge.jpg)] bg-fixed transition-all bg-cover border-b bg-center  py-20">
         <Portfolio />
         {/* <TestForm /> */}
       </section>

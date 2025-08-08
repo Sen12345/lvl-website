@@ -12,7 +12,7 @@ const barlow = Barlow({
 
 const Header = () => {
   return (
-    <div className="w-screen  bg-white fixed top-0 z-50 border-b">
+    <div className="w-screen top bg-white fixed top-0 z-50 border-b">
       <div className="wrapper flex-between">
         <div className="flex-start">
           <Link href="/" className="flex flex-row">

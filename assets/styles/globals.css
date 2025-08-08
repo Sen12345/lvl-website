@@ -37,6 +37,20 @@
   @apply font-bold text-xl lg:text-2xl;
 }
 
+.top {
+  animation-name: shake;
+  animation-duration: 5s;
+}
+
+@keyframes shake {
+  0% {
+    transform: translate(0, 40px);
+  }
+  100% {
+    transform: translate(0);
+  }
+}
+
 :root {
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.129 0.042 264.695);
