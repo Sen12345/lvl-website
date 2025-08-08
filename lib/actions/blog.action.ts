@@ -1,5 +1,5 @@
 "use server";
-import { PrismaClient } from "@/generated/prisma";
+import { PrismaClient } from "@/db/prisma";
 import { LATEST_BLOG_LIMIT } from "@/lib/constants";
 import { convertToPlainObject } from "@/lib/utils";
 
