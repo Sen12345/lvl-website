@@ -64,6 +64,13 @@
   transform: translateY(20px);
 }
 
+#how:blog {
+  animation-name: fadeIn;
+  animation-duration: 5s;
+  transform: translateY(20px);
+  transform: scale(20deg);
+}
+
 .portfolio {
   animation-name: fade-In;
   animation-duration: 7s;

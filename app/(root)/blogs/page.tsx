@@ -21,14 +21,17 @@ const Blogs = async () => {
 
   return (
     <>
-      <section className={` w-full relative `}>
-        <div className="bg-[url('/img_slide/img_04.jpg')] bg-cover  bg-center pt-30 p-8 h-screen   transition-all flex text-center justify-center items-center">
+      <section className={` w-full  `}>
+        <div
+          id="blog"
+          className=" bg-[url('/img_slide/img_04.jpg')] bg-cover hover:scale-105  bg-center pt-20 px-8 h-screen   transition-all flex text-center justify-center items-center"
+        >
           <div className={`${barlow.className}`}>
             <h1 className="text-yellow-300 text-center  text-2xl">
               THE DIGITAL AGE
             </h1>
             <p
-              className={`${montserrat.className} text-yellow-300 text-lg lg:text-xl lg:w-5/12 m-auto py-3 `}
+              className={`${montserrat.className} text-yellow-300 text-lg lg:text-xl lg:w-5/12 m-auto pt-3 `}
             >
               We are now living in the digital age where everything we do is
               digitalized through Information Technology. No need to be left
