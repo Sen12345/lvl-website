@@ -33,13 +33,55 @@
   @apply font-bold text-2xl lg:text-3xl;
 }
 
+.services:hover {
+  /* animation: fadeIn 7s; */
+  transition: all ease-in-out 4s;
+}
+
 .h3-bold {
   @apply font-bold text-xl lg:text-2xl;
+}
+.top-sec:hover {
+  transform: translateY(20px);
+}
+
+#about:hover {
+  transform: translateY(20px);
+}
+#about:hover {
+  transform: translateY(20px);
+}
+
+#services:hover {
+  transform: translateY(20px);
+}
+
+#mission:hover {
+  transform: translateY(20px);
+}
+
+#how:hover {
+  transform: translateY(20px);
+}
+
+.portfolio {
+  animation-name: fade-In;
+  animation-duration: 7s;
 }
 
 .top {
   animation-name: shake;
   animation-duration: 5s;
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 10;
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1.2);
+    transition: ease-in-out 5s;
+  }
 }
 
 @keyframes shake {

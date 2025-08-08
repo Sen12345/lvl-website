@@ -7,10 +7,10 @@ const montserrat = Montserrat({ subsets: ["latin"], weight: "400" });
 
 const Portfolio = () => {
   return (
-    <div className="grid lg:gap-24 lg:grid-cols-2 gap-10">
+    <div className="portfolio grid lg:gap-24 lg:grid-cols-2 transition-all gap-10">
       <div className="w-full flex justify-center lg:justify-end">
         <ul
-          className={`${montserrat.className} flex flex-col  gap-4 md:items-end py-6 transition-all`}
+          className={`${montserrat.className} flex flex-col  gap-4 md:items-end py-6 `}
         >
           <li className="py-1  flex flex-row items-baseline gap-1 hover:-translate-y-1 hover:scale-110  duration-300">
             <Link

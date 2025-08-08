@@ -7,11 +7,11 @@ const Homepage = () => {
   // await delay(4000);
   return (
     <>
-      <section className="bg-[url(/img/towerbgidge.jpg)] bg-fixed transition-all bg-cover border-b bg-center  py-20">
+      <section className="top-sec bg-[url(/img/towerbgidge.jpg)] hover:-translate-y-1 hover:scale-105  duration-300 bg-fixed transition-all bg-cover border-b bg-center  py-20">
         <Portfolio />
         {/* <TestForm /> */}
       </section>
-      <section id="about" className="w-full px-4 border-b">
+      <section id="about" className="w-full px-4 border-b ">
         <div className="grid  lg:grid-cols-2 gap-4 ">
           <Image
             alt="About Image"
@@ -50,7 +50,7 @@ const Homepage = () => {
         </div>
       </section>
 
-      <section id="services" className="mt-10 lg:mt-32 px-4 border-b">
+      <section id="services" className="services mt-10 lg:mt-32 px-4 border-b">
         <div className="grid  lg:grid-cols-2 gap-4">
           <div className="flex flex-col justify-center  ">
             <h1 className=" py-4 text-2xl  text-center text-lime-500">
@@ -85,7 +85,7 @@ const Homepage = () => {
           />
         </div>
       </section>
-      <section className="w-full mt-10 lg:mt-32 px-4 border-b">
+      <section id="mission" className="w-full mt-10 lg:mt-32 px-4 border-b">
         <div className="grid  lg:grid-cols-2 gap-4">
           <Image
             width={600}
@@ -116,7 +116,7 @@ const Homepage = () => {
           </div>
         </div>
       </section>
-      <section className="w-full mt-10 lg:mt-32 px-4">
+      <section id="how" className="w-full mt-10 lg:mt-32 px-4">
         <div className="grid  lg:grid-cols-2 gap-4 ">
           <div className="flex flex-col justify-center w-full ">
             <h1 className=" py-4 text-center text-2xl  text-lime-500">
