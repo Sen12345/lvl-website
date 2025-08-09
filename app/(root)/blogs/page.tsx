@@ -38,10 +38,10 @@ const Blogs = async () => {
               behind, we are here to guide you through the process of becoming
               digitalized on the web.
             </p>
-            <div className="w-full py-4 ">
+            <div className="w-full py-6 ">
               <Link
                 href="#blogs"
-                className="text-xl text-yellow-400 flex flex-col items-center justify-center"
+                className="text-2xl text-yellow-400 flex flex-col items-center justify-center"
               >
                 VIEW BLOGS
                 <MdKeyboardDoubleArrowDown
