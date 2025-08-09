@@ -27,7 +27,7 @@ const Blogs = async () => {
           className=" bg-[url('/img_slide/img_04.jpg')] bg-cover hover:scale-105  bg-center  px-8 h-screen   transition-all flex text-center justify-center items-center"
         >
           <div className={`${barlow.className}`}>
-            <h1 className="text-yellow-300 text-center  text-2xl">
+            <h1 className="text-yellow-300 text-center py-4 text-2xl">
               THE DIGITAL AGE
             </h1>
             <p
