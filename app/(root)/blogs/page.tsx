@@ -38,15 +38,15 @@ const Blogs = async () => {
               behind, we are here to guide you through the process of becoming
               digitalized on the web.
             </p>
-            <div className="w-full ">
+            <div className="w-full py-4 ">
               <Link
                 href="#blogs"
                 className="text-xl text-yellow-400 flex flex-col items-center justify-center"
               >
                 VIEW BLOGS
                 <MdKeyboardDoubleArrowDown
-                  size={60}
-                  className="cursor-pointer"
+                  size={100}
+                  className="cursor-pointer py-2"
                 />
               </Link>
             </div>
