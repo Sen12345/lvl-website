@@ -41,7 +41,7 @@ const Blogs = async () => {
             <div className="w-full py-6 ">
               <Link
                 href="#blogs"
-                className="text-2xl text-yellow-400 flex flex-col items-center justify-center"
+                className={`${barlow.className} text-2xl text-yellow-400 flex flex-col items-center justify-center`}
               >
                 VIEW BLOGS
                 <MdKeyboardDoubleArrowDown
