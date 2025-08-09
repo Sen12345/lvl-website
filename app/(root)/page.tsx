@@ -26,7 +26,7 @@ const Homepage = () => {
           />
 
           <div className="flex flex-col  justify-center">
-            <h1 className="py-4  text-2xl text-center  text-lime-500">
+            <h1 className="py-4  text-3xl text-center  text-lime-500">
               Who We Are
             </h1>
 
@@ -53,7 +53,7 @@ const Homepage = () => {
       <section id="services" className="services mt-10 lg:mt-32 px-4 border-b">
         <div className="grid  lg:grid-cols-2 gap-4">
           <div className="flex flex-col justify-center  ">
-            <h1 className=" pb-4 text-2xl  text-center text-lime-500">
+            <h1 className=" pb-4 text-3xl  text-center text-lime-500">
               What We Do
             </h1>
 
@@ -98,7 +98,7 @@ const Homepage = () => {
           />
 
           <div className="flex flex-col justify-center  ">
-            <h1 className=" py-4 text-2xl  text-center text-lime-500">
+            <h1 className=" py-4 text-3xl  text-center text-lime-500">
               Our Mission
             </h1>
 
@@ -119,7 +119,7 @@ const Homepage = () => {
       <section id="how" className="w-full mt-10 lg:mt-32 px-4">
         <div className="grid  lg:grid-cols-2 gap-4 ">
           <div className="flex flex-col justify-center w-full ">
-            <h1 className=" py-4 text-center text-2xl  text-lime-500">
+            <h1 className=" py-4 text-center text-3xl  text-lime-500">
               How We Do It?
             </h1>
 
