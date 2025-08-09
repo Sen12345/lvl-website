@@ -31,7 +31,7 @@ const Blogs = async () => {
               THE DIGITAL AGE
             </h1>
             <p
-              className={`${montserrat.className} text-yellow-300 text-lg lg:text-xl lg:w-5/12 m-auto pt-3 `}
+              className={`${montserrat.className} text-yellow-300 text-lg lg:text-lg lg:w-5/12 m-auto pt-3 `}
             >
               We are now living in the digital age where everything we do is
               digitalized through Information Technology. No need to be left
