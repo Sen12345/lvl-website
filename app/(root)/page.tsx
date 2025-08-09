@@ -22,7 +22,7 @@ const Homepage = () => {
             priority={true}
             placeholder="blur"
             blurDataURL="data:/img/digitize1-min.jpg"
-            className="w-full py-10 lg:py-0"
+            className="w-full pt-4 lg:py-0"
           />
 
           <div className="flex flex-col  justify-center">
@@ -53,7 +53,7 @@ const Homepage = () => {
       <section id="services" className="services mt-10 lg:mt-32 px-4 border-b">
         <div className="grid  lg:grid-cols-2 gap-4">
           <div className="flex flex-col justify-center  ">
-            <h1 className=" py-4 text-2xl  text-center text-lime-500">
+            <h1 className=" pb-4 text-2xl  text-center text-lime-500">
               What We Do
             </h1>
 
@@ -81,11 +81,11 @@ const Homepage = () => {
             priority={true}
             quality={80}
             src="/img/00.jpg"
-            className="w-full py-10 lg:py-0"
+            className="w-full  "
           />
         </div>
       </section>
-      <section id="mission" className="w-full mt-10 lg:mt-32 px-4 border-b">
+      <section id="mission" className="w-full mt-4 lg:mt-32 px-4 border-b">
         <div className="grid  lg:grid-cols-2 gap-4">
           <Image
             width={600}
@@ -94,7 +94,7 @@ const Homepage = () => {
             priority={true}
             quality={80}
             src="/img/B-Repertoire12-min.jpg"
-            className="w-full py-10 lg:py-0"
+            className="w-full "
           />
 
           <div className="flex flex-col justify-center  ">
@@ -145,7 +145,7 @@ const Homepage = () => {
             priority={true}
             quality={80}
             src="/img_slide/img_02.png"
-            className="w-full py-10 lg:py-0"
+            className="w-full "
           />
         </div>
       </section>
