@@ -49,7 +49,7 @@ const Homepage = () => {
         </div>
       </section>
 
-      <section id="services" className="services mt-10 lg:mt-32 px-4 border-b">
+      <section id="services" className="servicess mt-10 lg:mt-32 px-4 border-b">
         <div className="grid  lg:grid-cols-2 gap-4">
           <div className="flex flex-col justify-center  ">
             <h1 className=" pb-4 text-3xl  text-center text-lime-500">

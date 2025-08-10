@@ -43,29 +43,43 @@
 }
 .top-sec:hover {
   transform: translateY(20px);
+  animation-name: fade-In;
+  animation-duration: 7s;
 }
 
 #about:hover {
   transform: translateY(20px);
+  animation-name: fade-In;
+  animation-duration: 7s;
 }
 #about:hover {
   transform: translateY(20px);
+  animation-name: fade-In;
+  animation-duration: 7s;
 }
 
-#services:hover {
+#servicess:hover {
   transform: translateY(20px);
+  animation-name: fade-In;
+  animation-duration: 7s;
 }
 
 #mission:hover {
   transform: translateY(20px);
+  animation-name: fade-In;
+  animation-duration: 7s;
 }
 
 #how:hover {
   transform: translateY(20px);
+  animation-name: fade-In;
+  animation-duration: 7s;
 }
 
 #blogs:hover {
   transform: translateY(20px);
+  animation-name: fade-In;
+  animation-duration: 7s;
 }
 
 footer:hover {
