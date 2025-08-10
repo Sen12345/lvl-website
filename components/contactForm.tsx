@@ -37,7 +37,7 @@ export default function ContactFormPage() {
   return (
     <div className={`${barlow.className} w-90`}>
       <form onSubmit={onSubmit} action={formAction}>
-        <div className="text-center text-3xl lg:text-4xl pb-2 text-lime-500 focus:txt-white hover:text-white">
+        <div className="text-center text-4xl pb-2 text-lime-500 focus:txt-white hover:text-white">
           Your Query
         </div>
         <div className="my-2">
