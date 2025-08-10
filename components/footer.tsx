@@ -11,7 +11,7 @@ const Footer = () => {
     <footer
       className={`w-screen overflow-hidden border-t bg-black ${
         theme === "light" ? "text-white bg-black" : "text-white bg-black"
-      }  mt-20 py-5`}
+      }  mt-10 py-5`}
     >
       <div className="grid gap-8 md:grid-cols-3   " id="contact">
         <div>
