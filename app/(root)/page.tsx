@@ -7,9 +7,8 @@ const Homepage = () => {
   // await delay(4000);
   return (
     <>
-      <section className="top-sec bg-[url(/img/towerbgidge.jpg)] hover:-translate-y-1 hover:scale-105  duration-300 bg-fixed transition-all bg-cover border-b bg-center  py-20">
+      <section className=" bg-[url(/img/towerbgidge.jpg)] hover:-translate-y-1 hover:scale-105  duration-300 bg-fixed transition-all bg-cover border-b bg-center  py-20">
         <Portfolio />
-        {/* <TestForm /> */}
       </section>
       <section id="about" className="w-full px-4 border-b ">
         <div className="grid  lg:grid-cols-2 gap-4 ">
