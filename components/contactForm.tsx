@@ -96,7 +96,7 @@ export default function ContactFormPage() {
                 <Loader className="w-4 h-4  animate-spin " />
               </div>
             ) : (
-              <div>Submit Query</div>
+              <div className="text-xl lg:text-lg">Submit Query</div>
             )}
           </Button>
         </div>
