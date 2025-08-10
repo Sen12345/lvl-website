@@ -19,9 +19,9 @@ const Footer = () => {
             <p className="text-2xl">
               <strong>London Vibes Limited</strong>
             </p>
-            <p>Bromley Road Catford</p>
-            <p>London SE6 2UB</p>
-            <p>queries@londonvibeslimited.co.uk</p>
+            <p>61 Bromley Road Catford</p>
+            <p>London</p>
+            <p>queries@londonvibes.net</p>
             <p>07473490000</p>
           </div>
         </div>
