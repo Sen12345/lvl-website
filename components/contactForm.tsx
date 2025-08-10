@@ -37,7 +37,7 @@ export default function ContactFormPage() {
   return (
     <div className={`${barlow.className} w-90`}>
       <form onSubmit={onSubmit} action={formAction}>
-        <div className="text-center text-3xl lg:text-4xl pb-2 text-lime-500 focus:txt-white hover:text-white">
+        <div className="text-center text-3xl  pb-2 text-lime-500 focus:txt-white hover:text-white">
           Your Query
         </div>
         <div className="my-2">
@@ -88,7 +88,7 @@ export default function ContactFormPage() {
         <div>
           <Button
             type="submit"
-            className="px-4  get-in-touch rounded-none text-black bg-lime-500  transition-colors py-6   cursor-pointer hover:bg-lime-600 hover:opacity-100 "
+            className="px-6 text-black py-[28px] focus:text-white get-in-touch rounded-none border-l-4 border-lime-400  bg-white  transition-colors hover:bg-white focus:bg-white   cursor-pointer  opacity-40 hover:opacity-100 "
           >
             {isPending ? (
               <div className="flex flex-row justify-center items-center">
@@ -96,9 +96,7 @@ export default function ContactFormPage() {
                 <Loader className="w-4 h-4  animate-spin " />
               </div>
             ) : (
-              <div className="hover:text-white focus:text-white">
-                Submit Query
-              </div>
+              <div>Submit Query</div>
             )}
           </Button>
         </div>
