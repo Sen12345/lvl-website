@@ -88,7 +88,7 @@ export default function ContactFormPage() {
         <div>
           <Button
             type="submit"
-            className="px-6 py-[36px] lg:py-[32px] hover:text-white focus:text-white hover:bg-lime-500 get-in-touch rounded-none text-black bg-lime-500  transition-colors    cursor-pointer  hover:opacity-100 "
+            className="px-6 py-[36px] lg:py-[28px] hover:text-white focus:text-white hover:bg-lime-500 get-in-touch rounded-none text-black bg-lime-500  transition-colors    cursor-pointer  hover:opacity-100 "
           >
             {isPending ? (
               <div className="flex flex-row justify-center items-center">
