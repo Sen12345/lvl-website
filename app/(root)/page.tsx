@@ -36,6 +36,7 @@ const Homepage = () => {
                 have being programmatically helping businesses and individual
                 clients to achieve their online business objectives.
                 <br />
+                <br />
               </p>
               <p className="text-lead text-xl ">
                 We believe the user should have the best experience on each
