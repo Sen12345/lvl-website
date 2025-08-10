@@ -61,14 +61,27 @@ const Blogs = async () => {
               id="blogs"
               className="lg:grid grid-cols-2  my-5  gap-4"
             >
-              <Image
-                src={blog.images[0]}
-                width={500}
-                height={500}
-                className="w-full  lg:py-5"
-                alt="Blog Image"
-                quality={80}
-              />
+              {blog.images[0] === "/img/eCommerce.png" ? (
+                <Link href="https://prostore-sigma-black.vercel.app">
+                  <Image
+                    src={blog.images[0]}
+                    width={500}
+                    height={500}
+                    className="w-full  lg:py-5"
+                    alt="Blog Image"
+                    quality={80}
+                  />
+                </Link>
+              ) : (
+                <Image
+                  src={blog.images[0]}
+                  width={500}
+                  height={500}
+                  className="w-full  lg:py-5"
+                  alt="Blog Image"
+                  quality={80}
+                />
+              )}
               <Card className="flex justify-center rounded-0 items-center my-5">
                 <CardTitle>{blog.headline}</CardTitle>
                 <CardContent>{blog.paragraph1}</CardContent>

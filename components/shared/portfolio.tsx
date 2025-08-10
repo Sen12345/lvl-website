@@ -15,7 +15,7 @@ const Portfolio = () => {
           <li className="py-1  flex flex-row transition-all items-baseline gap-1 hover:-translate-y-1 hover:scale-110  duration-300">
             <Link
               href="/webdev"
-              className="text-white-400 text-3xl md:text-4xl text-white hover:text-lime-400"
+              className="text-white-400 text-3xl lg:text-4xl text-white hover:text-lime-400"
             >
               Web Development
             </Link>
@@ -28,7 +28,7 @@ const Portfolio = () => {
             >
               Follow-up Support
             </Link>
-            <TfiAngleDoubleRight className="text-white-lime md:text-2xl text-lime-500" />
+            <TfiAngleDoubleRight className=" md:text-2xl text-lime-500" />
           </li>
           <li className="py-1  flex flex-row items-baseline gap-1 hover:-translate-y-1 hover:scale-110  duration-300">
             <Link
@@ -37,7 +37,7 @@ const Portfolio = () => {
             >
               Bespoke Design
             </Link>
-            <TfiAngleDoubleRight className="text-white-lime md:text-2xl text-lime-500" />
+            <TfiAngleDoubleRight className=" md:text-2xl text-lime-500" />
           </li>
           <li className="py-1  flex flex-row transition-all items-baseline gap-1 hover:-translate-y-1 hover:scale-110  duration-300">
             <Link
@@ -46,7 +46,7 @@ const Portfolio = () => {
             >
               Your Blog Page
             </Link>
-            <TfiAngleDoubleRight className="text-white-lime md:text-2xl text-lime-500" />
+            <TfiAngleDoubleRight className=" md:text-2xl text-lime-500" />
           </li>
           <li className="py-1  flex flex-row transition-all items-baseline gap-1 hover:-translate-y-1 hover:scale-110  duration-300">
             <Link
@@ -55,7 +55,7 @@ const Portfolio = () => {
             >
               eCommerce
             </Link>
-            <TfiAngleDoubleRight className="text-white-lime md:text-2xl text-lime-500" />
+            <TfiAngleDoubleRight className=" md:text-2xl text-lime-500" />
           </li>
           <li className="py-1  flex flex-row items-baseline gap-1 hover:-translate-y-1 hover:scale-110  duration-300">
             <Link
@@ -64,7 +64,7 @@ const Portfolio = () => {
             >
               SEO/SMO
             </Link>
-            <TfiAngleDoubleRight className="text-white-lime md:text-2xl text-lime-500" />
+            <TfiAngleDoubleRight className=" md:text-2xl text-lime-500" />
           </li>
           <li className="py-1  flex flex-row transition-all items-baseline gap-1 hover:-translate-y-1 hover:scale-110  duration-300">
             <Link
