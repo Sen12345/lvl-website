@@ -55,7 +55,7 @@ const Menu = () => {
                   <Link href="/#about">About</Link>
                 </li>
                 <li className="hover:bg-lime-400  px-5 py-2">
-                  <Link href="/">Services</Link>
+                  <Link href="/#services">Services</Link>
                 </li>
                 <li className="bg-lime-400  px-5 py-2  text-center   text-black hover:text-white duration-500">
                   <Link href="/blogs">Blog</Link>
