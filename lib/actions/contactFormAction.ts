@@ -51,7 +51,5 @@ export async function contactFormAction(
     return { errors, data };
   }
 
-  revalidatePath("/");
-
-  return { errors: errors, data: data };
+  return { errors, data, error };
 }
