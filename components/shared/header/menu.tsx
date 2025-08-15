@@ -62,7 +62,7 @@ const Menu = () => {
 
             <SheetDescription>
               <ul
-                className={`${barlow.className} ml-4 flex flex-col   justify-start `}
+                className={`${barlow.className}  flex flex-col   justify-start `}
               >
                 <li className="text-center lg:px-5 ">
                   <ModeToggle />
