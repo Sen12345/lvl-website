@@ -17,50 +17,55 @@ const UserButton = async () => {
 
   return (
     <div className="flex gap-2 items-center">
-      {session?.user.role === "admin" && (
-        <>
-          <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-              {session.user.role !== "admin" && (
-                <div className="items-center">
-                  <Button
-                    variant="ghost"
-                    className="relative w-10 h-10 rounded-full ml-2 flex items-center justify-center bg-lime-500"
-                  >
-                    {firstInitial}
-                  </Button>
+      {/* {!session && (
+        <div>
+          <Button asChild className="rounded-none">
+            <Link href="/sign-in">
+              <UserIcon /> Sign In
+            </Link>
+          </Button>
+        </div>
+      )} */}
+      {session?.user?.role === "admin" && (
+        <DropdownMenu>
+          <DropdownMenuTrigger asChild>
+            <div className="items-center">
+              <Button
+                variant="ghost"
+                className="relative w-10 h-10 rounded-full ml-2 flex items-center justify-center bg-lime-500"
+              >
+                {firstInitial}
+              </Button>
+            </div>
+          </DropdownMenuTrigger>
+          <DropdownMenuContent className="w-56" align="end" forceMount>
+            <DropdownMenuLabel className="font-normal">
+              <div className="flex flex-col space-x-1">
+                <div className="text-md py-3 font-medium leading-none">
+                  {session?.user?.name}
                 </div>
-              )}
-            </DropdownMenuTrigger>
-            <DropdownMenuContent className="w-56" align="end" forceMount>
-              <DropdownMenuLabel className="font-normal">
-                <div className="flex flex-col space-x-1">
-                  <div className="text-md py-3 font-medium leading-none">
-                    {session?.user?.name}
-                  </div>
-                  <div className="text-md py-3 text-shadow-muted-foreground leading-none">
-                    {session?.user?.email}
-                  </div>
+                <div className="text-md py-3 text-shadow-muted-foreground leading-none">
+                  {session?.user?.email}
                 </div>
-              </DropdownMenuLabel>
-              <DropdownMenuItem>
-                <Link href="/admin" className="w-full">
-                  Admin
-                </Link>
-              </DropdownMenuItem>
-              <DropdownMenuItem className="p-0 mb-1">
-                <form action={signOutUser} className="w-full">
-                  <Button
-                    className="w-full py-4 px-2 h-4 justify-start"
-                    variant="ghost"
-                  >
-                    Sign Out
-                  </Button>
-                </form>
-              </DropdownMenuItem>
-            </DropdownMenuContent>
-          </DropdownMenu>
-        </>
+              </div>
+            </DropdownMenuLabel>
+            <DropdownMenuItem>
+              <Link href="/admin" className="w-full">
+                Admin
+              </Link>
+            </DropdownMenuItem>
+            <DropdownMenuItem className="p-0 mb-1">
+              <form action={signOutUser} className="w-full">
+                <Button
+                  className="w-full py-4 px-2 h-4 justify-start"
+                  variant="ghost"
+                >
+                  Sign Out
+                </Button>
+              </form>
+            </DropdownMenuItem>
+          </DropdownMenuContent>
+        </DropdownMenu>
       )}
     </div>
   );
