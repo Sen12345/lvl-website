@@ -18,6 +18,8 @@ const montserrat = Montserrat({
 });
 
 const Blogs = async () => {
+  const blogs = await getLatestBlog();
+
   return (
     <>
       <section className={` w-full  `}>
