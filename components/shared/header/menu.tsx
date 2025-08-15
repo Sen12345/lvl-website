@@ -23,17 +23,17 @@ const Menu = () => {
           <li className=" lg:px-5 py-[10px]">
             <ModeToggle />
           </li>
-          <li className="hover:bg-lime-400 focus:bg-lime-400 py-[10px] px-5 my-4">
+          <li className="hover:bg-lime-400 focus:bg-lime-400 py-[10px] ">
             <Link href="/#contact" className="text-black ">
               Contact
             </Link>
           </li>
-          <li className="hover:bg-lime-400 focus:bg-lime-400 py-[10px] px-5 my-4">
+          <li className="hover:bg-lime-400 focus:bg-lime-400 py-[10px] ">
             <Link href="/#about" className="text-black">
               About
             </Link>
           </li>
-          <li className="hover:bg-lime-400 focus:bg-lime-400 py-[10px] px-5 my-4">
+          <li className="hover:bg-lime-400 focus:bg-lime-400 py-[10px] ">
             <Link href="/#services" className="text-black   ">
               Services
             </Link>
@@ -67,13 +67,13 @@ const Menu = () => {
                 <li className="text-center lg:px-5 ">
                   <ModeToggle />
                 </li>
-                <li className="hover:bg-lime-400 focus:bg-lime-400 py-[10px] text-center px-5 ">
+                <li className="hover:bg-lime-400 focus:bg-lime-400 py-[10px] text-center  ">
                   <Link href="/#contact">Contact</Link>
                 </li>
-                <li className="hover:bg-lime-400 focus:bg-lime-400  py-[10px] text-center px-5 ">
+                <li className="hover:bg-lime-400 focus:bg-lime-400  py-[10px] text-center  ">
                   <Link href="/#about">About</Link>
                 </li>
-                <li className="hover:bg-lime-400 focus:bg-lime-400 py-[14px] text-center px-5">
+                <li className="hover:bg-lime-400 focus:bg-lime-400 py-[14px] text-center ">
                   <Link href="/#services">Services</Link>
                 </li>
 
