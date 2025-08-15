@@ -23,17 +23,17 @@ const Menu = () => {
           <li className=" lg:px-5 py-[10px]">
             <ModeToggle />
           </li>
-          <li className="hover:bg-lime-400 py-[10px] px-5 my-4">
+          <li className="hover:bg-lime-400 focus:bg-lime-400 py-[10px] px-5 my-4">
             <Link href="/#contact" className="text-black ">
               Contact
             </Link>
           </li>
-          <li className="hover:bg-lime-400 py-[10px] px-5 my-4">
+          <li className="hover:bg-lime-400 focus:bg-lime-400 py-[10px] px-5 my-4">
             <Link href="/#about" className="text-black">
               About
             </Link>
           </li>
-          <li className="hover:bg-lime-400 py-[10px] px-5 my-4">
+          <li className="hover:bg-lime-400 focus:bg-lime-400 py-[10px] px-5 my-4">
             <Link href="/#services" className="text-black   ">
               Services
             </Link>
@@ -67,17 +67,17 @@ const Menu = () => {
                 <li className="text-center lg:px-5 ">
                   <ModeToggle />
                 </li>
-                <li className="hover:bg-lime-400 py-[10px] text-center px-5 ">
+                <li className="hover:bg-lime-400 focus:bg-lime-400 py-[10px] text-center px-5 ">
                   <Link href="/#contact">Contact</Link>
                 </li>
-                <li className="hover:bg-lime-400 py-[10px] text-center px-5 ">
+                <li className="hover:bg-lime-400 focus:bg-lime-400  py-[10px] text-center px-5 ">
                   <Link href="/#about">About</Link>
                 </li>
-                <li className="hover:bg-lime-400 py-[14px] text-center px-5">
+                <li className="hover:bg-lime-400 focus:bg-lime-400 py-[14px] text-center px-5">
                   <Link href="/#services">Services</Link>
                 </li>
 
-                <li className=" hover:text-white my-4 text-center  duration-500 ">
+                <li className=" hover:text-white focus:bg-lime-400 my-4 text-center  duration-500 ">
                   <Link
                     href="/blogs"
                     className="bg-lime-500 text-center px-14 py-[12px] hover:bg-lime-400   text-black"
