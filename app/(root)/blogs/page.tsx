@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { MdKeyboardDoubleArrowDown } from "react-icons/md";
 import { Card, CardContent, CardTitle } from "@/components/ui/card";
+import { getTotalBlogs } from "@/lib/actions/sales-summary.action";
 
 const barlow = Barlow({
   subsets: ["latin"],
@@ -17,8 +18,6 @@ const montserrat = Montserrat({
 });
 
 const Blogs = async () => {
-  const blogs = await getLatestBlog();
-
   return (
     <>
       <section className={` w-full  `}>
