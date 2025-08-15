@@ -26,7 +26,7 @@ const Menu = () => {
           <li className="mx-2 hover:text-white duration-500">
             <Link
               href="/#contact"
-              className="text-black text-center px-4 py-[12px] hover:bg-lime-400"
+              className="text-black text-center px-4 py-[12px] hover:bg-lime-400 focus:bg-lime-400"
             >
               Contact
             </Link>
@@ -34,7 +34,7 @@ const Menu = () => {
           <li className="mx-2 hover:text-white duration-500">
             <Link
               href="/#about"
-              className="text-black text-center px-4 py-[12px] hover:bg-lime-400"
+              className="text-black text-center px-4 py-[12px] hover:bg-lime-400 focus:bg-lime-400"
             >
               About
             </Link>
@@ -42,7 +42,7 @@ const Menu = () => {
           <li className="mx-2 hover:text-white duration-500">
             <Link
               href="/#services"
-              className="text-black text-center px-4 py-[12px] hover:bg-lime-400"
+              className="text-black text-center px-4 py-[12px] hover:bg-lime-400 focus:bg-lime-400"
             >
               Services
             </Link>
@@ -51,7 +51,7 @@ const Menu = () => {
           <li className="hover:text-white  duration-500">
             <Link
               href="/blogs"
-              className="bg-lime-500 text-center px-6 py-[12px] hover:bg-lime-400   text-black"
+              className="bg-lime-500 text-center px-6 py-[12px] hover:bg-lime-400 focus:bg-lime-400  text-black"
             >
               Blogs
             </Link>
