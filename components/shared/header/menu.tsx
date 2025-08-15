@@ -18,31 +18,40 @@ const Menu = () => {
     <div className="">
       <nav className="hidden lg:flex justify-center items-center ">
         <ul
-          className={`${barlow.className} flex ml-4 flex-between items-center justify-center`}
+          className={`${barlow.className} flex  flex-between items-center justify-center`}
         >
-          <li className=" lg:px-5 py-[10px]">
+          <li className=" px-5 py-[10px]">
             <ModeToggle />
           </li>
-          <li className="hover:bg-lime-400 focus:bg-lime-400 py-[10px] ">
-            <Link href="/#contact" className="text-black ">
+          <li className="mx-2 hover:text-white duration-500">
+            <Link
+              href="/#contact"
+              className="text-black text-center px-4 py-[12px] hover:bg-lime-400"
+            >
               Contact
             </Link>
           </li>
-          <li className="hover:bg-lime-400 focus:bg-lime-400 py-[10px] ">
-            <Link href="/#about" className="text-black">
+          <li className="mx-2 hover:text-white duration-500">
+            <Link
+              href="/#about"
+              className="text-black text-center px-4 py-[12px] hover:bg-lime-400"
+            >
               About
             </Link>
           </li>
-          <li className="hover:bg-lime-400 focus:bg-lime-400 py-[10px] ">
-            <Link href="/#services" className="text-black   ">
+          <li className="mx-2 hover:text-white duration-500">
+            <Link
+              href="/#services"
+              className="text-black text-center px-4 py-[12px] hover:bg-lime-400"
+            >
               Services
             </Link>
           </li>
 
-          <li className="hover:text-white my-4 duration-500">
+          <li className="hover:text-white  duration-500">
             <Link
               href="/blogs"
-              className="bg-lime-500 text-center px-14 py-[12px] hover:bg-lime-400   text-black"
+              className="bg-lime-500 text-center px-6 py-[12px] hover:bg-lime-400   text-black"
             >
               Blogs
             </Link>
@@ -52,7 +61,7 @@ const Menu = () => {
           </li>
         </ul>
       </nav>
-      <nav className="lg:hidden flex flex-col ">
+      <nav className="lg:hidden flex flex-col pr-4">
         <Sheet>
           <SheetTrigger className="align-middle text-black">
             <EllipsisVertical />
@@ -62,30 +71,42 @@ const Menu = () => {
 
             <SheetDescription>
               <ul
-                className={`${barlow.className}  flex flex-col   justify-start `}
+                className={`${barlow.className}  flex-col p-4 justify-center items-center text-center `}
               >
-                <li className="text-center lg:px-5 ">
+                <li className="">
                   <ModeToggle />
                 </li>
-                <li className="hover:bg-lime-400 focus:bg-lime-400 py-[10px] text-center  ">
-                  <Link href="/#contact">Contact</Link>
+                <li className="my-8 flex-1 ">
+                  <Link
+                    href="/#contact"
+                    className="py-4 px-8 focus:bg-lime-300"
+                  >
+                    Contact
+                  </Link>
                 </li>
-                <li className="hover:bg-lime-400 focus:bg-lime-400  py-[10px] text-center  ">
-                  <Link href="/#about">About</Link>
+                <li className="my-8 flex-1 ">
+                  <Link href="/#about" className="py-4 px-8 focus:bg-lime-300">
+                    About
+                  </Link>
                 </li>
-                <li className="hover:bg-lime-400 focus:bg-lime-400 py-[14px] text-center ">
-                  <Link href="/#services">Services</Link>
+                <li className="my-8  flex-1 ">
+                  <Link
+                    href="/#services"
+                    className="py-4 px-8 focus:bg-lime-300"
+                  >
+                    Services
+                  </Link>
                 </li>
 
-                <li className=" hover:text-white focus:bg-lime-400 my-4 text-center  duration-500 ">
+                <li className="my-10 flex-1 ">
                   <Link
                     href="/blogs"
-                    className="bg-lime-500 text-center px-14 py-[12px] hover:bg-lime-400   text-black"
+                    className="py-4 px-10 bg-lime-400 focus:bg-lime-300"
                   >
                     Blogs
                   </Link>
                 </li>
-                <li className=" text-center px-5 ">
+                <li className=" text-center  ">
                   <UserButton />
                 </li>
               </ul>
