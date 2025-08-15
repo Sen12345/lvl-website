@@ -32,7 +32,7 @@ const UserButton = async () => {
               <div className="items-center">
                 <Button
                   variant="ghost"
-                  className="relative w-9 h-9 rounded-full ml-2 flex items-center justify-center bg-lime-500"
+                  className="relative w-10 h-10 rounded-full ml-2 flex items-center justify-center bg-lime-500"
                 >
                   {firstInitial}
                 </Button>
@@ -50,7 +50,7 @@ const UserButton = async () => {
                 </div>
               </DropdownMenuLabel>
               <DropdownMenuItem>
-                <Link href="/admin/overview" className="w-full">
+                <Link href="/admin" className="w-full">
                   Admin
                 </Link>
               </DropdownMenuItem>
