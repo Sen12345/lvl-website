@@ -78,12 +78,12 @@ const Menu = () => {
             <SheetDescription>
               <DropdownMenu>
                 <DropdownMenuTrigger asChild className="mx-14 ">
-                  <Button
+                  {/* <Button
                     variant={"outline"}
                     className="w-12 h-12  text-xs rounded-full my-2"
                   >
                     Admin
-                  </Button>
+                  </Button> */}
                 </DropdownMenuTrigger>
                 <DropdownMenuContent className="bg-white text-center px-4 py-2 my-2 border-[0.01px]">
                   <DropdownMenuLabel className="my-2">
