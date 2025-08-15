@@ -18,7 +18,7 @@ const Menu = () => {
     <div className="">
       <nav className="hidden lg:flex justify-center items-center ">
         <ul
-          className={`${barlow.className} flex ml-4 flex-between items-center justify-center`}
+          className={`${barlow.className} flex  flex-between items-center justify-center`}
         >
           <li className=" lg:px-5 py-[10px]">
             <ModeToggle />
@@ -62,7 +62,7 @@ const Menu = () => {
 
             <SheetDescription>
               <ul
-                className={`${barlow.className} ml-4 flex flex-col   justify-start `}
+                className={`${barlow.className}  flex flex-col   justify-start `}
               >
                 <li className="text-center lg:px-5 ">
                   <ModeToggle />
