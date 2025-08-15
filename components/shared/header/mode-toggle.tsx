@@ -21,7 +21,7 @@ const ModeToggle = () => {
 
   if (!mounted) return null;
   return (
-    <div className="text-center md:pt-1">
+    <div className="">
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
           <Button

@@ -12,10 +12,10 @@ const barlow = Barlow({
 
 const Header = () => {
   return (
-    <div className="w-screen top bg-white fixed top-0 z-50 border-b">
-      <div className="wrapper flex-between">
+    <div className="w-full flex top bg-white fixed h-16 justify-center items-center top-0 z-50 border-b">
+      <div className="flex flex-between items-center justify-center w-full">
         <div className="flex-start">
-          <Link href="/" className="flex flex-row">
+          <Link href="/" className="flex flex-row pl-4">
             <Image
               src="/logo/lvl-logo.png"
               alt="Company logo"
@@ -26,7 +26,7 @@ const Header = () => {
               priority={true}
             />
             <span
-              className={`${barlow.className} hidden lg:block text-black  font-bold text-2xl ml-1 hover:text-lime-600`}
+              className={`${barlow.className} hidden lg:block text-black mt-[3px] font-bold text-xl ml-2 hover:text-lime-600`}
             >
               {APP_NAME}
             </span>

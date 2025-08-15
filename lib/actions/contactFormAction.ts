@@ -1,5 +1,6 @@
 "use server";
 export type Errors = {
+  name: string;
   fullname?: string;
   email?: string;
   number?: string;
@@ -9,7 +10,6 @@ export type FormState = {
   errors: Errors;
 };
 
-import { revalidatePath } from "next/cache";
 import { Resend } from "resend";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
@@ -30,7 +30,9 @@ export async function contactFormAction(
     react: `${fullname}`,
   });
 
-  const errors: Errors = {};
+  const errors: Errors = {
+    name: "",
+  };
 
   if (!fullname) {
     errors.fullname = "Full name is required";

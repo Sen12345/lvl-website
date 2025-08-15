@@ -1,18 +1,19 @@
 "use client";
-import { useActionState, useEffect, useState, useTransition } from "react";
+import { useActionState, useTransition } from "react";
 import { Barlow } from "next/font/google";
 import { Button } from "@/components/ui/button";
 import { Loader } from "lucide-react";
 import { contactFormAction, FormState } from "@/lib/actions/contactFormAction";
 import { toast } from "sonner";
-import { Errors } from "@/lib/actions/contactFormAction";
 
 const barlow = Barlow({ subsets: ["latin"], weight: "300" });
 
+const initialState: FormState = {
+  errors: {
+    name: "",
+  },
+};
 export default function ContactFormPage() {
-  const initialState: FormState = {
-    errors: {},
-  };
   const [state, formAction] = useActionState(contactFormAction, initialState);
   const [isPending, startTransition] = useTransition();
 
