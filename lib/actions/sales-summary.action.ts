@@ -12,6 +12,4 @@ export async function getTotalBlogs() {
   //   });
 
   // To write raw quer, use await prisma.$queryRaw<Array<{a:string,b:string;totalSales:Prisma.Decimal}>
-
-  return { blogsCount };
 }

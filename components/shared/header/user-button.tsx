@@ -17,35 +17,29 @@ const UserButton = async () => {
 
   return (
     <div className="flex gap-2 items-center">
-      {session?.user?.role === "admin" && (
-        <div>
-          {!session && (
-            <Button asChild className="rounded-none">
-              <Link href="/sign-in">
-                <UserIcon /> Sign In
-              </Link>
-            </Button>
-          )}
-
+      {session?.user.role === "admin" && (
+        <>
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
-              <div className="items-center">
-                <Button
-                  variant="ghost"
-                  className="relative w-10 h-10 rounded-full ml-2 flex items-center justify-center bg-lime-500"
-                >
-                  {firstInitial}
-                </Button>
-              </div>
+              {session.user.role !== "admin" && (
+                <div className="items-center">
+                  <Button
+                    variant="ghost"
+                    className="relative w-10 h-10 rounded-full ml-2 flex items-center justify-center bg-lime-500"
+                  >
+                    {firstInitial}
+                  </Button>
+                </div>
+              )}
             </DropdownMenuTrigger>
             <DropdownMenuContent className="w-56" align="end" forceMount>
               <DropdownMenuLabel className="font-normal">
                 <div className="flex flex-col space-x-1">
                   <div className="text-md py-3 font-medium leading-none">
-                    {session.user?.name}
+                    {session?.user?.name}
                   </div>
                   <div className="text-md py-3 text-shadow-muted-foreground leading-none">
-                    {session.user?.email}
+                    {session?.user?.email}
                   </div>
                 </div>
               </DropdownMenuLabel>
@@ -66,7 +60,7 @@ const UserButton = async () => {
               </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
-        </div>
+        </>
       )}
     </div>
   );
