@@ -37,7 +37,7 @@ const Portfolio = () => {
             >
               Bespoke Design
             </Link>
-            <TfiAngleDoubleRight className=" lg:text-2xl text-lime-500" />
+            <TfiAngleDoubleRight className=" text-2xl text-lime-500" />
           </li>
           <li className="py-1  flex flex-row transition-all items-baseline gap-1 hover:-translate-y-1 hover:scale-110  duration-300">
             <Link
