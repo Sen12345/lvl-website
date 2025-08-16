@@ -15,25 +15,25 @@ const Portfolio = () => {
           <li className="py-1  flex flex-row transition-all items-baseline gap-1 hover:-translate-y-1 hover:scale-110  duration-300">
             <Link
               href="/webdev"
-              className="text-white-400 text-3xl lg:text-4xl text-white hover:text-lime-400"
+              className="text-white-400 text-4xl text-white hover:text-lime-400"
             >
               Web Development
             </Link>
-            <TfiAngleDoubleRight className=" lg:text-2xl text-lime-500" />
+            <TfiAngleDoubleRight className=" text-2xl text-lime-500" />
           </li>
           <li className="py-1  flex flex-row transition-all items-baseline gap-1 hover:-translate-y-1 hover:scale-110  duration-300">
             <Link
               href="/webdev#follow-up"
-              className="text-white-400 text-3xl lg:text-4xl text-white hover:text-lime-400"
+              className="text-white-400 text-4xl text-white hover:text-lime-400"
             >
               Follow-up Support
             </Link>
-            <TfiAngleDoubleRight className=" lg:text-2xl text-lime-500" />
+            <TfiAngleDoubleRight className=" text-2xl text-lime-500" />
           </li>
           <li className="py-1  flex flex-row items-baseline gap-1 hover:-translate-y-1 hover:scale-110  duration-300">
             <Link
               href="/webdev#bespoke"
-              className="text-white-400 text-3xl transition-all lg:text-4xl text-white hover:text-lime-400"
+              className="text-white-400  transition-all text-4xl text-white hover:text-lime-400"
             >
               Bespoke Design
             </Link>
@@ -42,38 +42,38 @@ const Portfolio = () => {
           <li className="py-1  flex flex-row transition-all items-baseline gap-1 hover:-translate-y-1 hover:scale-110  duration-300">
             <Link
               href="/webdev#blogging"
-              className="text-white-400 text-3xl  lg:text-4xl text-white hover:text-lime-400"
+              className="text-white-400 text-4xl text-white hover:text-lime-400"
             >
               Your Blog Page
             </Link>
-            <TfiAngleDoubleRight className=" lg:text-2xl text-lime-500" />
+            <TfiAngleDoubleRight className=" text-2xl text-lime-500" />
           </li>
           <li className="py-1  flex flex-row transition-all items-baseline gap-1 hover:-translate-y-1 hover:scale-110  duration-300">
             <Link
               href="webdev#ecommerce"
-              className="text-white-400 text-3xl  lg:text-4xl text-white hover:text-lime-400"
+              className="text-white-400 text-4xl text-white hover:text-lime-400"
             >
               eCommerce
             </Link>
-            <TfiAngleDoubleRight className=" lg:text-2xl text-lime-500" />
+            <TfiAngleDoubleRight className=" text-2xl text-lime-500" />
           </li>
           <li className="py-1  flex flex-row items-baseline gap-1 hover:-translate-y-1 hover:scale-110  duration-300">
             <Link
               href="webdev#seo"
-              className="text-white-400 text-3xl transition-all lg:text-4xl text-white hover:text-lime-400"
+              className="text-white-400  transition-all text-4xl text-white hover:text-lime-400"
             >
               SEO/SMO
             </Link>
-            <TfiAngleDoubleRight className=" lg:text-2xl text-lime-500" />
+            <TfiAngleDoubleRight className=" text-2xl text-lime-500" />
           </li>
           <li className="py-1  flex flex-row transition-all items-baseline gap-1 hover:-translate-y-1 hover:scale-110  duration-300">
             <Link
               href="webdev#cms"
-              className="text-white-400 text-2xl lg:text-4xl text-white hover:text-lime-400"
+              className="text-white-400 text-4xl text-white hover:text-lime-400"
             >
               CMS
             </Link>
-            <TfiAngleDoubleRight className="text-white-lime lg:text-2xl text-lime-500" />
+            <TfiAngleDoubleRight className="text-white-lime text-2xl text-lime-500" />
           </li>
         </ul>
       </div>
