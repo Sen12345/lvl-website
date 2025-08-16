@@ -4,6 +4,7 @@ import { prisma } from "@/db/prisma";
 
 export async function getTotalBlogs() {
   const blogsCount = await prisma.blog.count();
+  const blogs = await prisma.blog.findMany();
   const usersCount = await prisma.user.count();
 
   // Calculate total sales
@@ -12,4 +13,5 @@ export async function getTotalBlogs() {
   //   });
 
   // To write raw quer, use await prisma.$queryRaw<Array<{a:string,b:string;totalSales:Prisma.Decimal}>
+  return { blogsCount, usersCount, blogs };
 }

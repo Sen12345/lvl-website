@@ -1,6 +1,5 @@
 import { getLatestBlog } from "@/lib/actions/blog.action";
-import { Barlow } from "next/font/google";
-import { Montserrat } from "next/font/google";
+import { Barlow, Montserrat } from "next/font/google";
 import Image from "next/image";
 import Link from "next/link";
 import { MdKeyboardDoubleArrowDown } from "react-icons/md";
@@ -71,6 +70,7 @@ const Blogs = async () => {
                     className="w-full  lg:py-5"
                     alt="Blog Image"
                     quality={80}
+                    rounded-lgs
                   />
                 </Link>
               ) : (

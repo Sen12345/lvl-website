@@ -7,7 +7,7 @@ const Homepage = () => {
   // await delay(4000);
   return (
     <>
-      <section className=" bg-[url(/img/towerbgidge.jpg)] hover:-translate-y-1 hover:scale-105  duration-300 bg-fixed transition-all bg-cover border-b bg-center pt-28 pb-20">
+      <section className=" bg-[url(/img/towerbgidge.jpg)] hover:-translate-y-1 hover:scale-105  duration-300 bg-fixed transition-all bg-cover border-b bg-center pt-20 lg:pt-28 pb-20">
         <Portfolio />
       </section>
       <section id="about" className="w-full px-4 border-b ">
