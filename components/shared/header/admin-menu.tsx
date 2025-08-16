@@ -17,13 +17,13 @@ const AdminMenu = async () => {
           {session?.user.role === "admin" && (
             <Button
               variant={"outline"}
-              className="w-12 h-12  text-xs rounded-full my-2"
+              className="w-12 h-12 p-4 text-xs rounded-full my-2"
             >
               Admin
             </Button>
           )}
         </DropdownMenuTrigger>
-        <DropdownMenuContent className="bg-white text-center px-4 py-2 my-2 border-[0.01px]">
+        <DropdownMenuContent className="text-center px-4 py-2 my-2 border-[0.01px]">
           <DropdownMenuLabel className="my-2">
             <Link href="/overview">Overview</Link>
           </DropdownMenuLabel>
