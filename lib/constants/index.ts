@@ -17,3 +17,12 @@ export const signUpDefaultValues = {
   password: "123456",
   confirmPassword: "123456",
 };
+
+export const blogDefaultValues = {
+  id: "",
+  headline: "",
+  paragraph1: "",
+  paragraph2: "",
+  bloglinks: "",
+  images: [],
+};

@@ -21,6 +21,8 @@ import {
   TableRow,
 } from "components/ui/table";
 import Image from "next/image";
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
 
 export const metadata: Metadata = {
   title: "Admin Dashboard",
@@ -35,11 +37,21 @@ const AdminOverview = async () => {
   }
 
   const summary = await getTotalBlogs();
-  console.log(summary);
 
   return (
     <div className="space-y-2">
-      <h2 className="h2-bold">Dashboard</h2>
+      <div className="flex flex-between">
+        <h2 className="h2-bold">Dashboard</h2>
+
+        <Button variant="ghost" asChild>
+          <Link
+            href="/admin/create-blog"
+            className="bg-black text-white border-2"
+          >
+            Create Blog
+          </Link>
+        </Button>
+      </div>
       <div className="grid grid:row  gap-4 md:grid-cols-2 lg:grid-cols-4">
         <Card>
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">

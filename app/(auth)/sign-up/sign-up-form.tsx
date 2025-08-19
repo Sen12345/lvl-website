@@ -81,11 +81,11 @@ const SignUpForm = () => {
             className="my-2"
           />
         </div>
-        {/* {data && !data.success && (
+        {data && data.message.valueOf().hasOwnProperty(2) && (
           <div className="text-center py-2 text-destructive">
-            {data.message}
+            {data.message.toString()}
           </div>
-        )} */}
+        )}
         <div>
           <Label htmlFor="password" className="py-1">
             Confirm Password

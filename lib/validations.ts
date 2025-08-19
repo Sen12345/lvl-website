@@ -14,7 +14,11 @@ export const contactFormSchema = z.object({
 });
 
 export const latestBlogSchema = z.object({
-  headline: z.string().max(20, "Headline must not be more than twenty words"),
+  id: z.string().min(1, "Id is required"),
+  headline: z
+    .string()
+    .min(3, "Headline must not have lest than 3 characters")
+    .max(20, "Headline must not be more than twenty words"),
   paragraph1: z
     .string()
     .min(6)
@@ -24,7 +28,26 @@ export const latestBlogSchema = z.object({
     .min(6)
     .max(200, "Headline must not be more than twenty words"),
   bloglinks: z.string().min(3, "Url links must have a minimum of 3 characters"),
-  images: z.array(z.string()).min(1, "There must be at least one image"),
+  images: z.array(z.string()).min(1, "Product must have at least one image"),
+});
+
+//Schema for updating product
+export const updateBlogSchema = latestBlogSchema.extend({
+  id: z.string().min(1, "Id is required"),
+  headline: z
+    .string()
+    .min(3, "Headline must not have lest than 3 characters")
+    .max(20, "Headline must not be more than twenty words"),
+  paragraph1: z
+    .string()
+    .min(6)
+    .max(200, "Headline must not be more than twenty words"),
+  paragraph2: z
+    .string()
+    .min(6)
+    .max(200, "Headline must not be more than twenty words"),
+  bloglinks: z.string().min(3, "Url links must have a minimum of 3 characters"),
+  images: z.array(z.string()).min(1, "Product must have at least one image"),
 });
 
 export const signInFormSchema = z.object({

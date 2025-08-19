@@ -1,4 +1,21 @@
 -- CreateTable
+CREATE TABLE "public"."Blog" (
+    "id" UUID NOT NULL DEFAULT gen_random_uuid(),
+    "userId" UUID NOT NULL,
+    "headline" TEXT NOT NULL,
+    "paragraph1" TEXT NOT NULL,
+    "paragraph2" TEXT,
+    "bloglinks" TEXT,
+    "expires_at" INTEGER,
+    "expires_in" INTEGER,
+    "images" TEXT[],
+    "createdAt" TIMESTAMP(6) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "updatedAt" TIMESTAMP(3) NOT NULL,
+
+    CONSTRAINT "Blog_pkey" PRIMARY KEY ("id")
+);
+
+-- CreateTable
 CREATE TABLE "public"."User" (
     "id" UUID NOT NULL DEFAULT gen_random_uuid(),
     "name" TEXT NOT NULL DEFAULT 'NO_NAME',
@@ -55,6 +72,9 @@ CREATE TABLE "public"."VerificationToken" (
 
 -- CreateIndex
 CREATE UNIQUE INDEX "user_email_idx" ON "public"."User"("email");
+
+-- AddForeignKey
+ALTER TABLE "public"."Blog" ADD CONSTRAINT "Blog_userId_fkey" FOREIGN KEY ("userId") REFERENCES "public"."User"("id") ON DELETE CASCADE ON UPDATE CASCADE;
 
 -- AddForeignKey
 ALTER TABLE "public"."Account" ADD CONSTRAINT "Account_userId_fkey" FOREIGN KEY ("userId") REFERENCES "public"."User"("id") ON DELETE CASCADE ON UPDATE CASCADE;

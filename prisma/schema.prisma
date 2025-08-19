@@ -11,18 +11,21 @@ datasource db {
 
 model Blog {
   id         String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  userId     String   @db.Uuid
   headline   String
   paragraph1 String
   paragraph2 String?
   bloglinks  String?
+  expires_at Int?
+  expires_in Int?
   images     String[]
   createdAt  DateTime @default(now()) @db.Timestamp(6)
   updatedAt  DateTime @updatedAt
+  user       User?    @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
 
 model User {
   id            String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
-  // id            String    @id @default(cuid())
   name          String    @default("NO_NAME")
   email         String    @unique(map: "user_email_idx")
   emailVerified DateTime? @db.Timestamp(6)
@@ -34,6 +37,7 @@ model User {
   updatedAt     DateTime  @updatedAt
   Account       Account[]
   Session       Session[]
+  Blog          Blog[]
 }
 
 model Account {

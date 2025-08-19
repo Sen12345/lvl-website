@@ -1,4 +1,3 @@
-import { getLatestBlog } from "@/lib/actions/blog.action";
 import { Barlow, Montserrat } from "next/font/google";
 import Image from "next/image";
 import Link from "next/link";
@@ -17,7 +16,7 @@ const montserrat = Montserrat({
 });
 
 const Blogs = async () => {
-  const blogs = await getLatestBlog();
+  const blogs = await getTotalBlogs();
 
   return (
     <>
@@ -54,7 +53,7 @@ const Blogs = async () => {
         </div>
       </section>
       <section className="w-full ">
-        <div id="blogs" className="md:w-8/12 mx-auto my-5 ">
+        {/* <div id="blogs" className="md:w-8/12 mx-auto my-5 ">
           {blogs.map((blog) => (
             <div
               key={blog.id}
@@ -89,7 +88,7 @@ const Blogs = async () => {
               </Card>
             </div>
           ))}
-        </div>
+        </div> */}
       </section>
     </>
   );
