@@ -222,15 +222,9 @@ const ProductForm = ({
                           <UploadButton
                             endpoint="imageUploader"
                             onClientUploadComplete={(
-                              res: {
-                                ufsUrl: string;
-                                url: string;
-                              }[]
+                              res: { url: string }[]
                             ) => {
-                              form.setValue("images", [
-                                ...images,
-                                res[0].ufsUrl,
-                              ]);
+                              form.setValue("images", [...images, res[0].url]);
                             }}
                             onUploadError={(error: Error) => {
                               toast.error("", {
