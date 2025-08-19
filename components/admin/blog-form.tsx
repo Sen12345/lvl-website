@@ -229,7 +229,7 @@ const ProductForm = ({
                             ) => {
                               form.setValue("images", [
                                 ...images,
-                                `${res[0].ufsUrl}`,
+                                res[0].ufsUrl,
                               ]);
                             }}
                             onUploadError={(error: Error) => {
