@@ -249,7 +249,7 @@ const ProductForm = ({
             className="button col-span-2 w-full"
             disabled={form.formState.isSubmitting}
           >
-            {form.formState.isSubmitting ? "Submitting" : `${type} Product`}
+            {form.formState.isSubmitting ? "Submitting" : `${type} Blog`}
           </Button>
         </div>
       </form>

@@ -19,7 +19,6 @@ export const signUpDefaultValues = {
 };
 
 export const blogDefaultValues = {
-  id: "",
   headline: "",
   paragraph1: "",
   paragraph2: "",
