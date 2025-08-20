@@ -48,7 +48,7 @@ const ProductForm = ({
     // On create
     if (type === "Create") {
       const res = await createBlog(values);
-      if (!res.success) {
+      if (res.success) {
         toast.error("", { description: res.message });
       } else {
         toast.success("", { description: "Product created successfully" });
