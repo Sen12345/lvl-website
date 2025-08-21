@@ -21,7 +21,7 @@ const ModeToggle = () => {
 
   if (!mounted) return null;
   return (
-    <div className="bg-white">
+    <div className="">
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
           <Button
@@ -33,7 +33,7 @@ const ModeToggle = () => {
             ) : theme === "dark" ? (
               <MoonIcon className="bg-gray-700 rounded-lg" size={16} />
             ) : (
-              <SunIcon />
+              <SunIcon className="" />
             )}
           </Button>
         </DropdownMenuTrigger>
