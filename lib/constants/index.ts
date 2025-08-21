@@ -5,7 +5,8 @@ export const SERVER_URL =
   process.env.NEXT_PUBLIC_SERVER_URL || "http://localhost:3000";
 export const SENDER_EMAIL = process.env.SENDER_EMAIL || "onboarding@resend.dev";
 
-export const LATEST_BLOG_LIMIT = Number(process.env.LATEST_BLOG_LIMIT || 2);
+export const LATEST_BLOG_LIMIT = Number(process.env.LATEST_BLOG_LIMIT || 1);
+export const PAGE_SIZE = Number(process.env.PAGE_SIZE) || 6;
 
 export const signInDefaultValues = {
   email: "admin@londonvibes.net",
@@ -23,5 +24,6 @@ export const blogDefaultValues = {
   paragraph1: "",
   paragraph2: "",
   bloglinks: "",
+  slug: "",
   images: [],
 };

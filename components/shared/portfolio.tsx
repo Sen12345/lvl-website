@@ -77,7 +77,7 @@ const Portfolio = () => {
           </li>
         </ul>
       </div>
-      <div className="w-full lg:pt-8 flex lg:justify-between justify-center-safe">
+      <div className="w-full lg:pt-7 flex lg:justify-between justify-center-safe">
         <ContactFormPage />
       </div>
     </div>

@@ -1,11 +1,11 @@
 import { z } from "zod";
-import { contactFormSchema, latestBlogSchema } from "@/lib/validations";
+import { contactFormSchema, insertBlogSchema } from "@/lib/validations";
 
 export type Contact = z.infer<typeof contactFormSchema> & {
   id: string;
 };
-export type Blog = z.infer<typeof latestBlogSchema> & {
+export type Blog = z.infer<typeof insertBlogSchema> & {
   id: string;
   userId: string;
-  images: string[];
+  createdAt: Date;
 };

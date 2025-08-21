@@ -78,7 +78,7 @@ export default function ContactFormPage() {
           <textarea
             cols={20}
             name="message"
-            rows={4}
+            rows={3}
             className="pl-4 w-full py-4  text-black bg-white opacity-40  rounded-none focus:opacity-100 hover:opacity-100  border-l-4 border-lime-400 border-opacity-100"
             placeholder="Your Maeeage"
           />

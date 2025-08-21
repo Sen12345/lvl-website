@@ -3,22 +3,16 @@
 // import { Barlow } from "next/font/google";
 // import { Button } from "@/components/ui/button";
 // import { Loader } from "lucide-react";
-// import { createBlogs, FormState } from "@/lib/actions/blog.action";
+// import { contactFormAction, FormState } from "@/lib/actions/contactFormAction";
 // import { toast } from "sonner";
 
 // const barlow = Barlow({ subsets: ["latin"], weight: "300" });
 
 // const initialState: FormState = {
-//   errors: {
-//     headline: "",
-//     paragraph1: "",
-//     paragraph2: "",
-//     bloglinks: "",
-//     images: [],
-//   },
+//   errors: {},
 // };
 // export default function CreateBlogForm() {
-//   const [state, formAction] = useActionState(createBlogs, initialState);
+//   const [state, formAction] = useActionState(contactFormAction, initialState);
 //   const [isPending, startTransition] = useTransition();
 
 //   const onSubmit = async () => {
@@ -27,8 +21,8 @@
 //         !state.errors.headline ||
 //         !state.errors.paragraph1 ||
 //         !state.errors.paragraph2 ||
-//         !state.errors.bloglinks ||
-//         !state.errors.images
+//         !state.errors.bloglinks
+//         // !state.errors.images
 //       ) {
 //         return;
 //       } else {
@@ -54,7 +48,7 @@
 //             className="pl-4 w-full py-4 border-2 text-black bg-white opacity-40  rounded-none focus:opacity-100 hover:opacity-100  border-l-4 border-lime-400 border-opacity-100"
 //             placeholder="Blog Title"
 //           />
-//           {state?.errors?.headline && (
+//           {state?.errors.headline && (
 //             <p className="text-red-500">{state.errors.headline}</p>
 //           )}
 //         </div>
@@ -92,7 +86,7 @@
 //             <p className="text-red-500">{state.errors.bloglinks}</p>
 //           )}
 //         </div>
-//         <div className="my-2">
+//         {/* <div className="my-2">
 //           <input
 //             type="file"
 //             name="images[]"
@@ -102,7 +96,7 @@
 //           {state?.errors?.images && (
 //             <p className="text-red-500">{state.errors.images[0]}</p>
 //           )}
-//         </div>
+//         </div> */}
 //         <div>
 //           <Button
 //             type="submit"

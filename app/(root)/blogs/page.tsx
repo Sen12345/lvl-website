@@ -16,7 +16,7 @@ const montserrat = Montserrat({
 });
 
 const Blogs = async () => {
-  const blogs = await getTotalBlogs();
+  const { blogs } = await getTotalBlogs();
 
   return (
     <>
@@ -53,14 +53,14 @@ const Blogs = async () => {
         </div>
       </section>
       <section className="w-full ">
-        {/* <div id="blogs" className="md:w-8/12 mx-auto my-5 ">
+        <div id="blogs" className="md:w-8/12 mx-auto my-5 ">
           {blogs.map((blog) => (
             <div
               key={blog.id}
               id="blogs"
               className="lg:grid grid-cols-2  my-5  gap-4"
             >
-              {blog.images[0] === "/img/eCommerce.png" ? (
+              {blog.images[0] === "/img/dashboard.png" ? (
                 <Link href="https://prostore-sigma-black.vercel.app">
                   <Image
                     src={blog.images[0]}
@@ -88,7 +88,7 @@ const Blogs = async () => {
               </Card>
             </div>
           ))}
-        </div> */}
+        </div>
       </section>
     </>
   );

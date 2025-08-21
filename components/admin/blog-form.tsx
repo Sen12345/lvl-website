@@ -1,7 +1,7 @@
 "use client";
 
 import { blogDefaultValues } from "@/lib/constants";
-import { latestBlogSchema, updateBlogSchema } from "@/lib/validations";
+import { insertBlogSchema } from "@/lib/validations";
 import { Blog } from "@/types";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useRouter } from "next/navigation";
@@ -18,6 +18,7 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
+import slugify from "slugify";
 import { Input } from "@/components/ui/input";
 import { createBlog, updateBlog } from "@/lib/actions/blog.actions";
 import { Button } from "@/components/ui/button";
@@ -26,7 +27,7 @@ import { UploadButton } from "@/lib/uploadthing";
 import { Card } from "@/components/ui/card";
 import { CardContent } from "../ui/card";
 
-const ProductForm = ({
+const BlogForm = ({
   type,
   blog,
   blogId,
@@ -37,12 +38,12 @@ const ProductForm = ({
 }) => {
   const router = useRouter();
 
-  const form = useForm<z.infer<typeof latestBlogSchema>>({
-    resolver: zodResolver(latestBlogSchema),
+  const form = useForm<z.infer<typeof insertBlogSchema>>({
+    resolver: zodResolver(insertBlogSchema),
     defaultValues: blog && type === "Update" ? blog : blogDefaultValues,
   });
 
-  const onSubmit: SubmitHandler<z.infer<typeof latestBlogSchema>> = async (
+  const onSubmit: SubmitHandler<z.infer<typeof insertBlogSchema>> = async (
     values
   ) => {
     // On create
@@ -66,15 +67,15 @@ const ProductForm = ({
       if (!res.success) {
         toast.error("", { description: res.message });
       } else {
-        toast.success("", { description: "Product created successfully" });
-        router.push("/admin/products");
+        toast.success("", { description: "Blog created successfully" });
+        router.push("/admin/blogs");
       }
     }
   };
 
   const images = form.watch("images");
-  //   const isFeatured = form.watch("isFeatured");
-  //   const banner = form.watch("banner");
+  // const isFeatured = form.watch("isFeatured");
+  // const banner = form.watch("banner");
 
   return (
     <Form {...form}>
@@ -92,7 +93,7 @@ const ProductForm = ({
                 field,
               }: {
                 field: ControllerRenderProps<
-                  z.infer<typeof latestBlogSchema>,
+                  z.infer<typeof insertBlogSchema>,
                   "headline"
                 >;
               }) => (
@@ -100,7 +101,10 @@ const ProductForm = ({
                   <FormLabel>Blog Headline</FormLabel>
                   <FormControl>
                     <div className="relative">
-                      <Input placeholder="Enter blog headline" {...field} />
+                      <Input
+                        placeholder="Enter a headline for your blog"
+                        {...field}
+                      />
                     </div>
                   </FormControl>
                   <FormMessage />
@@ -113,21 +117,88 @@ const ProductForm = ({
           <div className="w-full">
             <FormField
               control={form.control}
+              name="slug"
+              render={({
+                field,
+              }: {
+                field: ControllerRenderProps<
+                  z.infer<typeof insertBlogSchema>,
+                  "slug"
+                >;
+              }) => (
+                <FormItem>
+                  <FormLabel>Slug</FormLabel>
+                  <FormControl>
+                    <div className="relative">
+                      <Input placeholder="Enter blog slug" {...field} />
+                      <Button
+                        type="button"
+                        className="bg-gray-500 hover-bg-gray-600 text-white px-4 py-1 mt-2 "
+                        onClick={() => {
+                          form.setValue(
+                            "slug",
+                            slugify(form.getValues("slug"), { lower: true })
+                          );
+                        }}
+                      >
+                        Generate
+                      </Button>
+                    </div>
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+          </div>
+        </div>
+        <div className="flex flex-col md:flex-row gap-5">
+          <div className="w-full">
+            <FormField
+              control={form.control}
               name="paragraph1"
               render={({
                 field,
               }: {
                 field: ControllerRenderProps<
-                  z.infer<typeof latestBlogSchema>,
+                  z.infer<typeof insertBlogSchema>,
                   "paragraph1"
                 >;
               }) => (
                 <FormItem>
                   <FormLabel>Paragraph 1</FormLabel>
                   <FormControl>
-                    <div className="relative">
+                    <div>
                       <Input
-                        placeholder="Enter paragraph 1 of you blog"
+                        placeholder="Enter paragraph 1 of your blog posts"
+                        {...field}
+                      />
+                    </div>
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+          </div>
+        </div>
+        <div className="flex flex-col md:flex-row gap-5 ">
+          <div className="w-full">
+            <FormField
+              control={form.control}
+              name="paragraph2"
+              render={({
+                field,
+              }: {
+                field: ControllerRenderProps<
+                  z.infer<typeof insertBlogSchema>,
+                  "paragraph2"
+                >;
+              }) => (
+                <FormItem>
+                  <FormLabel>Paragraph 2</FormLabel>
+                  <FormControl>
+                    <div>
+                      <Input
+                        placeholder="Enter paragraph 2 of your blog posts"
                         {...field}
                       />
                     </div>
@@ -142,50 +213,21 @@ const ProductForm = ({
           <div className="w-full">
             <FormField
               control={form.control}
-              name="paragraph2"
-              render={({
-                field,
-              }: {
-                field: ControllerRenderProps<
-                  z.infer<typeof latestBlogSchema>,
-                  "paragraph2"
-                >;
-              }) => (
-                <FormItem>
-                  <FormLabel>Paragraph 2</FormLabel>
-                  <FormControl>
-                    <div className="relative">
-                      <Input
-                        placeholder="Enter paragraph 2 of your blog"
-                        {...field}
-                      />
-                    </div>
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-          </div>
-        </div>
-        <div className="flex flex-col md:flex-row gap-5 ">
-          <div className="w-full">
-            <FormField
-              control={form.control}
               name="bloglinks"
               render={({
                 field,
               }: {
                 field: ControllerRenderProps<
-                  z.infer<typeof latestBlogSchema>,
+                  z.infer<typeof insertBlogSchema>,
                   "bloglinks"
                 >;
               }) => (
                 <FormItem>
                   <FormLabel>Url Link</FormLabel>
                   <FormControl>
-                    <div className="relative">
+                    <div>
                       <Input
-                        placeholder="Enter a Url link from your blog"
+                        placeholder="Enter a Url linke from your blog"
                         {...field}
                       />
                     </div>
@@ -221,15 +263,15 @@ const ProductForm = ({
                         <FormControl>
                           <UploadButton
                             endpoint="imageUploader"
+                            onClientUploadComplete={(
+                              res: { url: string }[]
+                            ) => {
+                              form.setValue("images", [...images, res[0].url]);
+                            }}
                             onUploadError={(error: Error) => {
                               toast.error("", {
                                 description: `ERROR! ${error.message}`,
                               });
-                            }}
-                            onClientUploadComplete={(
-                              res: { url: string }[]
-                            ) => {
-                              form.setValue("images", [res[0].url]);
                             }}
                           />
                         </FormControl>
@@ -242,6 +284,7 @@ const ProductForm = ({
             />
           </div>
         </div>
+
         <div className="upload-field my-4">
           <Button
             type="submit"
@@ -249,7 +292,7 @@ const ProductForm = ({
             className="button col-span-2 w-full"
             disabled={form.formState.isSubmitting}
           >
-            {form.formState.isSubmitting ? "Submitting" : `${type} Blog`}
+            {form.formState.isSubmitting ? "Submitting" : `${type} Product`}
           </Button>
         </div>
       </form>
@@ -257,4 +300,4 @@ const ProductForm = ({
   );
 };
 
-export default ProductForm;
+export default BlogForm;

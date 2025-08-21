@@ -45,7 +45,7 @@ const AdminOverview = async () => {
 
         <Button variant="ghost" asChild>
           <Link
-            href="/admin/create-blog"
+            href="/admin/blogs/create"
             className="bg-black text-white border-2"
           >
             Create Blog
@@ -105,14 +105,14 @@ const AdminOverview = async () => {
           key={b.id}
         >
           <div className="col-span-1 w-full">
-            {/* <Image
+            <Image
               src={b.images[0]}
               alt="Blog Image"
               width={500}
               height={400}
               quality={80}
               className="w-full rounded-lg"
-            /> */}
+            />
           </div>
           <div className="col-span-1 lg:my-0 my-4 ">
             <Card className="flex justify-center rounded-0 items-center  h-full">

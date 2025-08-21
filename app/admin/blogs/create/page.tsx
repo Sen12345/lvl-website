@@ -2,7 +2,7 @@ import { Metadata } from "next";
 import BlogForm from "@/components/admin/blog-form";
 // import { requireAdmin } from "@/lib/auth-guard";
 export const metadata: Metadata = {
-  title: "Create Product",
+  title: "Create Blog",
 };
 
 const CreateBlogPage = async () => {

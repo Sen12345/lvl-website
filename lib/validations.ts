@@ -13,40 +13,26 @@ export const contactFormSchema = z.object({
   message: z.string().min(5, "Message must be at least 3 characters"),
 });
 
-export const latestBlogSchema = z.object({
-  id: z.string().min(1, "Id is required"),
-  headline: z
-    .string()
-    .min(3, "Headline must not have lest than 3 characters")
-    .max(20, "Headline must not be more than twenty words"),
-  paragraph1: z
-    .string()
-    .min(6)
-    .max(200, "Headline must not be more than twenty words"),
-  paragraph2: z
-    .string()
-    .min(6)
-    .max(200, "Headline must not be more than twenty words"),
-  bloglinks: z.string().min(3, "Url links must have a minimum of 3 characters"),
+// Schema for inserting products
+export const insertBlogSchema = z.object({
+  userId: z.string().min(1, "User ID must be at least 1 character"),
+  headline: z.string().min(3, "Name must be at least 3 characters"),
+  slug: z.string().min(3, "Slug must be at least 3 characters"),
+  paragraph1: z.string().min(3, "Paragraph 1 must be at least 3 characters"),
+  paragraph2: z.string().min(3, "Paragraph 2 must be at least 3 characters"),
+  bloglinks: z.string().min(3, "Bloglinks must be at least 3 characters"),
   images: z.array(z.string()).min(1, "Product must have at least one image"),
 });
 
-//Schema for updating product
-export const updateBlogSchema = latestBlogSchema.extend({
+// Schema for updating products
+export const updateBlogSchema = insertBlogSchema.extend({
   id: z.string().min(1, "Id is required"),
-  headline: z
-    .string()
-    .min(3, "Headline must not have lest than 3 characters")
-    .max(20, "Headline must not be more than twenty words"),
-  paragraph1: z
-    .string()
-    .min(6)
-    .max(200, "Headline must not be more than twenty words"),
-  paragraph2: z
-    .string()
-    .min(6)
-    .max(200, "Headline must not be more than twenty words"),
-  bloglinks: z.string().min(3, "Url links must have a minimum of 3 characters"),
+  userId: z.string().min(1, "User ID must be at least 1 character"),
+  headline: z.string().min(3, "Name must be at least 3 characters"),
+  slug: z.string().min(3, "Slug must be at least 3 characters"),
+  paragraph1: z.string().min(3, "Paragraph 1 must be at least 3 characters"),
+  paragraph2: z.string().min(3, "Paragraph 2 must be at least 3 characters"),
+  bloglinks: z.string().min(3, "Bloglinks must be at least 3 characters"),
   images: z.array(z.string()).min(1, "Product must have at least one image"),
 });
 

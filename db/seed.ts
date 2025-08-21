@@ -7,12 +7,11 @@ async function main() {
   // await prisma.session.deleteMany();
   // await prisma.verificationToken.deleteMany();
 
+  await prisma.blog.deleteMany();
+  await prisma.blog.createMany({ data: sampleData.blog });
+
   // await prisma.user.deleteMany();
-  await prisma.user.createMany({ data: sampleData.users });
-
-  // await prisma.blog.deleteMany();
-  // await prisma.blog.createMany({ data: sampleData.blog });
-
+  // await prisma.user.createMany({ data: sampleData.users });
   console.log("Database seeded successfully");
 }
 

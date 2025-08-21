@@ -31,7 +31,7 @@ const ModeToggle = () => {
             {theme === "system" ? (
               <SunMoon />
             ) : theme === "dark" ? (
-              <MoonIcon />
+              <MoonIcon className="bg-gray-700 rounded-lg" size={16} />
             ) : (
               <SunIcon />
             )}
