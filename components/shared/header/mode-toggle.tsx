@@ -21,7 +21,7 @@ const ModeToggle = () => {
 
   if (!mounted) return null;
   return (
-    <div className="">
+    <div className="bg-white">
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
           <Button
