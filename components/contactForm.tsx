@@ -25,11 +25,14 @@ export default function ContactFormPage() {
         !state.errors.number ||
         !state.errors.message
       ) {
-        return;
-      } else {
         toast.success("", {
           description:
             "Your request sent successfully, someone will be in touch with you as soon as possible",
+        });
+      } else {
+        toast.error("", {
+          description:
+            "There was a problem processing your query, please try again later",
         });
       }
     });
