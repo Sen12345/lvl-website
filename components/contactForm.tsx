@@ -23,7 +23,7 @@ export default function ContactFormPage() {
         !state.errors.fullname ||
         !state.errors.email ||
         !state.errors.number ||
-        !state.errors.number
+        !state.errors.message
       ) {
         return;
       } else {
