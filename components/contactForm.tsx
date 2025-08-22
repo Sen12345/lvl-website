@@ -80,7 +80,7 @@ export default function ContactFormPage() {
             name="message"
             rows={3}
             className="pl-4 w-full py-4  text-black bg-white opacity-40  rounded-none focus:opacity-100 hover:opacity-100  border-l-4 border-lime-400 border-opacity-100"
-            placeholder="Your Maeeage"
+            placeholder="Your Message"
           />
           {state?.errors?.message && (
             <p className="text-red-500">{state.errors.message}</p>
