@@ -24,7 +24,7 @@ export async function contactFormAction(
   const message = formData.get("message") as string;
 
   const { data, error } = await resend.emails.send({
-    from: "senatorcox@londonvibes.net",
+    from: "queries@londonvibes.net",
     to: "senatorcox90@gmail.com",
     subject: `Client Request From LVL`,
     react: `${fullname}`,
