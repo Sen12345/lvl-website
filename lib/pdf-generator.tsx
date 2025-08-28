@@ -9,7 +9,7 @@ export const generatePDF = (invoice: InvoiceData) => {
   // Title
   // doc.setFontSize(24);
   // doc.text("INVOICE", 20, y);
-  doc.addImage(imgData, "PNG", 20, 20, 15, 15);
+  doc.addImage(imgData, "PNG", 20, 20, 12, 10);
   doc.setFontSize(12);
   doc.text(`INVOICE # ${invoice.invoiceNumber}`, 120, y);
   y += 20;

@@ -1,25 +1,25 @@
-"use client";
+// "use client";
+
 import { Download } from "lucide-react";
 import { Button } from "./ui/button";
 import { Card, CardContent } from "./ui/card";
 import { useInvoice } from "@/context/invoice-context";
-import { generatePDF } from "@/lib/pdf-generator";
-import { useState } from "react";
 import { formatDate } from "@/lib/utils";
+import { generatePDF } from "@/lib/pdf-generator";
+// import { useState } from "react";
 
 interface InvoicePreviewProps {
-  onBack: (generatePDF: any) => void;
+  onBack: () => void;
 }
 
-const InvoicePreview = ({ onBack }: InvoicePreviewProps) => {
+export default function InvoicePreview({ onBack }: InvoicePreviewProps) {
   const { invoice } = useInvoice();
-  const [pdfUrl, setPdfUrl] = useState<string | null>(null);
+  // const [pdfUrl, setPdfUrl] = useState<string | null>(null);
 
   const handleDownloadPDF = () => {
-    const url = generatePDF(invoice);
-    // console.log(url);
-    setPdfUrl(url);
+    generatePDF(invoice);
   };
+
   return (
     <div className="min-h-screen bg-gray-50 p-4">
       <div className="max-w-4xl mx-auto">
@@ -29,37 +29,35 @@ const InvoicePreview = ({ onBack }: InvoicePreviewProps) => {
             <Button variant="outline" onClick={onBack}>
               Back to Edit
             </Button>
-            <Button variant="outline" onClick={handleDownloadPDF}>
+            <Button onClick={handleDownloadPDF}>
               <Download className="w-4 h-4 mr-2" />
               Download PDF
             </Button>
           </div>
         </div>
 
-        {pdfUrl && (
-          <div className="p-8 border rounded-lg overflow-hidden">
-            <iframe src={pdfUrl} width="100%" height="1000px" />
+        {/* {pdfUrl && (
+          <div className="mt-4 border rounded-lg overflow-hidden">
+            <iframe src={pdfUrl} width="100%" height="600px" />
           </div>
-        )}
+        )} */}
 
         <Card>
           <CardContent className="p-8">
-            {/*Invoice Header*/}
+            {/* Invoice Header */}
             <div className="flex justify-between items-start mb-8">
               <div>
                 <h2 className="text-3xl font-bold mb-2">INVOICE</h2>
-                <p className="text-sm text-gray-600">
-                  #{invoice.invoiceNumber}
-                </p>
+                <p className="text-gray-600">#{invoice.invoiceNumber}</p>
               </div>
               <div className="text-right">
                 <p className="text-sm text-gray-600">
-                  Date:{formatDate(invoice.date)}
+                  Date: {formatDate(invoice.date)}
                 </p>
               </div>
             </div>
 
-            {/*From/To*/}
+            {/* From/To */}
             <div className="grid grid-cols-2 gap-8 mb-8">
               <div>
                 <h3 className="font-semibold mb-2">From:</h3>
@@ -72,6 +70,8 @@ const InvoicePreview = ({ onBack }: InvoicePreviewProps) => {
                 <p className="text-gray-600">{invoice.toEmail}</p>
               </div>
             </div>
+
+            {/* Items Table */}
             <table className="w-full mb-8">
               <thead>
                 <tr className="border-b-2">
@@ -83,18 +83,18 @@ const InvoicePreview = ({ onBack }: InvoicePreviewProps) => {
               </thead>
               <tbody>
                 {invoice.items.map((item) => (
-                  <tr className="border-b" key={item.id}>
+                  <tr key={item.id} className="border-b">
                     <td className="py-2">{item.description}</td>
                     <td className="py-2 text-center">{item.quantity}</td>
                     <td className="py-2 text-right">
-                      £
+                      $
                       {typeof item.rate === "number"
                         ? item.rate.toFixed(2)
                         : "0.00"}
                     </td>
                     <td className="py-2 text-right">
-                      £
-                      {typeof item.rate === "number"
+                      $
+                      {typeof item.amount === "number"
                         ? item.amount.toFixed(2)
                         : "0.00"}
                     </td>
@@ -102,24 +102,25 @@ const InvoicePreview = ({ onBack }: InvoicePreviewProps) => {
                 ))}
               </tbody>
             </table>
-            {/*Totals*/}
+
+            {/* Totals */}
             <div className="flex justify-end">
               <div className="w-64 space-y-2">
                 <div className="flex justify-between">
                   <span>Subtotal:</span>
-                  <span>£{invoice.subtotal.toFixed(2)}</span>
+                  <span>${invoice.subtotal.toFixed(2)}</span>
                 </div>
                 <div className="flex justify-between">
                   <span>
                     Tax (
                     {typeof invoice.taxRate === "number" ? invoice.taxRate : 0}
-                    ):
+                    %):
                   </span>
-                  <span>£{invoice.taxAmount.toFixed(2)}</span>
+                  <span>${invoice.taxAmount.toFixed(2)}</span>
                 </div>
-                <div className="flex justify-between text-bold text-lg border-t pt-2">
+                <div className="flex justify-between font-bold text-lg border-t pt-2">
                   <span>Total:</span>
-                  <span>£{invoice.total.toFixed(2)}</span>
+                  <span>${invoice.total.toFixed(2)}</span>
                 </div>
               </div>
             </div>
@@ -128,6 +129,4 @@ const InvoicePreview = ({ onBack }: InvoicePreviewProps) => {
       </div>
     </div>
   );
-};
-
-export default InvoicePreview;
+}
