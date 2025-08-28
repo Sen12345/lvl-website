@@ -26,7 +26,7 @@ const Header = () => {
               priority={true}
             />
             <span
-              className={`${barlow.className}  text-black mt-[3px] font-bold text-xl ml-2 hover:text-lime-600`}
+              className={`${barlow.className}  text-black mt-[3px] font-bold text-2xl ml-2 hover:text-lime-600`}
             >
               {APP_NAME}
             </span>
