@@ -7,7 +7,7 @@ import { Barlow } from "next/font/google";
 
 const barlow = Barlow({
   subsets: ["latin"],
-  weight: "700",
+  weight: "400",
 });
 
 const Header = () => {
@@ -26,7 +26,7 @@ const Header = () => {
               priority={true}
             />
             <span
-              className={`${barlow.className} text-black mt-[3px] font-bold text-xl ml-2 hover:text-lime-600`}
+              className={`${barlow.className}  text-black mt-[3px] font-bold text-xl ml-2 hover:text-lime-600`}
             >
               {APP_NAME}
             </span>
