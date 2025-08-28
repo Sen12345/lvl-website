@@ -1,7 +1,8 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
+import { InvoiceData } from "@/types/invoice";
 import { clsx, type ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
-import z, { success } from "zod";
+import z from "zod";
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
@@ -43,3 +44,15 @@ export async function formatError(error: any) {
       : JSON.stringify(error.message);
   }
 }
+
+export const formatDate = (dateString: string) => {
+  return new Date(dateString).toLocaleString("en-UK", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  });
+};
+
+export const formatCurrency = (amount: number) => {
+  return `${amount.toFixed(2)}`;
+};
