@@ -1,6 +1,7 @@
 import { InvoiceData } from "@/types/invoice";
 
-export const APP_NAME = process.env.NEXT_PUBLIC_APP_NAME || "London Vibes Ltd";
+export const APP_NAME =
+  process.env.NEXT_PUBLIC_APP_NAME || "London Vibes Limited";
 export const APP_DESCRIPTION =
   process.env.NEXT_PUBLIC_DESCRIPTION || "Web Developer";
 export const SERVER_URL =
