@@ -21,7 +21,7 @@ const Footer = () => {
             </p>
             <p>61 Bromley Road Catford</p>
             <p>London</p>
-            <p>queries@londonvibes.net</p>
+            <p>senator@londonvibes.net</p>
             <p>07473490000</p>
           </div>
         </div>
