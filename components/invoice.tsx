@@ -8,8 +8,7 @@ import { useState } from "react";
 import { formatDate } from "@/lib/utils";
 
 interface InvoicePreviewProps {
-  onBack: () => void;
-  generatePDF: () => void;
+  onBack: (generatePDF: any) => void;
 }
 
 const InvoicePreview = ({ onBack }: InvoicePreviewProps) => {
