@@ -10,31 +10,48 @@ const barlow = Barlow({ subsets: ["latin"], weight: "300" });
 
 const initialState: FormState = {
   errors: {
-    name: "",
+    fullname: "",
+    email: "",
+    number: "",
+    message: "",
   },
 };
 export default function ContactFormPage() {
   const [state, formAction] = useActionState(contactFormAction, initialState);
   const [isPending, startTransition] = useTransition();
 
-  const onSubmit = async () => {
-    startTransition(async () => {
-      if (
-        !state.errors.fullname ||
-        !state.errors.email ||
-        !state.errors.number ||
-        !state.errors.message
-      ) {
-        toast.success("", {
-          description:
-            "Your request sent successfully, someone will be in touch with you as soon as possible",
-        });
-      } else {
+  const onSubmit = () => {
+    console.log(contactFormAction);
+    startTransition(() => {
+      if (state.errors.data && state.errors.fullname) {
         toast.error("", {
           description:
             "There was a problem processing your query, please try again later",
         });
       }
+      if (state.errors.data && state.errors.fullname) {
+        toast.success("", {
+          description:
+            "Query sent successfully, someon will be in touch witjh you as soon as possible",
+        });
+      }
+
+      // if (
+      //   state.errors.fullname ||
+      //   state.errors.email ||
+      //   state.errors.number ||
+      //   state.errors.message
+      // ) {
+      //   toast.error("", {
+      //     description:
+      //       "There was a problem processing your query, please try again later",
+      //   });
+      // } else {
+      //   toast.success("", {
+      //     description:
+      //       "Your request sent successfully, someone will be in touch with you as soon as possible",
+      //   });
+      // }
     });
   };
 

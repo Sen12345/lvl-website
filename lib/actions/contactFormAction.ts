@@ -1,10 +1,10 @@
 "use server";
 export type Errors = {
-  name: string;
   fullname?: string;
   email?: string;
   number?: string;
   message?: string;
+  data?: string;
 };
 export type FormState = {
   errors: Errors;
@@ -23,6 +23,8 @@ export async function contactFormAction(
   const number = formData.get("number") as string;
   const message = formData.get("message") as string;
 
+  // console.log(fullname);
+
   const { data, error } = await resend.emails.send({
     from: "onboarding@resend.dev",
     to: "senatorcox90@gmail.com",
@@ -31,11 +33,14 @@ export async function contactFormAction(
   });
 
   const errors: Errors = {
-    name: "",
+    fullname: "",
+    data: "",
   };
 
   if (!fullname) {
     errors.fullname = "Full name is required";
+  } else {
+    errors.fullname = "";
   }
 
   if (!email) {
@@ -49,9 +54,14 @@ export async function contactFormAction(
     errors.message = "Request message is required";
   }
 
-  if (Object.keys(errors).length > 0 && data?.id) {
-    return { errors, data };
+  if (!data?.id) {
+    errors.data =
+      "There was a problem processing your request please try again later";
   }
 
-  return { errors, data, error };
+  // if (Object.keys(errors).length > 0) {
+  //   return { errors, data };
+  // }
+
+  return { errors };
 }
