@@ -48,7 +48,11 @@ const ContactFormPage = () => {
 
   return (
     <Form {...form}>
-      <form method="POST" onSubmit={form.handleSubmit(onSubmit)}>
+      <form
+        className="w-90"
+        method="POST"
+        onSubmit={form.handleSubmit(onSubmit)}
+      >
         <div
           className={` ${barlow.className} text-center text-3xl pb-2 text-lime-500 focus:txt-white hover:text-white`}
         >
