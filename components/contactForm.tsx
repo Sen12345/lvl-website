@@ -171,7 +171,9 @@ const ContactFormPage = () => {
                     />
                   </div>
                 </FormControl>
-                <FormMessage />
+                <div className="pb-2">
+                  <FormMessage />
+                </div>
               </FormItem>
             )}
           />
