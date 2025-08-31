@@ -74,9 +74,9 @@ const ContactFormPage = () => {
               <FormItem>
                 <FormLabel></FormLabel>
                 <FormControl>
-                  <div className="relative pl-4 w-full px-6 py-4  text-black bg-white opacity-40  rounded-none focus:opacity-100 hover:opacity-100  border-l-4 border-lime-400 border-opacity-100">
+                  <div className="">
                     <input
-                      className="border-none shadow-none w-full p-0 outline-none"
+                      className="pl-4 w-full py-4  text-black bg-white opacity-40  rounded-none focus:opacity-100 hover:opacity-100  border-l-4 border-lime-400 border-opacity-100"
                       placeholder="Full Name"
                       {...field}
                     />
@@ -103,9 +103,9 @@ const ContactFormPage = () => {
               <FormItem>
                 <FormLabel className="pt-2"></FormLabel>
                 <FormControl>
-                  <div className="relative pl-4 w-full px-6 py-4  text-black bg-white opacity-40  rounded-none focus:opacity-100 hover:opacity-100  border-l-4 border-lime-400 border-opacity-100">
+                  <div className="mt-1">
                     <input
-                      className="border-none shadow-none w-full p-0 outline-none"
+                      className="pl-4 w-full py-4  text-black bg-white opacity-40  rounded-none focus:opacity-100 hover:opacity-100  border-l-4 border-lime-400 border-opacity-100"
                       placeholder="Email"
                       {...field}
                     />
@@ -132,9 +132,9 @@ const ContactFormPage = () => {
               <FormItem>
                 <FormLabel className="pt-2"></FormLabel>
                 <FormControl>
-                  <div className="relative pl-4 w-full px-6 py-4  text-black bg-white opacity-40  rounded-none focus:opacity-100 hover:opacity-100  border-l-4 border-lime-400 border-opacity-100">
+                  <div className="mt-1">
                     <input
-                      className="border-none shadow-none w-full p-0 outline-none"
+                      className="pl-4 w-full py-4  text-black bg-white opacity-40  rounded-none focus:opacity-100 hover:opacity-100  border-l-4 border-lime-400 border-opacity-100"
                       placeholder="Contact Number"
                       {...field}
                     />
@@ -159,13 +159,13 @@ const ContactFormPage = () => {
               >;
             }) => (
               <FormItem>
-                <FormLabel className="pt-2"></FormLabel>
+                <FormLabel className="pt-3"></FormLabel>
                 <FormControl>
-                  <div className="relative w-full px-6 py-4 text-black bg-white opacity-40  rounded-none focus:opacity-100 hover:opacity-100  border-l-4 border-lime-400 border-opacity-100">
+                  <div className="">
                     <textarea
-                      cols={20}
-                      rows={3}
-                      className="border-none shadow-none w-full p-0 outline-none"
+                      cols={22}
+                      rows={4}
+                      className="pl-4 w-full py-4  text-black bg-white opacity-40  rounded-none focus:opacity-100 hover:opacity-100  border-l-4 border-lime-400 border-opacity-100"
                       placeholder="Your Message"
                       {...field}
                     />
@@ -177,10 +177,10 @@ const ContactFormPage = () => {
           />
         </div>
 
-        <div className="w-full my-4 ">
+        <div className="w-full my-3 ">
           <Button
             type="submit"
-            className="p-7  w-full hover:text-white focus:text-white hover:bg-lime-500 get-in-touch rounded-none text-black bg-lime-500  transition-colors    cursor-pointer  hover:opacity-100 "
+            className="px-7 py-8 w-full hover:text-white focus:text-white hover:bg-lime-500 get-in-touch rounded-none text-black bg-lime-500  transition-colors    cursor-pointer  hover:opacity-100 "
           >
             {form.formState.isSubmitting ? (
               <div className="flex flex-row justify-center items-center">
