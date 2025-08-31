@@ -74,9 +74,9 @@ const ContactFormPage = () => {
               <FormItem>
                 <FormLabel></FormLabel>
                 <FormControl>
-                  <div className="relative pl-4 w-full px-6 py-2  text-black bg-white opacity-40  rounded-none focus:opacity-100 hover:opacity-100  border-l-4 border-lime-400 border-opacity-100">
-                    <Input
-                      className="border-none shadow-none"
+                  <div className="relative pl-4 w-full px-6 py-4  text-black bg-white opacity-40  rounded-none focus:opacity-100 hover:opacity-100  border-l-4 border-lime-400 border-opacity-100">
+                    <input
+                      className="border-none shadow-none w-full p-0 outline-none"
                       placeholder="Full Name"
                       {...field}
                     />
@@ -103,9 +103,9 @@ const ContactFormPage = () => {
               <FormItem>
                 <FormLabel className="pt-2"></FormLabel>
                 <FormControl>
-                  <div className="relative pl-4 w-full px-6 py-2  text-black bg-white opacity-40  rounded-none focus:opacity-100 hover:opacity-100  border-l-4 border-lime-400 border-opacity-100">
-                    <Input
-                      className="border-none shdow-none"
+                  <div className="relative pl-4 w-full px-6 py-4  text-black bg-white opacity-40  rounded-none focus:opacity-100 hover:opacity-100  border-l-4 border-lime-400 border-opacity-100">
+                    <input
+                      className="border-none shadow-none w-full p-0 outline-none"
                       placeholder="Email"
                       {...field}
                     />
@@ -132,9 +132,9 @@ const ContactFormPage = () => {
               <FormItem>
                 <FormLabel className="pt-2"></FormLabel>
                 <FormControl>
-                  <div className="relative pl-4 w-full px-6 py-2  text-black bg-white opacity-40  rounded-none focus:opacity-100 hover:opacity-100  border-l-4 border-lime-400 border-opacity-100">
-                    <Input
-                      className="border-none shadow-none"
+                  <div className="relative pl-4 w-full px-6 py-4  text-black bg-white opacity-40  rounded-none focus:opacity-100 hover:opacity-100  border-l-4 border-lime-400 border-opacity-100">
+                    <input
+                      className="border-none shadow-none w-full p-0 outline-none"
                       placeholder="Contact Number"
                       {...field}
                     />
@@ -161,11 +161,11 @@ const ContactFormPage = () => {
               <FormItem>
                 <FormLabel className="pt-2"></FormLabel>
                 <FormControl>
-                  <div className="relative pl-4 w-full px-6 py-2 text-black bg-white opacity-40  rounded-none focus:opacity-100 hover:opacity-100  border-l-4 border-lime-400 border-opacity-100">
+                  <div className="relative w-full px-6 py-4 text-black bg-white opacity-40  rounded-none focus:opacity-100 hover:opacity-100  border-l-4 border-lime-400 border-opacity-100">
                     <textarea
                       cols={20}
                       rows={3}
-                      className="border-none shadow-none"
+                      className="border-none shadow-none w-full p-0 outline-none"
                       placeholder="Your Message"
                       {...field}
                     />
