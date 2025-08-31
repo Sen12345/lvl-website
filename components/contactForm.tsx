@@ -101,9 +101,9 @@ const ContactFormPage = () => {
               >;
             }) => (
               <FormItem>
-                <FormLabel className="pt-2"></FormLabel>
+                <FormLabel className=""></FormLabel>
                 <FormControl>
-                  <div className="mt-1">
+                  <div className="">
                     <input
                       className="pl-4 w-full py-4  text-black bg-white opacity-40  rounded-none focus:opacity-100 hover:opacity-100  border-l-4 border-lime-400 border-opacity-100"
                       placeholder="Email"
@@ -130,9 +130,9 @@ const ContactFormPage = () => {
               >;
             }) => (
               <FormItem>
-                <FormLabel className="pt-2"></FormLabel>
+                <FormLabel className=""></FormLabel>
                 <FormControl>
-                  <div className="mt-1">
+                  <div className="">
                     <input
                       className="pl-4 w-full py-4  text-black bg-white opacity-40  rounded-none focus:opacity-100 hover:opacity-100  border-l-4 border-lime-400 border-opacity-100"
                       placeholder="Contact Number"
@@ -159,7 +159,7 @@ const ContactFormPage = () => {
               >;
             }) => (
               <FormItem>
-                <FormLabel className="pt-3"></FormLabel>
+                <FormLabel className=""></FormLabel>
                 <FormControl>
                   <div className="">
                     <textarea
@@ -177,7 +177,7 @@ const ContactFormPage = () => {
           />
         </div>
 
-        <div className="w-full my-3 ">
+        <div className="w-full my-[2px] ">
           <Button
             type="submit"
             className="px-7 py-8 w-full hover:text-white focus:text-white hover:bg-lime-500 get-in-touch rounded-none text-black bg-lime-500  transition-colors    cursor-pointer  hover:opacity-100 "
