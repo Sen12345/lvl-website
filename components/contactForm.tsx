@@ -77,7 +77,7 @@ const ContactFormPage = () => {
                   <div className="relative pl-4 w-full px-6 py-2  text-black bg-white opacity-40  rounded-none focus:opacity-100 hover:opacity-100  border-l-4 border-lime-400 border-opacity-100">
                     <Input
                       className="border-none shadow-none"
-                      placeholder="Your full name"
+                      placeholder="Full Name"
                       {...field}
                     />
                   </div>
@@ -106,7 +106,7 @@ const ContactFormPage = () => {
                   <div className="relative pl-4 w-full px-6 py-2  text-black bg-white opacity-40  rounded-none focus:opacity-100 hover:opacity-100  border-l-4 border-lime-400 border-opacity-100">
                     <Input
                       className="border-none shdow-none"
-                      placeholder="Your your email"
+                      placeholder="Email"
                       {...field}
                     />
                   </div>
@@ -135,7 +135,7 @@ const ContactFormPage = () => {
                   <div className="relative pl-4 w-full px-6 py-2  text-black bg-white opacity-40  rounded-none focus:opacity-100 hover:opacity-100  border-l-4 border-lime-400 border-opacity-100">
                     <Input
                       className="border-none shadow-none"
-                      placeholder="Your contact number"
+                      placeholder="Contact Number"
                       {...field}
                     />
                   </div>
@@ -166,7 +166,7 @@ const ContactFormPage = () => {
                       cols={20}
                       rows={3}
                       className="border-none shadow-none"
-                      placeholder="Your message here"
+                      placeholder="Your Message"
                       {...field}
                     />
                   </div>
