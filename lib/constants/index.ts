@@ -31,6 +31,13 @@ export const blogDefaultValues = {
   images: [],
 };
 
+export const contactDefaultValues = {
+  fullName: "",
+  email: "",
+  number: "",
+  message: "",
+};
+
 export const initialInvoiceData: InvoiceData = {
   invoiceNumber: `INV-${Date.now()}`,
   date: new Date().toISOString().split("T")[0],

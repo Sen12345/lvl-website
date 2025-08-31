@@ -1,127 +1,196 @@
 "use client";
-import { useActionState, useTransition } from "react";
+
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/components/ui/form";
+import { Input } from "@/components/ui/input";
+import { contactFormSchema } from "@/lib/validations";
+import { zodResolver } from "@hookform/resolvers/zod";
 import { Barlow } from "next/font/google";
+import { useRouter } from "next/navigation";
+import { ControllerRenderProps, useForm } from "react-hook-form";
+import z from "zod";
 import { Button } from "@/components/ui/button";
-import { Loader } from "lucide-react";
-import { contactFormAction, FormState } from "@/lib/actions/contactFormAction";
 import { toast } from "sonner";
+import { contactFormAction } from "@/lib/actions/contactFormAction";
+import { contactDefaultValues } from "@/lib/constants";
+import { Loader } from "lucide-react";
 
 const barlow = Barlow({ subsets: ["latin"], weight: "300" });
 
-const initialState: FormState = {
-  errors: {
-    fullname: "",
-    email: "",
-    number: "",
-    message: "",
-  },
-};
-export default function ContactFormPage() {
-  const [state, formAction] = useActionState(contactFormAction, initialState);
-  const [isPending, startTransition] = useTransition();
+const ContactFormPage = () => {
+  const router = useRouter();
 
-  const onSubmit = () => {
-    console.log(contactFormAction);
-    startTransition(() => {
-      if (state.errors.data && state.errors.fullname) {
-        toast.error("", {
-          description:
-            "There was a problem processing your query, please try again later",
-        });
-      }
-      if (state.errors.data && state.errors.fullname) {
-        toast.success("", {
-          description:
-            "Query sent successfully, someon will be in touch witjh you as soon as possible",
-        });
-      }
+  const form = useForm<z.infer<typeof contactFormSchema>>({
+    resolver: zodResolver(contactFormSchema),
+    defaultValues: contactDefaultValues,
+  });
 
-      // if (
-      //   state.errors.fullname ||
-      //   state.errors.email ||
-      //   state.errors.number ||
-      //   state.errors.message
-      // ) {
-      //   toast.error("", {
-      //     description:
-      //       "There was a problem processing your query, please try again later",
-      //   });
-      // } else {
-      //   toast.success("", {
-      //     description:
-      //       "Your request sent successfully, someone will be in touch with you as soon as possible",
-      //   });
-      // }
-    });
+  const onSubmit = async (values: z.infer<typeof contactFormSchema>) => {
+    try {
+      const res = await contactFormAction(values);
+
+      if (!res.success) return toast.error("", { description: res.message });
+
+      toast.success("", { description: res.message });
+
+      form.reset();
+      router.push("/");
+    } catch (error) {
+      toast.error("", { description: (error as Error).message });
+    }
   };
 
   return (
-    <div className={`${barlow.className} w-90`}>
-      <form onSubmit={onSubmit} action={formAction}>
-        <div className="text-center text-4xl pb-2 text-lime-500 focus:txt-white hover:text-white">
+    <Form {...form}>
+      <form method="POST" onSubmit={form.handleSubmit(onSubmit)}>
+        <div
+          className={` ${barlow.className} text-center text-3xl pb-2 text-lime-500 focus:txt-white hover:text-white`}
+        >
           Your Query
         </div>
-        <div className="my-2">
-          <input
-            type="text"
-            name="fullname"
-            className="pl-4 w-full py-4  text-black bg-white opacity-40  rounded-none focus:opacity-100 hover:opacity-100  border-l-4 border-lime-400 border-opacity-100"
-            placeholder="Full Name"
+        {/*Full Name*/}
+        <div className="w-full">
+          <FormField
+            control={form.control}
+            name="fullName"
+            render={({
+              field,
+            }: {
+              field: ControllerRenderProps<
+                z.infer<typeof contactFormSchema>,
+                "fullName"
+              >;
+            }) => (
+              <FormItem>
+                <FormLabel></FormLabel>
+                <FormControl>
+                  <div className="relative pl-4 w-full px-6 py-2  text-black bg-white opacity-40  rounded-none focus:opacity-100 hover:opacity-100  border-l-4 border-lime-400 border-opacity-100">
+                    <Input
+                      className="border-none shadow-none"
+                      placeholder="Your full name"
+                      {...field}
+                    />
+                  </div>
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
           />
-          {state?.errors?.fullname && (
-            <p className="text-red-500">{state.errors.fullname}</p>
-          )}
         </div>
-        <div className="my-2">
-          <input
-            type="email"
+        {/*Email*/}
+        <div className="w-full">
+          <FormField
+            control={form.control}
             name="email"
-            className="pl-4 w-full py-4  text-black bg-white opacity-40  rounded-none focus:opacity-100 hover:opacity-100  border-l-4 border-lime-400 border-opacity-100"
-            placeholder="Email"
+            render={({
+              field,
+            }: {
+              field: ControllerRenderProps<
+                z.infer<typeof contactFormSchema>,
+                "email"
+              >;
+            }) => (
+              <FormItem>
+                <FormLabel className="pt-2"></FormLabel>
+                <FormControl>
+                  <div className="relative pl-4 w-full px-6 py-2  text-black bg-white opacity-40  rounded-none focus:opacity-100 hover:opacity-100  border-l-4 border-lime-400 border-opacity-100">
+                    <Input
+                      className="border-none shdow-none"
+                      placeholder="Your your email"
+                      {...field}
+                    />
+                  </div>
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
           />
-          {state?.errors?.email && (
-            <p className="text-red-500">{state.errors.email}</p>
-          )}
         </div>
-        <div className="my-2">
-          <input
-            type="text"
+        {/*Contact number*/}
+        <div className="w-full">
+          <FormField
+            control={form.control}
             name="number"
-            className="pl-4 w-full py-4  text-black bg-white opacity-40  rounded-none focus:opacity-100 hover:opacity-100  border-l-4 border-lime-400 border-opacity-100"
-            placeholder="Your Mobile Number"
+            render={({
+              field,
+            }: {
+              field: ControllerRenderProps<
+                z.infer<typeof contactFormSchema>,
+                "number"
+              >;
+            }) => (
+              <FormItem>
+                <FormLabel className="pt-2"></FormLabel>
+                <FormControl>
+                  <div className="relative pl-4 w-full px-6 py-2  text-black bg-white opacity-40  rounded-none focus:opacity-100 hover:opacity-100  border-l-4 border-lime-400 border-opacity-100">
+                    <Input
+                      className="border-none shadow-none"
+                      placeholder="Your contact number"
+                      {...field}
+                    />
+                  </div>
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
           />
-          {state?.errors?.number && (
-            <p className="text-red-500">{state.errors.number}</p>
-          )}
         </div>
-        <div className="mt-2 mb-1">
-          <textarea
-            cols={20}
+        {/*Message*/}
+        <div className="w-full">
+          <FormField
+            control={form.control}
             name="message"
-            rows={3}
-            className="pl-4 w-full py-4  text-black bg-white opacity-40  rounded-none focus:opacity-100 hover:opacity-100  border-l-4 border-lime-400 border-opacity-100"
-            placeholder="Your Message"
+            render={({
+              field,
+            }: {
+              field: ControllerRenderProps<
+                z.infer<typeof contactFormSchema>,
+                "message"
+              >;
+            }) => (
+              <FormItem>
+                <FormLabel className="pt-2"></FormLabel>
+                <FormControl>
+                  <div className="relative pl-4 w-full px-6 py-2 text-black bg-white opacity-40  rounded-none focus:opacity-100 hover:opacity-100  border-l-4 border-lime-400 border-opacity-100">
+                    <textarea
+                      cols={20}
+                      rows={3}
+                      className="border-none shadow-none"
+                      placeholder="Your message here"
+                      {...field}
+                    />
+                  </div>
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
           />
-          {state?.errors?.message && (
-            <p className="text-red-500">{state.errors.message}</p>
-          )}
         </div>
-        <div>
+
+        <div className="w-full my-4 ">
           <Button
             type="submit"
-            className="px-6 py-[36px] lg:py-[28px] hover:text-white focus:text-white hover:bg-lime-500 get-in-touch rounded-none text-black bg-lime-500  transition-colors    cursor-pointer  hover:opacity-100 "
+            className="p-7  w-full hover:text-white focus:text-white hover:bg-lime-500 get-in-touch rounded-none text-black bg-lime-500  transition-colors    cursor-pointer  hover:opacity-100 "
           >
-            {isPending ? (
+            {form.formState.isSubmitting ? (
               <div className="flex flex-row justify-center items-center">
                 <p className="px-4  ">Submitting...</p>
                 <Loader className="w-4 h-4  animate-spin " />
               </div>
             ) : (
-              <div className="text-xl lg:text-lg">Submit Query</div>
+              <div className={`text-xl ${barlow.className}`}>Submit Query</div>
             )}
           </Button>
         </div>
       </form>
-    </div>
+    </Form>
   );
-}
+};
+
+export default ContactFormPage;

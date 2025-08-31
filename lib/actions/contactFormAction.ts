@@ -1,67 +1,60 @@
 "use server";
-export type Errors = {
-  fullname?: string;
-  email?: string;
-  number?: string;
-  message?: string;
-  data?: string;
-};
-export type FormState = {
-  errors: Errors;
-};
 
+import { revalidatePath } from "next/cache";
+import { contactFormSchema } from "../validations";
+import z from "zod";
+import { formatError } from "../utils";
 import { Resend } from "resend";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function contactFormAction(
-  prevState: FormState,
-  formData: FormData
+  contacts: z.infer<typeof contactFormSchema>
 ) {
-  const fullname = formData.get("fullname") as string;
-  const email = formData.get("email") as string;
-  const number = formData.get("number") as string;
-  const message = formData.get("message") as string;
+  try {
+    const { data, error } = await resend.emails.send({
+      from: "LVL Site <onboarding@resend.dev>",
+      to: ["senatorcox90@gmail.com"],
+      subject: "Client Query ",
+      react: `${contacts.fullName}`,
+    });
 
-  // console.log(fullname);
+    // if (error) {
+    //   return Response.json({ error }, { status: 500 });
+    // }
 
-  const { data, error } = await resend.emails.send({
-    from: "onboarding@resend.dev",
-    to: "senatorcox90@gmail.com",
-    subject: `Client Request From LVL`,
-    react: `${fullname}`,
-  });
+    // return Response.json(data);
 
-  const errors: Errors = {
-    fullname: "",
-    data: "",
-  };
+    revalidatePath("/admin/users");
 
-  if (!fullname) {
-    errors.fullname = "Full name is required";
-  } else {
-    errors.fullname = "";
+    return {
+      success: true,
+      message:
+        "Query sent successfully, someone will be intouch with you as soon as possible",
+    };
+  } catch (error) {
+    return { success: false, message: formatError(error) };
   }
-
-  if (!email) {
-    errors.email = "Email is required";
-  }
-
-  if (!number) {
-    errors.number = "Phone number is required";
-  }
-  if (!message) {
-    errors.message = "Request message is required";
-  }
-
-  if (!data?.id) {
-    errors.data =
-      "There was a problem processing your request please try again later";
-  }
-
-  // if (Object.keys(errors).length > 0) {
-  //   return { errors, data };
-  // }
-
-  return { errors };
 }
+
+// import { FormState } from "react-hook-form";
+// import { Resend } from "resend";
+
+// const resend = new Resend(process.env.RESEND_API_KEY);
+
+// export async function contactFormAction(
+//   prevState: FormState,
+//   formData: FormData
+// ) {
+//   const fullname = formData.get("fullname") as string;
+//   const email = formData.get("email") as string;
+//   const number = formData.get("number") as string;
+//   const message = formData.get("message") as string;
+
+//   const { data, error } = await resend.emails.send({
+//     from: "onboarding@resend.dev",
+//     to: "senatorcox90@gmail.com",
+//     subject: `Client Request From LVL`,
+//     react: `${fullname}`,
+//   });
+// }

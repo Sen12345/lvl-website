@@ -7,19 +7,10 @@ import {
   BadgePoundSterlingIcon,
   BarcodeIcon,
   CreditCard,
-  Users,
 } from "lucide-react";
 import { Metadata } from "next";
 import { redirect } from "next/navigation";
 import { FaBlog } from "react-icons/fa6";
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from "components/ui/table";
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
