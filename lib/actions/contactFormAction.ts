@@ -13,9 +13,9 @@ export async function contactFormAction(
 ) {
   try {
     const { data, error } = await resend.emails.send({
-      from: "LVL Site <onboarding@resend.dev>",
+      from: "LVL Website <onboarding@resend.dev>",
       to: ["senatorcox90@gmail.com"],
-      subject: "Client Query ",
+      subject: "Client's Query ",
       react: `${contacts.fullName}`,
     });
 
