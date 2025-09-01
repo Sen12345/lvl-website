@@ -54,7 +54,7 @@ const ContactFormPage = () => {
         onSubmit={form.handleSubmit(onSubmit)}
       >
         <div
-          className={` ${barlow.className} text-center text-3xl pb-2 text-lime-500 focus:txt-white hover:text-white`}
+          className={` ${barlow.className} text-center text-3xl  text-lime-500 focus:txt-white hover:text-white`}
         >
           Your Query
         </div>
