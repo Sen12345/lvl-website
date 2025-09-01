@@ -165,21 +165,19 @@ const ContactFormPage = () => {
                     <textarea
                       cols={22}
                       rows={4}
-                      className="pl-4 w-full py-4  text-black bg-white opacity-40  rounded-none focus:opacity-100 hover:opacity-100  border-l-4 border-lime-400 border-opacity-100"
+                      className="pl-4 w-full pt-4  text-black bg-white opacity-40  rounded-none focus:opacity-100 hover:opacity-100  border-l-4 border-lime-400 border-opacity-100"
                       placeholder="Your Message"
                       {...field}
                     />
                   </div>
                 </FormControl>
-                <div className="pb-2">
-                  <FormMessage />
-                </div>
+                <FormMessage />
               </FormItem>
             )}
           />
         </div>
 
-        <div className="w-full my-[2px] ">
+        <div className="w-full mt-1 ">
           <Button
             type="submit"
             className="px-7 py-8 w-full hover:text-white focus:text-white hover:bg-lime-500 get-in-touch rounded-none text-black bg-lime-500  transition-colors    cursor-pointer  hover:opacity-100 "
