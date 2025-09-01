@@ -65,7 +65,7 @@ export async function createBlog(data: z.infer<typeof insertBlogSchema>) {
       data: blog,
     });
 
-    revalidatePath("/admin/products");
+    revalidatePath("/admin/blogs");
 
     return { success: true, message: "Product created successfully" };
   } catch (error) {
@@ -78,18 +78,18 @@ export async function updateBlog(data: z.infer<typeof updateBlogSchema>) {
   try {
     const blog = updateBlogSchema.parse(data);
 
-    const productExist = await prisma.blog.findFirst({
+    const blogExist = await prisma.blog.findFirst({
       where: { id: blog.id },
     });
 
-    if (!productExist) throw new Error("Product not found");
+    if (!blogExist) throw new Error("Product not found");
 
     await prisma.blog.update({
       where: { id: blog.id },
       data: blog,
     });
 
-    revalidatePath("/admin/products");
+    revalidatePath("/admin/blogs");
 
     return { success: true, message: "Product updated successfully" };
   } catch (error) {

@@ -1,7 +1,7 @@
 "use client";
 
 import { blogDefaultValues } from "@/lib/constants";
-import { insertBlogSchema } from "@/lib/validations";
+import { insertBlogSchema, updateBlogSchema } from "@/lib/validations";
 import { Blog } from "@/types";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useRouter } from "next/navigation";
@@ -39,7 +39,10 @@ const BlogForm = ({
   const router = useRouter();
 
   const form = useForm<z.infer<typeof insertBlogSchema>>({
-    resolver: zodResolver(insertBlogSchema),
+    resolver:
+      type === "Update"
+        ? zodResolver(updateBlogSchema)
+        : zodResolver(insertBlogSchema),
     defaultValues: blog && type === "Update" ? blog : blogDefaultValues,
   });
 
@@ -292,7 +295,7 @@ const BlogForm = ({
             className="button col-span-2 w-full"
             disabled={form.formState.isSubmitting}
           >
-            {form.formState.isSubmitting ? "Submitting" : `${type} Product`}
+            {form.formState.isSubmitting ? "Submitting" : `${type} Blog`}
           </Button>
         </div>
       </form>

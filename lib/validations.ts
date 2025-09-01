@@ -15,6 +15,7 @@ export const contactFormSchema = z.object({
 
 // Schema for inserting products
 export const insertBlogSchema = z.object({
+  id: z.string(),
   userId: z.string().min(1, "User ID must be at least 1 character"),
   headline: z.string().min(3, "Name must be at least 3 characters"),
   slug: z.string().min(3, "Slug must be at least 3 characters"),
@@ -26,7 +27,7 @@ export const insertBlogSchema = z.object({
 
 // Schema for updating products
 export const updateBlogSchema = insertBlogSchema.extend({
-  id: z.string().min(1, "Id is required"),
+  id: z.string(),
   userId: z.string().min(1, "User ID must be at least 1 character"),
   headline: z.string().min(3, "Name must be at least 3 characters"),
   slug: z.string().min(3, "Slug must be at least 3 characters"),
