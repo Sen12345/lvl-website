@@ -35,7 +35,7 @@ const ContactFormPage = () => {
     try {
       const res = await contactFormAction(values);
 
-      if (!res.success) return toast.error("", { description: res.message });
+      if (!res.data?.id) return toast.error("", { description: res.message });
 
       toast.success("", { description: res.message });
 
