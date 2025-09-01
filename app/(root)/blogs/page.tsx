@@ -52,7 +52,7 @@ const Blogs = async () => {
           </div>
         </div>
       </section>
-      <section className="w-full ">
+      <section className="w-full px-2">
         <div id="blogs" className="md:w-8/12 mx-auto my-5 ">
           {blogs.map((blog) => (
             <div
@@ -82,7 +82,7 @@ const Blogs = async () => {
                   quality={80}
                 />
               )}
-              <Card className="flex justify-center rounded-0 items-center my-5">
+              <Card className="flex justify-center rounded-none items-center my-5">
                 <CardTitle>{blog.headline}</CardTitle>
                 <CardContent>{blog.paragraph1}</CardContent>
               </Card>
