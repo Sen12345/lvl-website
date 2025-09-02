@@ -54,7 +54,7 @@ const ContactFormPage = () => {
         onSubmit={form.handleSubmit(onSubmit)}
       >
         <div
-          className={` ${barlow.className} text-center text-3xl  text-lime-500 focus:txt-white hover:text-white`}
+          className={` ${barlow.className} text-center text-3xl md:hidden text-lime-500 focus:txt-white hover:text-white`}
         >
           Your Query
         </div>
@@ -165,10 +165,10 @@ const ContactFormPage = () => {
                     <textarea
                       cols={22}
                       rows={4}
-                      className="pl-4 w-full pt-4  text-black bg-white opacity-40  rounded-none focus:opacity-100 hover:opacity-100  border-l-4 border-lime-400 border-opacity-100"
+                      className="pl-4 w-full pt-4 -mb-2 text-black bg-white opacity-40  rounded-none focus:opacity-100 hover:opacity-100  border-l-4 border-lime-400 border-opacity-100"
                       placeholder="Your Message"
                       {...field}
-                    />
+                    ></textarea>
                   </div>
                 </FormControl>
                 <FormMessage />
@@ -177,7 +177,7 @@ const ContactFormPage = () => {
           />
         </div>
 
-        <div className="w-full mt-1 ">
+        <div className="w-full mt-[10px] ">
           <Button
             type="submit"
             className="px-7 py-8 w-full hover:text-white focus:text-white hover:bg-lime-500 get-in-touch rounded-none text-black bg-lime-500  transition-colors    cursor-pointer  hover:opacity-100 "
