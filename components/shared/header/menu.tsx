@@ -77,23 +77,23 @@ const Menu = () => {
                 <li className="">
                   <ModeToggle />
                 </li>
-                <li className="my-8  focus:bg-lime-300 hover:bg-lime-300 rounded-md  bg-black w-28 px-8 py-3">
+                <li className="my-8  focus:bg-lime-300 hover:bg-lime-300 rounded-md   w-28 px-8 py-3">
                   <Link href="/#contact" className="">
                     Contact
                   </Link>
                 </li>
-                <li className="my-8  focus:bg-lime-300 hover:bg-lime-300 rounded-md  bg-black w-28 px-8 py-3">
+                <li className="my-8  focus:bg-lime-300 hover:bg-lime-300 rounded-md   w-28 px-8 py-3">
                   <Link href="/#about" className="">
                     About
                   </Link>
                 </li>
-                <li className="my-8   focus:bg-lime-300 hover:bg-lime-300 rounded-md  bg-black w-28 px-8 py-3 ">
+                <li className="my-8   focus:bg-lime-300 hover:bg-lime-300 rounded-md   w-28 px-8 py-3 ">
                   <Link href="/#services" className="">
                     Services
                   </Link>
                 </li>
 
-                <li className="my-10  focus:bg-lime-300 hover:bg-lime-300 rounded-md  bg-black w-28 px-8 py-3 ">
+                <li className="my-10  focus:bg-lime-300 hover:bg-lime-300 rounded-md text-white bg-lime-500 w-28 px-8 py-3 ">
                   <Link href="/blogs" className="">
                     Blog
                   </Link>
