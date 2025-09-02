@@ -87,7 +87,7 @@ const Menu = () => {
                     About
                   </Link>
                 </li>
-                <li className="my-8   focus:bg-lime-300 hover:bg-lime-300 rounded-md   w-28 px-8 py-3 ">
+                <li className="my-8   focus:bg-lime-300 hover:bg-lime-300 rounded-md  w-28 px-8 py-3 ">
                   <Link href="/#services" className="">
                     Services
                   </Link>

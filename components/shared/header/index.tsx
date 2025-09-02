@@ -25,11 +25,11 @@ const Header = () => {
               quality={100}
               priority={true}
             />
-            <span
+            {/* <span
               className={`${barlow.className}  text-black mt-1 font-bold text-2xl ml-2 hover:text-lime-600`}
             >
               {APP_NAME}
-            </span>
+            </span> */}
           </Link>
         </div>
         <Menu />
