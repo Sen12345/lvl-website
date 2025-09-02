@@ -24,7 +24,7 @@ const Menu = () => {
           <li className=" px-5 py-[10px]">
             <ModeToggle />
           </li>
-          <li className="mx-2 hover:text-white duration-500">
+          <li className="mx-2 hover:text-white transition-all duration-500 hover:bg-lime-400 focus:bg-lime-400 ">
             <Link
               href="/#contact"
               className="text-black text-center rounded-md px-4 py-[12px] hover:bg-lime-400 focus:bg-lime-400"
@@ -32,7 +32,7 @@ const Menu = () => {
               Contact
             </Link>
           </li>
-          <li className="mx-2 hover:text-white duration-500">
+          <li className="mx-2 hover:text-white transition-all duration-500 hover:bg-lime-400 focus:bg-lime-400 ">
             <Link
               href="/#about"
               className="text-black text-center rounded-md px-4 py-[12px] hover:bg-lime-400 focus:bg-lime-400"
@@ -40,7 +40,7 @@ const Menu = () => {
               About
             </Link>
           </li>
-          <li className="mx-2 hover:text-white duration-500">
+          <li className="mx-2 hover:text-white transition-all duration-500  hover:bg-lime-400 focus:bg-lime-400 ">
             <Link
               href="/#services"
               className="text-black text-center px-4 rounded-md py-[12px] hover:bg-lime-400 focus:bg-lime-400"
@@ -49,7 +49,7 @@ const Menu = () => {
             </Link>
           </li>
 
-          <li className="hover:text-white  duration-500">
+          <li className="hover:text-white  duration-500 hover:bg-lime-400 focus:bg-lime-400 ">
             <Link
               href="/blogs"
               className="bg-lime-500 text-center px-8 py-[12px] rounded-md hover:bg-lime-400 focus:bg-lime-400  text-black"
