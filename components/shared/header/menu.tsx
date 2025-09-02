@@ -77,40 +77,28 @@ const Menu = () => {
                 <li className="">
                   <ModeToggle />
                 </li>
-                <li className="my-8 flex-1 ">
-                  <Link
-                    href="/#contact"
-                    className="py-4 px-8 rounded-md focus:bg-lime-300"
-                  >
+                <li className="my-8  focus:bg-lime-300 hover:bg-lime-300 rounded-md  bg-black w-28 px-8 py-3">
+                  <Link href="/#contact" className="">
                     Contact
                   </Link>
                 </li>
-                <li className="my-8 flex-1 ">
-                  <Link
-                    href="/#about"
-                    className="py-4 rounded-md px-8 focus:bg-lime-300"
-                  >
+                <li className="my-8  focus:bg-lime-300 hover:bg-lime-300 rounded-md  bg-black w-28 px-8 py-3">
+                  <Link href="/#about" className="">
                     About
                   </Link>
                 </li>
-                <li className="my-8  flex-1 ">
-                  <Link
-                    href="/#services"
-                    className="py-4 px-8 rounded-md focus:bg-lime-300"
-                  >
+                <li className="my-8   focus:bg-lime-300 hover:bg-lime-300 rounded-md  bg-black w-28 px-8 py-3 ">
+                  <Link href="/#services" className="">
                     Services
                   </Link>
                 </li>
 
-                <li className="my-10 flex-1 ">
-                  <Link
-                    href="/blogs"
-                    className="py-4 px-12  bg-lime-400 rounded-md focus:bg-lime-300"
-                  >
+                <li className="my-10  focus:bg-lime-300 hover:bg-lime-300 rounded-md  bg-black w-28 px-8 py-3 ">
+                  <Link href="/blogs" className="">
                     Blog
                   </Link>
                 </li>
-                <li className=" text-center  ">
+                <li className=" text-center ">
                   <UserButton />
                 </li>
               </ul>
