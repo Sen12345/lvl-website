@@ -29,14 +29,12 @@ const UserButton = async () => {
       {session?.user?.role === "admin" && (
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
-            <div className="items-center">
-              <Button
-                variant="ghost"
-                className="relative w-10 h-10 rounded-full ml-2 flex items-center justify-center bg-lime-500"
-              >
-                {firstInitial}
-              </Button>
-            </div>
+            <Button
+              variant="ghost"
+              className="relative w-10 h-10 rounded-full ml-2 flex items-center justify-center bg-lime-500"
+            >
+              {firstInitial}
+            </Button>
           </DropdownMenuTrigger>
           <DropdownMenuContent className="w-56" align="end" forceMount>
             <DropdownMenuLabel className="font-normal">
@@ -70,5 +68,4 @@ const UserButton = async () => {
     </div>
   );
 };
-
 export default UserButton;

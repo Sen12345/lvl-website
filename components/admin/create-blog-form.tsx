@@ -1,118 +1,291 @@
-// "use client";
-// import { useActionState, useTransition } from "react";
-// import { Barlow } from "next/font/google";
-// import { Button } from "@/components/ui/button";
-// import { Loader } from "lucide-react";
-// import { contactFormAction, FormState } from "@/lib/actions/contactFormAction";
-// import { toast } from "sonner";
+"use client";
 
-// const barlow = Barlow({ subsets: ["latin"], weight: "300" });
+import { blogDefaultValues } from "@/lib/constants";
+import { createBlogSchema } from "@/lib/validations";
+import { Blog } from "@/types";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useRouter } from "next/navigation";
+import { ControllerRenderProps, SubmitHandler, useForm } from "react-hook-form";
+import { toast } from "sonner";
+import { z } from "zod";
+import Image from "next/image";
 
-// const initialState: FormState = {
-//   errors: {},
-// };
-// export default function CreateBlogForm() {
-//   const [state, formAction] = useActionState(contactFormAction, initialState);
-//   const [isPending, startTransition] = useTransition();
+import {
+  Form,
+  FormField,
+  FormItem,
+  FormControl,
+  FormLabel,
+  FormMessage,
+} from "@/components/ui/form";
+import slugify from "slugify";
+import { Input } from "@/components/ui/input";
+import { createBlog } from "@/lib/actions/blog.actions";
+import { Button } from "@/components/ui/button";
+import { UploadButton } from "@/lib/uploadthing";
+import { Card } from "@/components/ui/card";
+import { CardContent } from "../ui/card";
 
-//   const onSubmit = async () => {
-//     startTransition(async () => {
-//       if (
-//         !state.errors.headline ||
-//         !state.errors.paragraph1 ||
-//         !state.errors.paragraph2 ||
-//         !state.errors.bloglinks
-//         // !state.errors.images
-//       ) {
-//         return;
-//       } else {
-//         toast.success("", {
-//           description: "Blogs created successfully",
-//         });
-//       }
-//     });
-//   };
+const CreateBlogForm = ({
+  type,
+  blog,
+  blogId,
+}: {
+  type: "Create";
+  blog?: Blog;
+  blogId?: string;
+}) => {
+  const router = useRouter();
 
-//   return (
-//     <div
-//       className={`${barlow.className} w-full flex justify-center items-center`}
-//     >
-//       <form onSubmit={onSubmit} action={formAction}>
-//         <div className="text-center text-4xl pb-2 text-lime-500 focus:txt-white hover:text-white">
-//           Create New Blog
-//         </div>
-//         <div className="my-2">
-//           <input
-//             type="text"
-//             name="headline"
-//             className="pl-4 w-full py-4 border-2 text-black bg-white opacity-40  rounded-none focus:opacity-100 hover:opacity-100  border-l-4 border-lime-400 border-opacity-100"
-//             placeholder="Blog Title"
-//           />
-//           {state?.errors.headline && (
-//             <p className="text-red-500">{state.errors.headline}</p>
-//           )}
-//         </div>
-//         <div className="my-2">
-//           <input
-//             type="text"
-//             name="paragraph1"
-//             className="pl-4 w-full py-4  text-black border-2 bg-white opacity-40  rounded-none focus:opacity-100 hover:opacity-100  border-l-4 border-lime-400 border-opacity-100"
-//             placeholder="Paragraph 1"
-//           />
-//           {state?.errors?.paragraph1 && (
-//             <p className="text-red-500">{state.errors.paragraph1}</p>
-//           )}
-//         </div>
-//         <div className="my-2">
-//           <input
-//             type="text"
-//             name="paragraph2"
-//             className="pl-4 w-full py-4  text-black border-2 bg-white opacity-40  rounded-none focus:opacity-100 hover:opacity-100  border-l-4 border-lime-400 border-opacity-100"
-//             placeholder="Paragraph 2"
-//           />
-//           {state?.errors?.paragraph2 && (
-//             <p className="text-red-500">{state.errors.paragraph2}</p>
-//           )}
-//         </div>
-//         <div className="mt-2 mb-1">
-//           <textarea
-//             cols={20}
-//             name="bloglinks"
-//             rows={4}
-//             className="pl-4 w-full py-4 border-2 text-black bg-white opacity-40  rounded-none focus:opacity-100 hover:opacity-100  border-l-4 border-lime-400 border-opacity-100"
-//             placeholder="A Url Link"
-//           />
-//           {state?.errors?.bloglinks && (
-//             <p className="text-red-500">{state.errors.bloglinks}</p>
-//           )}
-//         </div>
-//         {/* <div className="my-2">
-//           <input
-//             type="file"
-//             name="images[]"
-//             className="pl-4 w-full py-4 border-2 text-black bg-white opacity-40  rounded-none focus:opacity-100 hover:opacity-100  border-l-4 border-lime-400 border-opacity-100"
-//             placeholder="Blog Image"
-//           />
-//           {state?.errors?.images && (
-//             <p className="text-red-500">{state.errors.images[0]}</p>
-//           )}
-//         </div> */}
-//         <div>
-//           <Button
-//             type="submit"
-//             className="px-6 py-[28px]  hover:text-white focus:text-white hover:bg-lime-500 get-in-touch rounded-none text-black bg-lime-500  transition-colors    cursor-pointer  hover:opacity-100 "
-//           >
-//             {isPending ? (
-//               <div className="flex flex-row justify-center items-center">
-//                 <p className="px-4  ">Submitting...</p>
-//                 <Loader className="w-4 h-4  animate-spin " />
-//               </div>
-//             ) : (
-//               <div className="text-xl lg:text-lg">Submit Query</div>
-//             )}
-//           </Button>
-//         </div>
-//       </form>
-//     </div>
-//   );
-// }
+  const form = useForm<z.infer<typeof createBlogSchema>>({
+    resolver: zodResolver(createBlogSchema),
+    defaultValues: blogDefaultValues,
+  });
+
+  const onSubmit: SubmitHandler<z.infer<typeof createBlogSchema>> = async (
+    values
+  ) => {
+    // On update
+    if (type === "Create") {
+      if (!blogId) {
+        router.push("/admin/blogs");
+        return;
+      }
+      const res = await createBlog({ ...values, id: blogId });
+      if (!res.success) {
+        toast.error("", { description: res.message });
+      } else {
+        toast.success("", { description: "Blog created successfully" });
+        router.push("/admin/blogs");
+      }
+    }
+  };
+
+  const images = form.watch("images");
+  // const isFeatured = form.watch("isFeatured");
+  // const banner = form.watch("banner");
+
+  return (
+    <Form {...form}>
+      <form
+        method="POST"
+        onSubmit={form.handleSubmit(onSubmit)}
+        className="space-y-8 w-full"
+      >
+        <div className="flex flex-col md:flex-row gap-5 ">
+          <div className="w-full">
+            <FormField
+              control={form.control}
+              name="headline"
+              render={({
+                field,
+              }: {
+                field: ControllerRenderProps<
+                  z.infer<typeof createBlogSchema>,
+                  "headline"
+                >;
+              }) => (
+                <FormItem>
+                  <FormLabel>Blog Headline</FormLabel>
+                  <FormControl>
+                    <div className="relative">
+                      <Input
+                        placeholder="Enter a headline for your blog"
+                        {...field}
+                      />
+                    </div>
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+          </div>
+        </div>
+        <div className="flex flex-col md:flex-row gap-5 ">
+          <div className="w-full">
+            <FormField
+              control={form.control}
+              name="slug"
+              render={({
+                field,
+              }: {
+                field: ControllerRenderProps<
+                  z.infer<typeof createBlogSchema>,
+                  "slug"
+                >;
+              }) => (
+                <FormItem>
+                  <FormLabel>Slug</FormLabel>
+                  <FormControl>
+                    <div className="relative">
+                      <Input placeholder="Enter blog slug" {...field} />
+                      <Button
+                        type="button"
+                        className="bg-gray-500 hover-bg-gray-600 text-white px-4 py-1 mt-2 "
+                        onClick={() => {
+                          form.setValue(
+                            "slug",
+                            slugify(form.getValues("headline"), { lower: true })
+                          );
+                        }}
+                      >
+                        Generate
+                      </Button>
+                    </div>
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+          </div>
+        </div>
+        <div className="flex flex-col md:flex-row gap-5">
+          <div className="w-full">
+            <FormField
+              control={form.control}
+              name="paragraph1"
+              render={({
+                field,
+              }: {
+                field: ControllerRenderProps<
+                  z.infer<typeof createBlogSchema>,
+                  "paragraph1"
+                >;
+              }) => (
+                <FormItem>
+                  <FormLabel>Paragraph 1</FormLabel>
+                  <FormControl>
+                    <div>
+                      <Input
+                        placeholder="Enter paragraph 1 of your blog posts"
+                        {...field}
+                      />
+                    </div>
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+          </div>
+        </div>
+        <div className="flex flex-col md:flex-row gap-5 ">
+          <div className="w-full">
+            <FormField
+              control={form.control}
+              name="paragraph2"
+              render={({
+                field,
+              }: {
+                field: ControllerRenderProps<
+                  z.infer<typeof createBlogSchema>,
+                  "paragraph2"
+                >;
+              }) => (
+                <FormItem>
+                  <FormLabel>Paragraph 2</FormLabel>
+                  <FormControl>
+                    <div>
+                      <Input
+                        placeholder="Enter paragraph 2 of your blog posts"
+                        {...field}
+                      />
+                    </div>
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+          </div>
+        </div>
+        <div className="flex flex-col md:flex-row gap-5">
+          <div className="w-full">
+            <FormField
+              control={form.control}
+              name="bloglinks"
+              render={({
+                field,
+              }: {
+                field: ControllerRenderProps<
+                  z.infer<typeof createBlogSchema>,
+                  "bloglinks"
+                >;
+              }) => (
+                <FormItem>
+                  <FormLabel>Url Link</FormLabel>
+                  <FormControl>
+                    <div>
+                      <Input
+                        placeholder="Enter a Url linke from your blog"
+                        {...field}
+                      />
+                    </div>
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+          </div>
+        </div>
+
+        <div className="flex flex-col md:flex-row gap-5 upload-field">
+          <div className="w-full">
+            <FormField
+              control={form.control}
+              name="images"
+              render={() => (
+                <FormItem>
+                  <FormLabel>Images</FormLabel>
+                  <Card>
+                    <CardContent className="space-y-2 mt-2 min-h-48">
+                      <div className="flex-start space-x-2">
+                        {images.map((image: string) => (
+                          <Image
+                            key={image}
+                            src={image}
+                            alt={image}
+                            className="w-20 h-20 object-cover object-center rounded-sm"
+                            width={100}
+                            height={100}
+                          />
+                        ))}
+                        <FormControl>
+                          <UploadButton
+                            endpoint="imageUploader"
+                            onUploadError={(error: Error) => {
+                              toast.error("", {
+                                description: `ERROR! ${error.message}`,
+                              });
+                            }}
+                            onClientUploadComplete={(
+                              res: { url: string }[]
+                            ) => {
+                              form.setValue("images", [...images, res[0].url]);
+                            }}
+                          />
+                        </FormControl>
+                      </div>
+                    </CardContent>
+                  </Card>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+          </div>
+        </div>
+
+        <div className="upload-field my-4">
+          <Button
+            type="submit"
+            size="lg"
+            className="button col-span-2 w-full"
+            disabled={form.formState.isSubmitting}
+          >
+            {form.formState.isSubmitting ? "Submitting" : `${type} Blog`}
+          </Button>
+        </div>
+      </form>
+    </Form>
+  );
+};
+
+export default CreateBlogForm;

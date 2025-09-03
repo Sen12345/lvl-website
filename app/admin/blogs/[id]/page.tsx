@@ -1,4 +1,4 @@
-import BlogForm from "@/components/admin/blog-form";
+import UpdateBlogForm from "@/components/admin/update-blog-form";
 import { getBlogById } from "@/lib/actions/blog.actions";
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
@@ -13,11 +13,11 @@ const AdminBlogUpdate = async (props: { params: Promise<{ id: string }> }) => {
   const blog = await getBlogById(id);
 
   if (!blog) return notFound();
-
+  console.log(blog.id);
   return (
     <div className="space-y-8 max-w-5xl mx-auto">
       <h2 className="h2">Update Blog</h2>
-      <BlogForm type="Update" blog={blog} blogId={blog.id} />
+      <UpdateBlogForm type="Update" blog={blog} blogId={blog.id} />
     </div>
   );
 };

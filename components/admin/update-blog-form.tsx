@@ -1,7 +1,7 @@
 "use client";
 
 import { blogDefaultValues } from "@/lib/constants";
-import { insertBlogSchema, updateBlogSchema } from "@/lib/validations";
+import { updateBlogSchema } from "@/lib/validations";
 import { Blog } from "@/types";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useRouter } from "next/navigation";
@@ -20,46 +20,31 @@ import {
 } from "@/components/ui/form";
 import slugify from "slugify";
 import { Input } from "@/components/ui/input";
-import { createBlog, updateBlog } from "@/lib/actions/blog.actions";
+import { updateBlog } from "@/lib/actions/blog.actions";
 import { Button } from "@/components/ui/button";
-import { Textarea } from "@/components/ui/textarea";
 import { UploadButton } from "@/lib/uploadthing";
 import { Card } from "@/components/ui/card";
 import { CardContent } from "../ui/card";
 
-const BlogForm = ({
+const UpdateBlogForm = ({
   type,
   blog,
   blogId,
 }: {
-  type: "Create" | "Update";
+  type: "Update";
   blog?: Blog;
   blogId?: string;
 }) => {
   const router = useRouter();
 
-  const form = useForm<z.infer<typeof insertBlogSchema>>({
-    resolver:
-      type === "Update"
-        ? zodResolver(updateBlogSchema)
-        : zodResolver(insertBlogSchema),
-    defaultValues: blog && type === "Update" ? blog : blogDefaultValues,
+  const form = useForm<z.infer<typeof updateBlogSchema>>({
+    resolver: zodResolver(updateBlogSchema),
+    defaultValues: blogDefaultValues,
   });
 
-  const onSubmit: SubmitHandler<z.infer<typeof insertBlogSchema>> = async (
+  const onSubmit: SubmitHandler<z.infer<typeof updateBlogSchema>> = async (
     values
   ) => {
-    // On create
-    if (type === "Create") {
-      const res = await createBlog(values);
-      if (!res.success) {
-        toast.error("", { description: res.message });
-      } else {
-        toast.success("", { description: "Product created successfully" });
-        router.push("/admin/blogs");
-      }
-    }
-
     // On update
     if (type === "Update") {
       if (!blogId) {
@@ -96,7 +81,7 @@ const BlogForm = ({
                 field,
               }: {
                 field: ControllerRenderProps<
-                  z.infer<typeof insertBlogSchema>,
+                  z.infer<typeof updateBlogSchema>,
                   "headline"
                 >;
               }) => (
@@ -125,7 +110,7 @@ const BlogForm = ({
                 field,
               }: {
                 field: ControllerRenderProps<
-                  z.infer<typeof insertBlogSchema>,
+                  z.infer<typeof updateBlogSchema>,
                   "slug"
                 >;
               }) => (
@@ -140,7 +125,7 @@ const BlogForm = ({
                         onClick={() => {
                           form.setValue(
                             "slug",
-                            slugify(form.getValues("slug"), { lower: true })
+                            slugify(form.getValues("headline"), { lower: true })
                           );
                         }}
                       >
@@ -163,7 +148,7 @@ const BlogForm = ({
                 field,
               }: {
                 field: ControllerRenderProps<
-                  z.infer<typeof insertBlogSchema>,
+                  z.infer<typeof updateBlogSchema>,
                   "paragraph1"
                 >;
               }) => (
@@ -192,7 +177,7 @@ const BlogForm = ({
                 field,
               }: {
                 field: ControllerRenderProps<
-                  z.infer<typeof insertBlogSchema>,
+                  z.infer<typeof updateBlogSchema>,
                   "paragraph2"
                 >;
               }) => (
@@ -221,7 +206,7 @@ const BlogForm = ({
                 field,
               }: {
                 field: ControllerRenderProps<
-                  z.infer<typeof insertBlogSchema>,
+                  z.infer<typeof updateBlogSchema>,
                   "bloglinks"
                 >;
               }) => (
@@ -303,4 +288,4 @@ const BlogForm = ({
   );
 };
 
-export default BlogForm;
+export default UpdateBlogForm;

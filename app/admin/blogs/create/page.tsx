@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import BlogForm from "@/components/admin/blog-form";
+import CreateBlogForm from "@/components/admin/create-blog-form";
 // import { requireAdmin } from "@/lib/auth-guard";
 export const metadata: Metadata = {
   title: "Create Blog",
@@ -10,7 +10,7 @@ const CreateBlogPage = async () => {
   return (
     <>
       <div className="flex justify-center">
-        <BlogForm type="Create" />
+        <CreateBlogForm type="Create" />
       </div>
     </>
   );

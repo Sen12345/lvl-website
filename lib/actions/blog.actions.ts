@@ -7,6 +7,7 @@ import { revalidatePath } from "next/cache";
 import { insertBlogSchema, updateBlogSchema } from "../validations";
 import z from "zod";
 import { Prisma } from "@/generated/prisma";
+import { promises as fs } from "fs";
 
 // Get latest products
 export async function getLatestBlogs() {
@@ -95,4 +96,17 @@ export async function updateBlog(data: z.infer<typeof updateBlogSchema>) {
   } catch (error) {
     return { success: false, message: formatError(error) };
   }
+}
+
+// Upload Action
+
+export async function action(formdata: FormData) {
+  const file = formdata.get("file") as File;
+  if (!file || file.size === 0) {
+    return { error: "No file founded" };
+  }
+
+  const data = await file.arrayBuffer();
+
+  await fs.writeFile(`${process.cwd()}/tmp/${file.name}`, Buffer.from(data));
 }
