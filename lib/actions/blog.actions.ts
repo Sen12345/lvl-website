@@ -4,7 +4,7 @@ import { prisma } from "@/db/prisma";
 import { convertToPlainObject, formatError } from "../utils";
 import { LATEST_BLOG_LIMIT, PAGE_SIZE } from "../constants";
 import { revalidatePath } from "next/cache";
-import { insertBlogSchema, updateBlogSchema } from "../validations";
+import { createBlogSchema, updateBlogSchema } from "../validations";
 import z from "zod";
 import { Prisma } from "@/generated/prisma";
 import { promises as fs } from "fs";
@@ -58,9 +58,9 @@ export async function deleteProduct(id: string) {
 }
 
 // Create a product
-export async function createBlog(data: z.infer<typeof insertBlogSchema>) {
+export async function createBlog(data: z.infer<typeof createBlogSchema>) {
   try {
-    const blog = insertBlogSchema.parse(data);
+    const blog = createBlogSchema.parse(data);
 
     await prisma.blog.create({
       data: blog,
