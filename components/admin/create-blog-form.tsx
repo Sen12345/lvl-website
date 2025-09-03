@@ -51,7 +51,7 @@ const CreateBlogForm = ({
         router.push("/admin/blogs");
         return;
       }
-      const res = await createBlog({ ...values, id: blogId });
+      const res = await createBlog(values);
       if (!res.success) {
         toast.error("", { description: res.message });
       } else {
