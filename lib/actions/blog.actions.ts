@@ -100,13 +100,13 @@ export async function updateBlog(data: z.infer<typeof updateBlogSchema>) {
 
 // Upload Action
 
-export async function action(formdata: FormData) {
-  const file = formdata.get("file") as File;
-  if (!file || file.size === 0) {
-    return { error: "No file founded" };
-  }
+// export async function action(formdata: FormData) {
+//   const file = formdata.get("file") as any;
+//   if (!file || file.size === 0) {
+//     return { error: "No file founded" };
+//   }
 
-  const data = await file.arrayBuffer();
+//   const data = await file.arrayBuffer();
 
-  await fs.writeFile(`${process.cwd()}/tmp/${file.name}`, Buffer.from(data));
-}
+//   await fs.writeFile(`${process.cwd()}/tmp/${file.name}`, Buffer.from(data));
+// }
