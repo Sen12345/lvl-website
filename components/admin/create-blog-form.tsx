@@ -26,12 +26,12 @@ import { UploadButton } from "@/lib/uploadthing";
 import { Card } from "@/components/ui/card";
 import { CardContent } from "../ui/card";
 
-const CreateBlogForm = ({ type, blog }: { type: "Create"; blog?: Update }) => {
+const CreateBlogForm = ({ type }: { type: "Create" }) => {
   const router = useRouter();
 
   const form = useForm<z.infer<typeof createBlogSchema>>({
     resolver: zodResolver(createBlogSchema),
-    defaultValues: blog && type === "Create" ? blog : blogDefaultValues,
+    defaultValues: blogDefaultValues,
   });
 
   const onSubmit: SubmitHandler<z.infer<typeof createBlogSchema>> = async (
