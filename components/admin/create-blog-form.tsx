@@ -235,9 +235,9 @@ const CreateBlogForm = ({
                       <div className="flex-start space-x-2">
                         {images.map((image: string) => (
                           <Image
-                            key={image[0]}
-                            src={image[0]}
-                            alt={image[0]}
+                            key={image}
+                            src={image}
+                            alt={image}
                             className="w-20 h-20 object-cover object-center rounded-sm"
                             width={100}
                             height={100}
