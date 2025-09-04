@@ -39,18 +39,14 @@ const CreateBlogForm = ({
 
   const form = useForm<z.infer<typeof createBlogSchema>>({
     resolver: zodResolver(createBlogSchema),
-    defaultValues: blogDefaultValues,
+    defaultValues: blog && type === "Create" ? blog : blogDefaultValues,
   });
 
   const onSubmit: SubmitHandler<z.infer<typeof createBlogSchema>> = async (
     values
   ) => {
-    // On update
+    // On create
     if (type === "Create") {
-      if (!blogId) {
-        router.push("/admin/blogs");
-        return;
-      }
       const res = await createBlog(values);
       if (!res.success) {
         toast.error("", { description: res.message });
@@ -60,7 +56,6 @@ const CreateBlogForm = ({
       }
     }
   };
-
   const images = form.watch("images");
   // const isFeatured = form.watch("isFeatured");
   // const banner = form.watch("banner");
@@ -240,9 +235,9 @@ const CreateBlogForm = ({
                       <div className="flex-start space-x-2">
                         {images.map((image: string) => (
                           <Image
-                            key={image}
-                            src={image}
-                            alt={image}
+                            key={image[0]}
+                            src={image[0]}
+                            alt={image[0]}
                             className="w-20 h-20 object-cover object-center rounded-sm"
                             width={100}
                             height={100}
