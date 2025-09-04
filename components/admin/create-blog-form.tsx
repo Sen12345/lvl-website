@@ -243,20 +243,20 @@ const CreateBlogForm = ({
                           />
                         ))}
                         <FormControl>
-                          <main className="flex min-h-screen flex-col items-center justify-between p-24">
-                            <UploadButton
-                              endpoint="imageUploader"
-                              onUploadError={(error: Error) => {
-                                // Do something with the error.
-                                alert(`ERROR! ${error.message}`);
-                              }}
-                              onClientUploadComplete={(res) => {
-                                // Do something with the response
-                                console.log("Files: ", res);
-                                alert("Upload Completed");
-                              }}
-                            />
-                          </main>
+                          <UploadButton
+                            endpoint="imageUploader"
+                            onClientUploadComplete={(res) => {
+                              form.setValue("images", [
+                                ...images,
+                                res[0].ufsUrl,
+                              ]);
+                            }}
+                            onUploadError={(error: Error) => {
+                              toast.error("", {
+                                description: `ERROR! ${error.message}`,
+                              });
+                            }}
+                          />
                         </FormControl>
                       </div>
                     </CardContent>
