@@ -39,7 +39,7 @@ const UpdateBlogForm = ({
 
   const form = useForm<z.infer<typeof updateBlogSchema>>({
     resolver: zodResolver(updateBlogSchema),
-    defaultValues: blogDefaultValues,
+    defaultValues: blog && type === "Update" ? blog : blogDefaultValues,
   });
 
   const onSubmit: SubmitHandler<z.infer<typeof updateBlogSchema>> = async (
@@ -51,7 +51,9 @@ const UpdateBlogForm = ({
         router.push("/admin/blogs");
         return;
       }
+
       const res = await updateBlog({ ...values, id: blogId });
+
       if (!res.success) {
         toast.error("", { description: res.message });
       } else {

@@ -28,6 +28,7 @@ const AdminOverview = async () => {
   }
 
   const summary = await getTotalBlogs();
+  // console.log(summary.blogs.map((id) => id.headline));
 
   return (
     <div className="space-y-2">

@@ -13,10 +13,11 @@ const AdminBlogUpdate = async (props: { params: Promise<{ id: string }> }) => {
   const blog = await getBlogById(id);
 
   if (!blog) return notFound();
-  console.log(blog.id);
+  // console.log(blog.id + "WWWWWWWWWWWWWWWWWWWWWWWWWWW");
   return (
     <div className="space-y-8 max-w-5xl mx-auto">
       <h2 className="h2">Update Blog</h2>
+      {}
       <UpdateBlogForm type="Update" blog={blog} blogId={blog.id} />
     </div>
   );
