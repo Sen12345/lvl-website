@@ -2,7 +2,7 @@
 
 import { blogDefaultValues } from "@/lib/constants";
 import { createBlogSchema } from "@/lib/validations";
-import { Blog, Update } from "@/types";
+import { Blog } from "@/types";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useRouter } from "next/navigation";
 import { ControllerRenderProps, SubmitHandler, useForm } from "react-hook-form";
@@ -26,12 +26,19 @@ import { UploadButton } from "@/lib/uploadthing";
 import { Card } from "@/components/ui/card";
 import { CardContent } from "../ui/card";
 
-const CreateBlogForm = ({ type }: { type: "Create" }) => {
+const CreateBlogForm = ({
+  type,
+  blog,
+}: {
+  type: "Create";
+  blog?: Blog;
+  blogId?: string;
+}) => {
   const router = useRouter();
 
   const form = useForm<z.infer<typeof createBlogSchema>>({
     resolver: zodResolver(createBlogSchema),
-    defaultValues: blogDefaultValues,
+    defaultValues: blog && type === "Create" ? blog : blogDefaultValues,
   });
 
   const onSubmit: SubmitHandler<z.infer<typeof createBlogSchema>> = async (

@@ -62,6 +62,8 @@ export async function createBlog(data: z.infer<typeof createBlogSchema>) {
   try {
     const blog = createBlogSchema.parse(data);
 
+    console.log(blog);
+
     await prisma.blog.create({
       data: blog,
     });
