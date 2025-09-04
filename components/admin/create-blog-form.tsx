@@ -2,7 +2,7 @@
 
 import { blogDefaultValues } from "@/lib/constants";
 import { createBlogSchema } from "@/lib/validations";
-import { Blog } from "@/types";
+import { Blog, Update } from "@/types";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useRouter } from "next/navigation";
 import { ControllerRenderProps, SubmitHandler, useForm } from "react-hook-form";
@@ -26,15 +26,7 @@ import { UploadButton } from "@/lib/uploadthing";
 import { Card } from "@/components/ui/card";
 import { CardContent } from "../ui/card";
 
-const CreateBlogForm = ({
-  type,
-  blog,
-  blogId,
-}: {
-  type: "Create";
-  blog?: Blog;
-  blogId?: string;
-}) => {
+const CreateBlogForm = ({ type, blog }: { type: "Create"; blog?: Update }) => {
   const router = useRouter();
 
   const form = useForm<z.infer<typeof createBlogSchema>>({
