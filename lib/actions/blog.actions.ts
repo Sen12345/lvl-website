@@ -39,25 +39,25 @@ export async function getAllBlogs() {
 }
 
 // Delete products
-export async function deleteProduct(id: string) {
+export async function deleteBlog(id: string) {
   try {
-    const productExist = await prisma.blog.findFirst({
+    const blogExist = await prisma.blog.findFirst({
       where: { id },
     });
 
-    if (!productExist) throw new Error("Product not found");
+    if (!blogExist) throw new Error("Blog not found");
 
     await prisma.blog.delete({ where: { id } });
 
-    revalidatePath("/admin/products");
+    revalidatePath("/admin/blogs");
 
-    return { success: true, message: "Product deleted successfully" };
+    return { success: true, message: "Blog deleted successfully" };
   } catch (error) {
     return { success: false, message: formatError(error) };
   }
 }
 
-// Create a product
+// Create a blog
 export async function createBlog(data: z.infer<typeof createBlogSchema>) {
   try {
     const blog = createBlogSchema.parse(data);

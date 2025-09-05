@@ -14,6 +14,8 @@ import { FaBlog } from "react-icons/fa6";
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import { deleteBlog } from "@/lib/actions/blog.actions";
+import DeleteDialog from "@/components/shared/delete-dialog";
 
 export const metadata: Metadata = {
   title: "Admin Dashboard",
@@ -86,7 +88,7 @@ const AdminOverview = async () => {
           </CardHeader>
           <CardContent>
             <div className="flex text-2x1 gap-1 font-bold">
-              <span>Number of Products {7}</span>
+              <span>Number of Blogs {7}</span>
             </div>
           </CardContent>
         </Card>
@@ -118,6 +120,7 @@ const AdminOverview = async () => {
                 Edit
               </Link>
             </Button>
+            <DeleteDialog id={b.id} action={deleteBlog} />
           </div>
         </div>
       ))}
