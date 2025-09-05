@@ -19,6 +19,7 @@ const DeleteDialog = ({
   action,
 }: {
   id: string;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   action: (id: string) => Promise<{ success: boolean; message: any }>;
 }) => {
   const [open, setOpen] = useState(false);
