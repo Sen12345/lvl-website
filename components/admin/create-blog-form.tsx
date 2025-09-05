@@ -246,7 +246,7 @@ const CreateBlogForm = ({
                           <UploadButton
                             endpoint="imageUploader"
                             onClientUploadComplete={(res) => {
-                              form.setValue("images", [...images, res[0].url]);
+                              form.setValue("images", [...images, res[1].url]);
                             }}
                             onUploadError={(error: Error) => {
                               toast.error("", {
