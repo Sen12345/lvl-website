@@ -245,13 +245,20 @@ const CreateBlogForm = ({
                         <FormControl>
                           <UploadButton
                             endpoint="imageUploader"
-                            onClientUploadComplete={(res) => {
-                              form.setValue("images", [...images, res[0].url]);
+                            onClientUploadComplete={(
+                              res: { ufsUrl: string }[]
+                            ) => {
+                              // Do something with the response
+                              form.setValue("images", [
+                                ...images,
+                                res[0].ufsUrl,
+                              ]);
+                              console.log("Files: ", res);
+                              alert("Upload Completed");
                             }}
                             onUploadError={(error: Error) => {
-                              toast.error("", {
-                                description: `ERROR! ${error.message}`,
-                              });
+                              // Do something with the error.
+                              alert(`ERROR! ${error.message}`);
                             }}
                           />
                         </FormControl>
