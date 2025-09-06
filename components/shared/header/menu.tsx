@@ -19,7 +19,7 @@ const Menu = () => {
     <div className="">
       <nav className="hidden lg:flex justify-center items-center ">
         <ul
-          className={`${barlow.className} flex  flex-between items-center justify-center`}
+          className={`${barlow.className} flex text-black flex-between items-center justify-center`}
         >
           <li className=" px-5 py-[10px]">
             <ModeToggle />
@@ -72,7 +72,7 @@ const Menu = () => {
             <SheetDescription>
               <AdminMenu />
               <ul
-                className={`${barlow.className}  flex-col p-4 justify-center items-center text-center `}
+                className={`${barlow.className} text-black flex-col p-4 justify-center items-center text-center `}
               >
                 <li className="">
                   <ModeToggle />

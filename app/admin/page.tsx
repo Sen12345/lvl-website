@@ -97,7 +97,7 @@ const AdminOverview = async () => {
         <div className="grid grid-cols-3 gap-4 my-4  " key={b.id}>
           <div className="flex items-center justify-center ">
             <Image
-              src={b.images[0]}
+              src={b.images}
               alt="Blog Image"
               width={200}
               height={200}

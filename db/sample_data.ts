@@ -18,7 +18,7 @@ const sampleData = {
   ],
   blog: [
     {
-      userId: "f56d949e-b885-4138-9d8c-86489025838c",
+      userId: "8536ce4f-0fc8-489b-b3f5-ff8c92c0dcb6",
       headline: "LONDON VIBES RELAUNCH",
       paragraph1:
         "More flexibility on technologies we use to develop your website",
@@ -26,10 +26,10 @@ const sampleData = {
         "More flexibility on technologies we use to develop your website",
       bloglinks: "https://lvl-website.vercel.app/",
       slug: "DDDDttD",
-      images: ["/img/technology.jpg"],
+      images: "/img/technology.jpg",
     },
     {
-      userId: "f56d949e-b885-4138-9d8c-86489025838c",
+      userId: "8536ce4f-0fc8-489b-b3f5-ff8c92c0dcb6",
       headline: "Adjustable, Adaptable eCommerce Temple ",
       paragraph1:
         "Ready for you to start selling you brand product straightaway",
@@ -37,17 +37,17 @@ const sampleData = {
         "More flexibility on technologies we use to develop your website",
       bloglinks: "https://lvl-website.vercel.app/",
       slug: "DDDDDww",
-      images: ["/img/eCommerce.png", "/img/eCommerce.jpg"],
+      images: "/img/eCommerce.png",
     },
     {
-      userId: "f56d949e-b885-4138-9d8c-86489025838c",
+      userId: "8536ce4f-0fc8-489b-b3f5-ff8c92c0dcb6",
       headline: "Manage your own website with ease",
       paragraph1: "Content management system tailored to your business needs",
       paragraph2:
         "More flexibility on technologies we use to develop your website",
       bloglinks: "https://lvl-website.vercel.app/",
       slug: "DDDDDrr",
-      images: ["/img/dashboard.png"],
+      images: "/img/dashboard.png",
     },
   ],
 };

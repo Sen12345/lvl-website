@@ -28,7 +28,7 @@ export const blogDefaultValues = {
   paragraph2: "",
   bloglinks: "",
   slug: "",
-  images: [],
+  images: "",
 };
 
 export const contactDefaultValues = {

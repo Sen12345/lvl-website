@@ -1,285 +1,133 @@
 "use client";
-
-import { blogDefaultValues } from "@/lib/constants";
-import { createBlogSchema } from "@/lib/validations";
+import { createBlogSchema, updateBlogSchema } from "@/lib/validations";
 import { Blog } from "@/types";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { useRouter } from "next/navigation";
-import { ControllerRenderProps, SubmitHandler, useForm } from "react-hook-form";
-import { toast } from "sonner";
-import { z } from "zod";
 import Image from "next/image";
+import { useEffect, useState } from "react";
+import z from "zod";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { Controller, useForm } from "react-hook-form";
+import { blogDefaultValues } from "@/lib/constants";
+import { Button } from "../ui/button";
 
-import {
-  Form,
-  FormField,
-  FormItem,
-  FormControl,
-  FormLabel,
-  FormMessage,
-} from "@/components/ui/form";
-import slugify from "slugify";
-import { Input } from "@/components/ui/input";
-import { createBlog } from "@/lib/actions/blog.actions";
-import { Button } from "@/components/ui/button";
-import { UploadButton } from "@/lib/uploadthing";
-import { Card } from "@/components/ui/card";
-import { CardContent } from "../ui/card";
+// const createProductSchema = z.object({
+//   name: z.string().min(1, { message: "Name is required" }),
+//   image: z.custom<File>((v) => v instanceof File, {
+//     message: "Image is required",
+//   }),
+// });
 
-const CreateBlogForm = ({
-  type,
-  blog,
-}: {
+// const updateProductSchema = createProductSchema.extend({
+//   image: createProductSchema.shape.image.optional(),
+// });
+
+export type BlogFormValues =
+  | z.infer<typeof createBlogSchema>
+  | z.infer<typeof updateBlogSchema>;
+
+interface BlogFormProps {
   type: "Create";
-  blog?: Blog;
-  blogId?: string;
-}) => {
-  const router = useRouter();
+  blog: Blog;
+  blogId: string;
+}
 
-  const form = useForm<z.infer<typeof createBlogSchema>>({
-    resolver: zodResolver(createBlogSchema),
-    defaultValues: blog && type === "Create" ? blog : blogDefaultValues,
+const CreateBlogForm = ({ blog }: BlogFormProps) => {
+  const [imagePreview, setImagePreview] = useState<string | null>(
+    blog ? blog.images : null
+  );
+
+  const isAddMode = !blog;
+
+  const {
+    register,
+    handleSubmit,
+    control,
+    reset,
+    formState: { errors, isSubmitting, isDirty },
+  } = useForm<BlogFormValues>({
+    resolver: zodResolver(isAddMode ? createBlogSchema : updateBlogSchema),
+    defaultValues: blogDefaultValues,
   });
 
-  const onSubmit: SubmitHandler<z.infer<typeof createBlogSchema>> = async (
-    values
-  ) => {
-    // On create
-    if (type === "Create") {
-      const res = await createBlog(values);
-      if (!res.success) {
-        toast.error("", { description: res.message });
-      } else {
-        toast.success("", { description: "Blog created successfully" });
-        router.push("/admin/blogs");
-      }
+  // revoke object URL to avoid memory leaks
+  useEffect(() => {
+    return () => {
+      if (imagePreview) URL.revokeObjectURL(imagePreview);
+    };
+  }, [imagePreview]);
+
+  const onSubmitHandler = async (data: BlogFormValues) => {
+    let imageUrl: string | undefined;
+    if (data.images) {
+      // build FormData for uploading image
+      const formData = new FormData();
+      formData.append("file", data.images);
+
+      // mock upload image to server to get image url
+      imageUrl = await new Promise<string>((resolve) => {
+        setTimeout(() => {
+          resolve("https://via.placeholder.com/150");
+        }, 1000);
+      });
     }
+
+    if (isAddMode) {
+      // create product
+      console.log({ ...data, images: imageUrl! });
+    } else {
+      // update product
+      console.log({ id: blog!.id, ...data, images: imageUrl });
+    }
+
+    reset();
+    setImagePreview(blog?.images ?? null);
   };
-  const images = form.watch("images");
-  // const isFeatured = form.watch("isFeatured");
-  // const banner = form.watch("banner");
 
   return (
-    <Form {...form}>
-      <form
-        method="POST"
-        onSubmit={form.handleSubmit(onSubmit)}
-        className="space-y-8 w-full"
-      >
-        <div className="flex flex-col md:flex-row gap-5 ">
-          <div className="w-full">
-            <FormField
-              control={form.control}
-              name="headline"
-              render={({
-                field,
-              }: {
-                field: ControllerRenderProps<
-                  z.infer<typeof createBlogSchema>,
-                  "headline"
-                >;
-              }) => (
-                <FormItem>
-                  <FormLabel>Blog Headline</FormLabel>
-                  <FormControl>
-                    <div className="relative">
-                      <Input
-                        placeholder="Enter a headline for your blog"
-                        {...field}
-                      />
-                    </div>
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-          </div>
+    <form onSubmit={handleSubmit(onSubmitHandler)}>
+      <div className="flex flex-col md:flex-row gap-5 ">
+        <div className="w-full">
+          <input {...register("headline")} placeholder="Your blog headline" />
+          {errors.headline && <span>{errors.headline.message}</span>}
         </div>
-        <div className="flex flex-col md:flex-row gap-5 ">
-          <div className="w-full">
-            <FormField
-              control={form.control}
-              name="slug"
-              render={({
-                field,
-              }: {
-                field: ControllerRenderProps<
-                  z.infer<typeof createBlogSchema>,
-                  "slug"
-                >;
-              }) => (
-                <FormItem>
-                  <FormLabel>Slug</FormLabel>
-                  <FormControl>
-                    <div className="relative">
-                      <Input placeholder="Enter blog slug" {...field} />
-                      <Button
-                        type="button"
-                        className="bg-gray-500 hover-bg-gray-600 text-white px-4 py-1 mt-2 "
-                        onClick={() => {
-                          form.setValue(
-                            "slug",
-                            slugify(form.getValues("headline"), { lower: true })
-                          );
-                        }}
-                      >
-                        Generate
-                      </Button>
-                    </div>
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-          </div>
+      </div>
+      <div className="flex flex-col md:flex-row gap-5 ">
+        <div className="w-full">
+          <Controller
+            name="images"
+            control={control}
+            render={({ field: { ref, name, onBlur, onChange } }) => (
+              <input
+                type="file"
+                multiple
+                // ref={ref}
+                name="images"
+                // onBlur={onBlur}
+                onChange={(e) => {
+                  const file = e.target.files?.[0];
+                  onChange(file);
+                  setImagePreview(file ? URL.createObjectURL(file) : null);
+                }}
+              />
+            )}
+          />
         </div>
-        <div className="flex flex-col md:flex-row gap-5">
-          <div className="w-full">
-            <FormField
-              control={form.control}
-              name="paragraph1"
-              render={({
-                field,
-              }: {
-                field: ControllerRenderProps<
-                  z.infer<typeof createBlogSchema>,
-                  "paragraph1"
-                >;
-              }) => (
-                <FormItem>
-                  <FormLabel>Paragraph 1</FormLabel>
-                  <FormControl>
-                    <div>
-                      <Input
-                        placeholder="Enter paragraph 1 of your blog posts"
-                        {...field}
-                      />
-                    </div>
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-          </div>
-        </div>
-        <div className="flex flex-col md:flex-row gap-5 ">
-          <div className="w-full">
-            <FormField
-              control={form.control}
-              name="paragraph2"
-              render={({
-                field,
-              }: {
-                field: ControllerRenderProps<
-                  z.infer<typeof createBlogSchema>,
-                  "paragraph2"
-                >;
-              }) => (
-                <FormItem>
-                  <FormLabel>Paragraph 2</FormLabel>
-                  <FormControl>
-                    <div>
-                      <Input
-                        placeholder="Enter paragraph 2 of your blog posts"
-                        {...field}
-                      />
-                    </div>
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-          </div>
-        </div>
-        <div className="flex flex-col md:flex-row gap-5">
-          <div className="w-full">
-            <FormField
-              control={form.control}
-              name="bloglinks"
-              render={({
-                field,
-              }: {
-                field: ControllerRenderProps<
-                  z.infer<typeof createBlogSchema>,
-                  "bloglinks"
-                >;
-              }) => (
-                <FormItem>
-                  <FormLabel>Url Link</FormLabel>
-                  <FormControl>
-                    <div>
-                      <Input
-                        placeholder="Enter a Url linke from your blog"
-                        {...field}
-                      />
-                    </div>
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-          </div>
-        </div>
+      </div>
+      {imagePreview && (
+        <Image src={imagePreview} width={100} height={100} alt="preview" />
+      )}
+      {errors.images && <span>{errors.images.message}</span>}
 
-        <div className="flex flex-col md:flex-row gap-5 upload-field">
-          <div className="w-full">
-            <FormField
-              control={form.control}
-              name="images"
-              render={() => (
-                <FormItem>
-                  <FormLabel>Images</FormLabel>
-                  <Card>
-                    <CardContent className="space-y-2 mt-2 min-h-48">
-                      <div className="flex-start space-x-2">
-                        {images.map((image: string) => (
-                          <Image
-                            key={image}
-                            src={image}
-                            alt={image}
-                            className="w-20 h-20 object-cover object-center rounded-sm"
-                            width={100}
-                            height={100}
-                          />
-                        ))}
-                        <FormControl>
-                          <UploadButton
-                            endpoint="imageUploader"
-                            onClientUploadComplete={(
-                              res: { url: string }[]
-                            ) => {
-                              form.setValue("images", [...images, res[0].url]);
-                            }}
-                            onUploadError={(error: Error) => {
-                              toast.error("", {
-                                description: `ERROR! ${error.message}`,
-                              });
-                            }}
-                          />
-                        </FormControl>
-                      </div>
-                    </CardContent>
-                  </Card>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-          </div>
-        </div>
-
-        <div className="upload-field my-4">
-          <Button
-            type="submit"
-            size="lg"
-            className="button col-span-2 w-full"
-            disabled={form.formState.isSubmitting}
-          >
-            {form.formState.isSubmitting ? "Submitting" : `${type} Blog`}
-          </Button>
-        </div>
-      </form>
-    </Form>
+      <div className="upload-field my-4">
+        <Button
+          type="submit"
+          size="lg"
+          disabled={(!isAddMode && !isDirty) || isSubmitting}
+          className="button col-span-2 w-full"
+        >
+          {isSubmitting ? "Submitting..." : "Submit"}
+        </Button>
+      </div>
+    </form>
   );
 };
-
 export default CreateBlogForm;

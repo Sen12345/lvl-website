@@ -70,7 +70,7 @@ export async function createBlog(data: z.infer<typeof createBlogSchema>) {
 
     revalidatePath("/admin/blogs");
 
-    return { success: true, message: "Product created successfully" };
+    return { success: true, message: "Blog created successfully" };
   } catch (error) {
     return { success: false, message: formatError(error) };
   }
@@ -101,9 +101,8 @@ export async function updateBlog(data: z.infer<typeof updateBlogSchema>) {
 }
 
 // Upload Action
-
 // export async function action(formdata: FormData) {
-//   const file = formdata.get("file") as any;
+//   const file = formdata.get("file") as File;
 //   if (!file || file.size === 0) {
 //     return { error: "No file founded" };
 //   }
