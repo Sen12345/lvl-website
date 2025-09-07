@@ -3,9 +3,9 @@ import sampleData from "./sample_data";
 
 async function main() {
   const prisma = new PrismaClient();
-  // await prisma.account.deleteMany();
-  // await prisma.session.deleteMany();
-  // await prisma.verificationToken.deleteMany();
+  await prisma.account.deleteMany();
+  await prisma.session.deleteMany();
+  await prisma.verificationToken.deleteMany();
 
   await prisma.blog.deleteMany();
   await prisma.blog.createMany({ data: sampleData.blog });

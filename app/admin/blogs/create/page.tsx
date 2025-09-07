@@ -1,19 +1,19 @@
 import { Metadata } from "next";
-// import CreateBlogForm from "@/components/admin/create-blog-form";
+import CreateBlogForm from "@/components/admin/create-blog-form";
 // import { requireAdmin } from "@/lib/auth-guard";
 export const metadata: Metadata = {
-  title: "Create Blog",
+  title: "Create Product",
 };
 
-const CreateBlogPage = async () => {
+const CreateProductPage = async () => {
   // await requireAdmin();
   return (
     <>
       <div className="flex justify-center">
-        {/* <CreateBlogForm type="Create" /> */}
+        <CreateBlogForm type="Create" />
       </div>
     </>
   );
 };
 
-export default CreateBlogPage;
+export default CreateProductPage;

@@ -7,7 +7,7 @@ CREATE TABLE "public"."Blog" (
     "paragraph2" TEXT NOT NULL,
     "bloglinks" TEXT NOT NULL,
     "slug" TEXT NOT NULL,
-    "images" TEXT NOT NULL,
+    "images" TEXT[],
     "createdAt" TIMESTAMP(6) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updatedAt" TIMESTAMP(6) NOT NULL DEFAULT CURRENT_TIMESTAMP,
 

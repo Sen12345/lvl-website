@@ -93,37 +93,38 @@ const AdminOverview = async () => {
           </CardContent>
         </Card>
       </div>
-      {summary.blogs.map((b) => (
-        <div className="grid grid-cols-3 gap-4 my-4  " key={b.id}>
-          <div className="flex items-center justify-center ">
-            <Image
-              src={b.images}
-              alt="Blog Image"
-              width={200}
-              height={200}
-              quality={80}
-              className="min-w-full min-h-60 rounded-lg"
-            />
+      {summary.blogs.length &&
+        summary.blogs.map((b) => (
+          <div className="grid grid-cols-3 gap-4 my-4  " key={b.id}>
+            <div className="flex items-center justify-center ">
+              <Image
+                src={b.images[0]}
+                alt="Blog Image"
+                width={200}
+                height={200}
+                quality={80}
+                className="min-w-full min-h-60 rounded-lg"
+              />
+            </div>
+            <div className="col-span-1 lg:my-0 my-4 ">
+              <Card className="flex justify-center rounded-0 items-center  h-full">
+                <CardTitle>{b.headline}</CardTitle>
+                <CardContent>{b.paragraph1}</CardContent>
+              </Card>
+            </div>
+            <div className=" flex items-center justify-center">
+              <Button variant="ghost" className="w-20" asChild>
+                <Link
+                  className="bg-black text-white border-2"
+                  href={`/admin/blogs/${b.id}`}
+                >
+                  Edit
+                </Link>
+              </Button>
+              <DeleteDialog id={b.id} action={deleteBlog} />
+            </div>
           </div>
-          <div className="col-span-1 lg:my-0 my-4 ">
-            <Card className="flex justify-center rounded-0 items-center  h-full">
-              <CardTitle>{b.headline}</CardTitle>
-              <CardContent>{b.paragraph1}</CardContent>
-            </Card>
-          </div>
-          <div className=" flex items-center justify-center">
-            <Button variant="ghost" className="w-20" asChild>
-              <Link
-                className="bg-black text-white border-2"
-                href={`/admin/blogs/${b.id}`}
-              >
-                Edit
-              </Link>
-            </Button>
-            <DeleteDialog id={b.id} action={deleteBlog} />
-          </div>
-        </div>
-      ))}
+        ))}
       <div className="grid grid-cols-12">Charts</div>
     </div>
   );

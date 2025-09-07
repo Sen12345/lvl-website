@@ -16,12 +16,12 @@ export const contactFormSchema = z.object({
 // Schema for inserting products
 export const createBlogSchema = z.object({
   userId: z.string().min(1, "User ID must be at least 1 character"),
-  headline: z.string().min(3, "Headline must be at least 3 characters"),
+  headline: z.string().min(3, " must be at least 3 characters"),
   slug: z.string().min(3, "Slug must be at least 3 characters"),
   paragraph1: z.string().min(3, "Paragraph 1 must be at least 3 characters"),
   paragraph2: z.string().min(3, "Paragraph 2 must be at least 3 characters"),
   bloglinks: z.string().min(3, "Bloglinks must be at least 3 characters"),
-  images: z.string().min(1, "Your blog must have at least one image"),
+  images: z.array(z.string()).min(1, "Image must have at least one image"),
 });
 
 // Schema for updating products
