@@ -267,13 +267,8 @@ const CreateBlogForm = ({
           </div>
         </div>
         <div className="upload-field my-4">
-          <Button
-            type="submit"
-            size="lg"
-            className="button col-span-2 w-full"
-            disabled={form.formState.isSubmitting}
-          >
-            {form.formState.isSubmitting ? "Submitting" : `${type} Product`}
+          <Button type="submit" size="lg" className="button col-span-2 w-full">
+            Creat Blog
           </Button>
         </div>
       </form>
