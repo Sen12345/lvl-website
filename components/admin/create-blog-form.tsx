@@ -242,18 +242,15 @@ const CreateBlogForm = ({
                         <FormControl>
                           <UploadButton
                             endpoint="imageUploader"
-                            onClientUploadComplete={(
-                              res: { ufsUrl: string }[]
-                            ) => {
-                              form.setValue("images", [
-                                ...images,
-                                res[0].ufsUrl,
-                              ]);
-                            }}
                             onUploadError={(error: Error) => {
                               toast.error("", {
                                 description: `ERROR! ${error.message}`,
                               });
+                            }}
+                            onClientUploadComplete={(
+                              res: { url: string }[]
+                            ) => {
+                              form.setValue("images", [...images, res[0].url]);
                             }}
                           />
                         </FormControl>
@@ -267,8 +264,13 @@ const CreateBlogForm = ({
           </div>
         </div>
         <div className="upload-field my-4">
-          <Button type="submit" size="lg" className="button col-span-2 w-full">
-            Creat Blog
+          <Button
+            type="submit"
+            size="lg"
+            className="button col-span-2 w-full"
+            disabled={form.formState.isSubmitting}
+          >
+            {form.formState.isSubmitting ? "Submitting" : `${type} Blog`}
           </Button>
         </div>
       </form>

@@ -1,17 +1,8 @@
 import { createUploadthing, type FileRouter } from "uploadthing/next";
 import { UploadThingError } from "uploadthing/server";
 import { auth } from "@/auth";
-import z from "zod";
 
-// const f = createUploadthing();
-const f = createUploadthing({
-  errorFormatter: (err) => {
-    return {
-      message: err.message,
-      zodError: err.cause instanceof z.ZodError ? err.cause.flatten() : null,
-    };
-  },
-});
+const f = createUploadthing();
 
 export const ourFileRouter = {
   imageUploader: f({
@@ -26,7 +17,7 @@ export const ourFileRouter = {
 
       return { userId: session.user.id };
     })
-    .onUploadComplete(async ({ metadata, file }) => {
+    .onUploadComplete(async ({ metadata }) => {
       return { uploadedBy: metadata.userId };
     }),
 } satisfies FileRouter;
