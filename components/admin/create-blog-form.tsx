@@ -25,7 +25,11 @@ import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { Card } from "@/components/ui/card";
 import { CardContent } from "../ui/card";
+
+import { UploadDropzone } from "@uploadthing/react";
+import { OurFileRouter } from "@/app/api/uploadthing/core";
 import { UploadButton } from "@/lib/uploadthing";
+import { useState } from "react";
 
 const CreateBlogForm = ({
   type,
@@ -36,6 +40,7 @@ const CreateBlogForm = ({
   blog?: Blog;
   blogId?: string;
 }) => {
+  const [isUploading, setIsUploading] = useState(false);
   const router = useRouter();
 
   const form = useForm<z.infer<typeof createBlogSchema>>({
@@ -242,16 +247,22 @@ const CreateBlogForm = ({
                         <FormControl>
                           <UploadButton
                             endpoint="imageUploader"
-                            onUploadError={(error: Error) => {
-                              toast.error("", {
-                                description: `ERROR! ${error.message}`,
-                              });
+                            onUploadBegin={() => {
+                              setIsUploading(true);
+                              toast.loading("Uploading image...");
                             }}
                             onClientUploadComplete={(
                               res: { url: string }[]
                             ) => {
                               form.setValue("images", [...images, res[0].url]);
                             }}
+                            onUploadError={(error) => {
+                              setIsUploading(false);
+                              toast.dismiss();
+                              toast.error(`Upload failed: ${error.message}`);
+                            }}
+                            className="ut-button:bg-primary ut-button:text-white"
+                            disabled={isUploading}
                           />
                         </FormControl>
                       </div>
