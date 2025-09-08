@@ -35,11 +35,9 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <InvoiceProvider>
         <body className={`${inter.className} antialiased`}>
-          [...]
           <Suspense>
             <UTSSR />
           </Suspense>
-          [...]
           <Toaster richColors position="top-right" />
           <ThemeProvider
             attribute="class"
