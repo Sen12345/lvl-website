@@ -1,18 +1,13 @@
 "use server";
 
-import { prisma } from "@/db/prisma";
-import { convertToPlainObject, formatError } from "../utils";
-import { LATEST_BLOG_LIMIT, PAGE_SIZE } from "../constants";
-import { revalidatePath } from "next/cache";
-import { createBlogSchema, updateBlogSchema } from "../validations";
-import z, { object, success } from "zod";
-import { Prisma } from "@/generated/prisma";
-import { promises as fs } from "fs";
-import { NextResponse } from "next/server";
-import path from "path";
-import { writeFile } from "fs/promises";
-import { Blog } from "@/types";
 import { auth } from "@/auth";
+import { prisma } from "@/db/prisma";
+import { revalidatePath } from "next/cache";
+import z from "zod";
+import { LATEST_BLOG_LIMIT } from "../constants";
+import { convertToPlainObject, formatError } from "../utils";
+import { updateBlogSchema } from "../validations";
+import { put } from "@vercel/blob";
 
 // Get latest products
 export async function getLatestBlogs() {
@@ -75,14 +70,20 @@ export async function createBlog(formData: FormData) {
   if (images.name) {
     try {
       // Save file inside "uploads" folder in your project root
-      const buffer = Buffer.from(await images.arrayBuffer());
-      const filename = images.name.replaceAll(" ", "_");
-      console.log(filename);
+      // const buffer = Buffer.from(await images.arrayBuffer());
+      // const filename = images.name.replaceAll(" ", "_");
+      // console.log(filename);
 
-      await writeFile(
-        path.join(process.cwd(), "/public/blogUploads/" + filename),
-        buffer
-      );
+      const blob = await put(images.name, images, {
+        access: "public",
+        addRandomSuffix: true, // Avoid collisions by appending a random suffix
+        allowOverwrite: true, // If needed, overwrite existing blobs
+      });
+
+      // await writeFile(
+      //   path.join(process.cwd(), "/public/blogUploads/" + filename),
+      //   buffer
+      // );
 
       await prisma.blog.create({
         data: {
@@ -102,7 +103,7 @@ export async function createBlog(formData: FormData) {
 
       return {
         success: true,
-        message: "Blog submitted successfully",
+        message: `Blog submitted successfully ${blob.url}`,
       };
     } catch (error) {
       return {
