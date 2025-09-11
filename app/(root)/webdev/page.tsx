@@ -17,15 +17,15 @@ const WebDev = () => {
 
             <p className=" px-0 text-xl ">
               Web development in the digital age can be very overwhelming,
-              giving the enormous amount of different technologies required to
-              build a fully functioning website. It&apos;s unimaginable how
-              technology has evolved since the days when you could build a
-              complete website using only one software like Microsoft Frontpage
-              and a Cascading Stylesheet.
+              giving the high volume in technologies required to build a fully
+              functioning website. It&apos;s unimaginable how technology has
+              evolved since the days when you could build a complete website
+              using only one software for example, Microsoft Frontpage and a
+              Cascading Stylesheet.
             </p>
             <p className=" px-0  text-xl py-4">
-              At Vibes, we are here with highly trained developers ready to take
-              the worries away from you.
+              At London Vibes, we are here with highly trained developers ready
+              to take the worries away from you.
             </p>
 
             <ul className="flex-col gap-2">
@@ -33,7 +33,7 @@ const WebDev = () => {
                 <span className="fa fa-li">
                   <IoCheckmarkDoneSharp />
                 </span>
-                Evaluate all features and functionalities required
+                We valuate all features and functionalities required
               </li>
 
               <li className="flex  pb-2 gap-2">
