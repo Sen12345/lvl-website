@@ -19,7 +19,7 @@ const Menu = () => {
     <div className="">
       <nav className="hidden lg:flex justify-center items-center ">
         <ul
-          className={`${barlow.className} flex text-black flex-between items-center justify-center`}
+          className={`${barlow.className} flex text-bold flex-between items-center justify-center`}
         >
           <li className=" px-5  py-[10px]">
             <ModeToggle />
@@ -27,7 +27,7 @@ const Menu = () => {
           <li className="mx-2 hover:text-white duration-500">
             <Link
               href="/#contact"
-              className="text-black text-center rounded-md px-4 py-[12px]  hover:bg-lime-400 focus:bg-lime-400"
+              className="text-bold text-center rounded-md px-4 py-[12px]  hover:bg-lime-400 focus:bg-lime-400"
             >
               Contact
             </Link>
@@ -35,7 +35,7 @@ const Menu = () => {
           <li className="mx-2 hover:text-white duration-500">
             <Link
               href="/#about"
-              className="text-black text-center rounded-md  px-4 py-[12px] hover:bg-lime-400 focus:bg-lime-400"
+              className="text-bold text-center rounded-md  px-4 py-[12px] hover:bg-lime-400 focus:bg-lime-400"
             >
               About
             </Link>
@@ -43,7 +43,7 @@ const Menu = () => {
           <li className="mx-2 hover:text-white duration-500">
             <Link
               href="/#services"
-              className="text-black text-center px-4 rounded-md  py-[12px] hover:bg-lime-400 focus:bg-lime-400"
+              className="text-bold text-center px-4 rounded-md  py-[12px] hover:bg-lime-400 focus:bg-lime-400"
             >
               Services
             </Link>
@@ -52,7 +52,7 @@ const Menu = () => {
           <li className="hover:text-white  duration-500">
             <Link
               href="/blogs"
-              className="bg-lime-500 text-center px-8 py-[12px] text-black  rounded-md hover:bg-lime-400 focus:bg-lime-400  text-black"
+              className="bg-lime-500 text-center px-8 py-[12px] text-bold  rounded-md hover:bg-lime-400 focus:bg-lime-400  text-bold"
             >
               Blog
             </Link>
@@ -72,7 +72,7 @@ const Menu = () => {
             <SheetDescription>
               <AdminMenu />
               <ul
-                className={`${barlow.className} text-black flex-col p-4 justify-center items-center text-center `}
+                className={`${barlow.className} text-bold flex-col p-4 justify-center items-center text-center `}
               >
                 <li className="">
                   <ModeToggle />
@@ -80,7 +80,7 @@ const Menu = () => {
                 <li className="my-8 ">
                   <Link
                     href="/#contact"
-                    className="focus:bg-lime-300 px-[44px] text-black  rounded-md py-4 w-[80px]"
+                    className="focus:bg-lime-300 px-[44px] text-bold  rounded-md py-4 w-[80px]"
                   >
                     Contact
                   </Link>
@@ -88,7 +88,7 @@ const Menu = () => {
                 <li className="my-8 ">
                   <Link
                     href="/#about"
-                    className="focus:bg-lime-300 px-[54px] text-black  rounded-md py-4 w-[90px]"
+                    className="focus:bg-lime-300 px-[54px] text-bold  rounded-md py-4 w-[90px]"
                   >
                     About
                   </Link>
@@ -96,7 +96,7 @@ const Menu = () => {
                 <li className="my-8">
                   <Link
                     href="/#services"
-                    className="focus:bg-lime-300 px-[44px] text-black  rounded-md py-4 w-[80px]"
+                    className="focus:bg-lime-300 px-[44px] text-bold  rounded-md py-4 w-[80px]"
                   >
                     Services
                   </Link>
@@ -104,7 +104,7 @@ const Menu = () => {
                 <li className="my-8  focus:bg-lime-300 hover:bg-lime-300 bg-lime-500 rounded-md  py-4">
                   <Link
                     href="/blogs"
-                    className=" px-[44px] text-black  w-[80px]"
+                    className=" px-[44px] text-bold  w-[80px]"
                   >
                     Blogs
                   </Link>
