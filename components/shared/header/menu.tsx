@@ -104,7 +104,7 @@ const Menu = () => {
                 <li className="my-8  focus:bg-lime-300 hover:bg-lime-300 bg-lime-500 rounded-md  py-4">
                   <Link
                     href="/blogs"
-                    className=" px-[44px] text-bold  w-[80px]"
+                    className=" px-[44px] text-black  w-[80px]"
                   >
                     Blogs
                   </Link>
