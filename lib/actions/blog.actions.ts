@@ -80,11 +80,11 @@ export async function createBlog(formData: FormData) {
       console.log(filename);
 
       await writeFile(
-        path.join(process.cwd(), "public/blogUploads/" + filename),
+        path.join(process.cwd(), "/public/blogUploads/" + filename),
         buffer
       );
 
-      const blog = await prisma.blog.create({
+      await prisma.blog.create({
         data: {
           headline,
           slug,
