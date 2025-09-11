@@ -23,12 +23,13 @@ export const signUpDefaultValues = {
 };
 
 export const blogDefaultValues = {
+  userId: "",
   headline: "",
   paragraph1: "",
   paragraph2: "",
   bloglinks: "",
   slug: "",
-  images: [],
+  images: ["/img/cms1.jpg"],
 };
 
 export const contactDefaultValues = {

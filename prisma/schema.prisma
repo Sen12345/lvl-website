@@ -16,7 +16,7 @@ model Blog {
   paragraph1 String
   paragraph2 String
   bloglinks  String
-  slug       String   @unique(map: "product_slug_idx")
+  slug       String   @unique(map: "blog_slug_idx")
   images     String[]
   createdAt  DateTime @default(now()) @db.Timestamp(6)
   updatedAt  DateTime @default(now()) @db.Timestamp(6)

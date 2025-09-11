@@ -5,9 +5,14 @@ import { convertToPlainObject, formatError } from "../utils";
 import { LATEST_BLOG_LIMIT, PAGE_SIZE } from "../constants";
 import { revalidatePath } from "next/cache";
 import { createBlogSchema, updateBlogSchema } from "../validations";
-import z from "zod";
+import z, { object, success } from "zod";
 import { Prisma } from "@/generated/prisma";
 import { promises as fs } from "fs";
+import { NextResponse } from "next/server";
+import path from "path";
+import { writeFile } from "fs/promises";
+import { Blog } from "@/types";
+import { auth } from "@/auth";
 
 // Get latest products
 export async function getLatestBlogs() {
@@ -57,26 +62,78 @@ export async function deleteBlog(id: string) {
   }
 }
 
-// Create a blog
-export async function createBlog(data: z.infer<typeof createBlogSchema>) {
-  try {
-    const blog = createBlogSchema.parse(data);
+export async function createBlog(formData: FormData) {
+  const headline = formData.get("headline") as string;
+  const slug = formData.get("slug") as string;
+  const paragraph1 = formData.get("paragraph1") as string;
+  const paragraph2 = formData.get("paragraph2") as string;
+  const bloglinks = formData.get("bloglinks") as string;
+  // const images = formData.getAll("images") as File[];
+  const images = formData.get("images") as File;
+  const session = await auth();
 
-    console.log(blog);
+  if (images.name) {
+    try {
+      // Save file inside "uploads" folder in your project root
+      const buffer = Buffer.from(await images.arrayBuffer());
+      const filename = images.name.replaceAll(" ", "_");
+      console.log(filename);
 
-    await prisma.blog.create({
-      data: blog,
-    });
+      await writeFile(
+        path.join(process.cwd(), "public/blogUploads/" + filename),
+        buffer
+      );
 
-    revalidatePath("/admin/blogs");
+      const blog = await prisma.blog.create({
+        data: {
+          headline,
+          slug,
+          paragraph1,
+          paragraph2,
+          bloglinks,
+          images: [`/blogUploads/${images.name}`],
+          user: {
+            connect: { id: session?.user.id },
+          },
+        },
+      });
 
-    return { success: true, message: "Blog created successfully" };
-  } catch (error) {
-    return { success: false, message: formatError(error) };
+      revalidatePath("/"); // refresh UI
+
+      return {
+        success: true,
+        message: "Blog submitted successfully",
+      };
+    } catch (error) {
+      return {
+        success: false,
+        message:
+          "There was a problem creating your blog, please try again later",
+      };
+    }
   }
 }
 
-// Update a product
+// Create a blog
+// export async function createBlog(data: z.infer<typeof createBlogSchema>) {
+//   try {
+//     const blog = createBlogSchema.parse(data);
+
+//     console.log(blog);
+
+//     await prisma.blog.create({
+//       data: {...blog},
+//     });
+
+//     revalidatePath("/admin/blogs");
+
+//     return { success: true, message: "Blog created successfully" };
+//   } catch (error) {
+//     return { success: false, message: formatError(error) };
+//   }
+// }
+
+// // Update a product
 export async function updateBlog(data: z.infer<typeof updateBlogSchema>) {
   try {
     const blog = updateBlogSchema.parse(data);
@@ -85,7 +142,7 @@ export async function updateBlog(data: z.infer<typeof updateBlogSchema>) {
       where: { id: blog.id },
     });
 
-    if (!blogExist) throw new Error("Product not found");
+    if (!blogExist) throw new Error("Blog not found");
 
     await prisma.blog.update({
       where: { id: blog.id },

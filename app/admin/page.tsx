@@ -36,7 +36,6 @@ const AdminOverview = async () => {
     <div className="space-y-2">
       <div className="flex flex-between">
         <h2 className="h2-bold">Dashboard</h2>
-
         <Button variant="ghost" asChild>
           <Link
             href="/admin/blogs/create"

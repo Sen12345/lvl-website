@@ -13,8 +13,9 @@ export const contactFormSchema = z.object({
   message: z.string().min(5, "Your message query is required"),
 });
 
-// Schema for inserting products
+// Schema for inserting blogs
 export const createBlogSchema = z.object({
+  id: z.string().min(3, "ID must be at least 3 characters long"),
   userId: z.string().min(1, "User ID must be at least 1 character"),
   headline: z.string().min(3, " must be at least 3 characters"),
   slug: z.string().min(3, "Slug must be at least 3 characters"),
@@ -24,9 +25,10 @@ export const createBlogSchema = z.object({
   images: z.array(z.string()).min(1, "Image must have at least one image"),
 });
 
-// Schema for updating products
+// Schema for updating blogs
 export const updateBlogSchema = createBlogSchema.extend({
   id: z.string().min(3, "ID must be at least 3 characters long"),
+  userId: z.string().min(3, "ID must be at least 3 characters long"),
 });
 
 export const signInFormSchema = z.object({
