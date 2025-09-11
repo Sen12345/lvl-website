@@ -74,12 +74,6 @@ export async function createBlog(formData: FormData) {
       // const filename = images.name.replaceAll(" ", "_");
       // console.log(filename);
 
-      const blob = await put(images.name, images, {
-        access: "public",
-        addRandomSuffix: true, // Avoid collisions by appending a random suffix
-        allowOverwrite: true, // If needed, overwrite existing blobs
-      });
-
       // await writeFile(
       //   path.join(process.cwd(), "/public/blogUploads/" + filename),
       //   buffer
@@ -99,11 +93,17 @@ export async function createBlog(formData: FormData) {
         },
       });
 
+      const blob = await put(images.name, images, {
+        access: "public",
+        addRandomSuffix: true, // Avoid collisions by appending a random suffix
+        allowOverwrite: true, // If needed, overwrite existing blobs
+      });
+
       revalidatePath("/"); // refresh UI
 
       return {
         success: true,
-        message: `Blog submitted successfully ${blob.url}`,
+        message: `Blog submitted successfully`,
       };
     } catch (error) {
       return {
